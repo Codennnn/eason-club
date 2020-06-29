@@ -1,5 +1,5 @@
 import React from 'react'
-import { StatusBar, StyleSheet, Image } from 'react-native'
+import { StatusBar, Image } from 'react-native'
 
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
@@ -107,6 +107,7 @@ const Tabs = () => {
   return (
     <Tab.Navigator
       tabBarOptions={{
+        keyboardHidesTabBar: true,
         activeTintColor: '#363636',
         inactiveTintColor: '#7F7F7F',
       }}>
@@ -154,7 +155,5 @@ const App = () => {
     </NavigationContainer>
   )
 }
-
-const styles = StyleSheet.create({})
 
 export default App
