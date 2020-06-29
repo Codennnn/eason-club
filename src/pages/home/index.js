@@ -1,23 +1,36 @@
 import React from 'react'
-import { View, Text, Button, Image } from 'react-native'
+import {
+  View,
+  Text,
+  Button,
+  Image,
+  TouchableWithoutFeedback,
+} from 'react-native'
 
-export default function({ navigation }) {
+export default function ({ navigation }) {
+  const routeTo = routeName => {
+    navigation.navigate(routeName)
+  }
   const plates = [
     {
       label: '社团招新',
       icon: require('../../assets/image/home_new.png'),
+      routeName: 'Activity',
     },
     {
       label: '社团活动',
       icon: require('../../assets/image/home_activity.png'),
+      routeName: 'Activity',
     },
     {
       label: '社团推荐',
       icon: require('../../assets/image/home_like.png'),
+      routeName: 'Activity',
     },
     {
       label: '寻找社团',
       icon: require('../../assets/image/home_search.png'),
+      routeName: 'Activity',
     },
   ]
 
@@ -36,20 +49,22 @@ export default function({ navigation }) {
             alignItems: 'center',
             justifyContent: 'space-around',
           }}>
-          {plates.map(({ icon, label }) => (
-            <View
+          {plates.map(({ icon, label, routeName }) => (
+            <TouchableWithoutFeedback
               key={label}
-              style={{ justifyContent: 'center', alignItems: 'center' }}>
-              <Image source={icon} style={{ width: 40, height: 40 }} />
-              <Text style={{ fontSize: 12 }}>{label}</Text>
-            </View>
+              onPress={() => routeTo(routeName)}>
+              <View style={{ justifyContent: 'center', alignItems: 'center' }}>
+                <Image source={icon} style={{ width: 40, height: 40 }} />
+                <Text style={{ fontSize: 12 }}>{label}</Text>
+              </View>
+            </TouchableWithoutFeedback>
           ))}
         </View>
       </View>
-      {/* <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
         <Text>Home Screen</Text>
-        <Button title="to" onPress={() => navigation.navigate('Activity')} />
-      </View> */}
+        <Button title="to" onPress={() => console.warn(1)} />
+      </View>
     </View>
   )
 }
