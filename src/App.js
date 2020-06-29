@@ -82,7 +82,11 @@ const Screen = ({ routeName }) => {
   const component = Tabbar[routeName].component
   return (
     <Stack.Navigator initialRouteName={routeName}>
-      <Stack.Screen name={routeName} component={component} />
+      <Stack.Screen
+        name={routeName}
+        component={component}
+        options={{ headerShown: false }}
+      />
     </Stack.Navigator>
   )
 }
@@ -107,7 +111,7 @@ const Tabs = () => {
         inactiveTintColor: '#7F7F7F',
       }}>
       {['Home', 'Explore', 'Message', 'Profile'].map(name => (
-        <Tab.Screen name={name} options={data => getOptions(data)}>
+        <Tab.Screen key={name} name={name} options={data => getOptions(data)}>
           {props => <Screen routeName={name} />}
         </Tab.Screen>
       ))}
@@ -139,7 +143,11 @@ const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Home">
-        <Stack.Screen name="Home" component={Tabs} />
+        <Stack.Screen
+          name="Home"
+          component={Tabs}
+          options={{ headerShown: false }}
+        />
         <Stack.Screen name="Activity" component={Home} />
       </Stack.Navigator>
     </NavigationContainer>
