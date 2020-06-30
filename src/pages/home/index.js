@@ -6,7 +6,7 @@ import PostCard from '@comp/PostCard'
 
 import { posts } from '@/mock-data/post'
 
-export default ({ navigation }) => {
+export default () => {
   return (
     <SafeAreaView>
       <FlatList

@@ -1,5 +1,7 @@
 import React from 'react'
-import { StyleSheet, View, Text, TouchableWithoutFeedback } from 'react-native'
+import { StyleSheet, View, Text } from 'react-native'
+import { useNavigation } from '@react-navigation/native'
+import Ripple from 'react-native-material-ripple'
 import { secondary, lightGray } from '@/config/style.config'
 
 import Avatar from './Avatar'
@@ -9,9 +11,12 @@ import MoreIcon from '@/assets/icon/icon_more.svg'
 import ShareIcon from '@/assets/icon/icon_share.svg'
 import CommentIcon from '@/assets/icon/icon_comment.svg'
 import LikeIcon from '@/assets/icon/icon_like.svg'
+import VIcon from '@icon/icon_v.svg'
 
 const css = StyleSheet.create({
-  post_card: {},
+  post_card: {
+    paddingBottom: 5,
+  },
   post_header: {
     marginBottom: 15,
     flexDirection: 'row',
@@ -24,7 +29,10 @@ const css = StyleSheet.create({
     justifyContent: 'space-around',
   },
   post_footer_item: {
+    paddingVertical: 10,
+    flex: 1,
     flexDirection: 'row',
+    justifyContent: 'center',
     alignItems: 'center',
     color: lightGray,
   },
@@ -35,19 +43,32 @@ const css = StyleSheet.create({
     marginBottom: 5,
   },
   post_owner_name: {
-    marginBottom: 1,
-    fontSize: 15,
-    fontWeight: 'bold',
+    flexDirection: 'row',
+    alignItems: 'center',
   },
 })
 
 export default ({ style, post }) => {
+  const nav = useNavigation()
+  const onClickAvatar = () => {
+    nav.navigate('Club')
+  }
+
   return (
     <View style={{ ...style, ...css.post_card }}>
       <View style={css.post_header}>
-        <Avatar style={css.post_avatar} src={post.owner.avatar_url} />
+        <Avatar
+          style={css.post_avatar}
+          src={post.owner.avatar_url}
+          click={onClickAvatar}
+        />
         <View>
-          <Text style={css.post_owner_name}>{post.owner.name}</Text>
+          <View style={css.post_owner_name}>
+            <Text style={{ marginRight: 4, fontSize: 15, fontWeight: 'bold' }}>
+              {post.owner.name}
+            </Text>
+            <VIcon width={24} />
+          </View>
           <Text style={{ color: lightGray, fontSize: 11 }}>
             <Text>{post.owner.own}</Text>
             <Text> - {post.created_at}</Text>
@@ -72,10 +93,14 @@ export default ({ style, post }) => {
           { id: '2', Icon: CommentIcon, num: post.comment_num },
           { id: '3', Icon: LikeIcon, num: post.like_num },
         ].map(({ id, Icon, num }) => (
-          <View key={id} style={css.post_footer_item}>
+          <Ripple
+            key={id}
+            rippleOpacity={0.15}
+            rippleContainerBorderRadius={20}
+            style={css.post_footer_item}>
             <Icon style={{ marginRight: 3 }} width={20} height={20} />
             <Text style={{ color: secondary, fontSize: 13 }}>{num || 0}</Text>
-          </View>
+          </Ripple>
         ))}
       </View>
     </View>

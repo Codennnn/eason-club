@@ -5,17 +5,11 @@ import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 
-// import {
-//   HomeRoutes,
-//   ExploreRoutes,
-//   MessageRoutes,
-//   ProfileRoutes,
-// } from './config/route.config'
-
 import Home from './pages/home'
 import Explore from './pages/explore'
 import Message from './pages/message'
 import Profile from './pages/profile'
+import Club from './pages/club'
 
 const Tabbar = {
   Home: {
@@ -45,38 +39,6 @@ const Tabbar = {
 }
 
 const Stack = createStackNavigator()
-
-// const HomeScreen = () => {
-//   return (
-//     <Stack.Navigator initialRouteName={HomeRoutes.Home}>
-//       <Stack.Screen name="Home" component={Home} />
-//     </Stack.Navigator>
-//   )
-// }
-
-// const ExploreScreen = () => {
-//   return (
-//     <Stack.Navigator initialRouteName={ExploreRoutes.Explore}>
-//       <Stack.Screen name="Explore" component={Explore} />
-//     </Stack.Navigator>
-//   )
-// }
-
-// const MessageScreen = () => {
-//   return (
-//     <Stack.Navigator initialRouteName={MessageRoutes.Message}>
-//       <Stack.Screen name="Explore" component={Message} />
-//     </Stack.Navigator>
-//   )
-// }
-
-// const ProfileScreen = () => {
-//   return (
-//     <Stack.Navigator initialRouteName={ProfileRoutes.Profile}>
-//       <Stack.Screen name="Profile" component={Profile} />
-//     </Stack.Navigator>
-//   )
-// }
 
 const Screen = ({ routeName }) => {
   const component = Tabbar[routeName].component
@@ -116,26 +78,6 @@ const Tabs = () => {
           {props => <Screen routeName={name} />}
         </Tab.Screen>
       ))}
-      {/* <Tab.Screen
-        name="Home"
-        component={HomeScreen}
-        options={data => getOptions(data)}
-      />
-      <Tab.Screen
-        name="Explore"
-        component={ExploreScreen}
-        options={data => getOptions(data)}
-      />
-      <Tab.Screen
-        name="Message"
-        component={MessageScreen}
-        options={data => getOptions(data)}
-      />
-      <Tab.Screen
-        name="Profile"
-        component={ProfileScreen}
-        options={data => getOptions(data)}
-      /> */}
     </Tab.Navigator>
   )
 }
@@ -150,7 +92,11 @@ const App = () => {
           component={Tabs}
           options={{ headerShown: false }}
         />
-        <Stack.Screen name="Activity" component={Home} />
+        <Stack.Screen
+          name="Club"
+          component={Club}
+          options={{ headerShown: false }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   )

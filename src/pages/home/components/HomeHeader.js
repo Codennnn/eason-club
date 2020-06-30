@@ -1,5 +1,6 @@
 import React from 'react'
 import { View, Text, Image, TouchableWithoutFeedback } from 'react-native'
+import { useNavigation } from '@react-navigation/native'
 import Swiper from 'react-native-swiper'
 
 import SearchInput from './SearchInput'
@@ -9,8 +10,9 @@ import CubeIcon from '@/assets/icon/icon_cube.svg'
 import MailIcon from '@/assets/icon/icon_mail.svg'
 
 export default ({ navigation }) => {
+  const nav = useNavigation()
   const routeTo = routeName => {
-    navigation.navigate(routeName)
+    nav.navigate(routeName)
   }
 
   const plates = [
