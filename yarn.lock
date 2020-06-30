@@ -5333,6 +5333,13 @@ react-native-iphone-x-helper@^1.2.1:
   resolved "https://registry.npm.taobao.org/react-native-iphone-x-helper/download/react-native-iphone-x-helper-1.2.1.tgz#645e2ffbbb49e80844bb4cbbe34a126fda1e6772"
   integrity sha1-ZF4v+7tJ6AhEu0y740oSb9oeZ3I=
 
+react-native-material-ripple@^0.9.1:
+  version "0.9.1"
+  resolved "https://registry.npm.taobao.org/react-native-material-ripple/download/react-native-material-ripple-0.9.1.tgz#db1ad9dd7cf97011e4cd8475ae2041ade0f891cb"
+  integrity sha1-2xrZ3Xz5cBHkzYR1riBBreD4kcs=
+  dependencies:
+    prop-types "^15.5.10"
+
 react-native-reanimated@^1.9.0:
   version "1.9.0"
   resolved "https://registry.npm.taobao.org/react-native-reanimated/download/react-native-reanimated-1.9.0.tgz#38676c99dd585504fdc7331efb45e5f48ec7339a"
