@@ -109,7 +109,7 @@ const Tabs = () => {
       tabBarOptions={{
         keyboardHidesTabBar: true,
         activeTintColor: '#363636',
-        inactiveTintColor: '#7F7F7F',
+        inactiveTintColor: '#7c7c7c',
       }}>
       {['Home', 'Explore', 'Message', 'Profile'].map(name => (
         <Tab.Screen key={name} name={name} options={data => getOptions(data)}>
