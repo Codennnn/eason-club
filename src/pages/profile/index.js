@@ -1,10 +1,12 @@
 import React from 'react'
-import { View, Text } from 'react-native'
+import { SafeAreaView, View, Text } from 'react-native'
 
-export default function() {
+import ProfileHeader from './components/ProfileHeader'
+
+export default () => {
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Profile Screen</Text>
-    </View>
+    <SafeAreaView style={{}}>
+      <ProfileHeader />
+    </SafeAreaView>
   )
 }
