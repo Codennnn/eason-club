@@ -64,18 +64,18 @@ export default ({ navigation }) => {
             overflow: 'hidden',
           }}>
           <Swiper showsPagination={false}>
-            <View style={{ width: '100%', height: '100%' }}>
-              <Image
-                source={require('@img/home_new.png')}
-                style={{ width: '100%', height: '100%' }}
-              />
-            </View>
-            <View style={{ width: '100%', height: '100%' }}>
-              <Image
-                source={require('@img/home_search.png')}
-                style={{ width: '100%', height: '100%' }}
-              />
-            </View>
+            {[
+              'https://gitee.com/chinesee/images/raw/master/img/img_039.png',
+              'https://gitee.com/chinesee/images/raw/master/img/img_040.png',
+              'https://gitee.com/chinesee/images/raw/master/img/img_041.png',
+            ].map(uri => (
+              <View style={{ width: '100%', height: '100%' }}>
+                <Image
+                  source={{ uri }}
+                  style={{ width: '100%', height: '100%' }}
+                />
+              </View>
+            ))}
           </Swiper>
         </View>
 
