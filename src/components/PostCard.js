@@ -5,6 +5,7 @@ import { secondary, lightGray } from '@/config/style.config'
 import Avatar from './Avatar'
 import ImageGrid from './ImageGrid'
 
+import MoreIcon from '@/assets/icon/icon_more.svg'
 import ShareIcon from '@/assets/icon/icon_share.svg'
 import CommentIcon from '@/assets/icon/icon_comment.svg'
 import LikeIcon from '@/assets/icon/icon_like.svg'
@@ -38,10 +39,6 @@ const css = StyleSheet.create({
     fontSize: 15,
     fontWeight: 'bold',
   },
-  post_owner_own: {
-    color: lightGray,
-    fontSize: 11,
-  },
 })
 
 export default ({ style, post }) => {
@@ -51,7 +48,13 @@ export default ({ style, post }) => {
         <Avatar style={css.post_avatar} src={post.owner.avatar_url} />
         <View>
           <Text style={css.post_owner_name}>{post.owner.name}</Text>
-          <Text style={css.post_owner_own}>{post.owner.own}</Text>
+          <Text style={{ color: lightGray, fontSize: 11 }}>
+            <Text>{post.owner.own}</Text>
+            <Text> - {post.created_at}</Text>
+          </Text>
+        </View>
+        <View style={{ marginLeft: 'auto' }}>
+          <MoreIcon fill="#7c7c7c" width={17} height={17} />
         </View>
       </View>
 
