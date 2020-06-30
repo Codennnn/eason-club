@@ -1,13 +1,5 @@
 import React from 'react'
-import {
-  StyleSheet,
-  View,
-  Text,
-  Button,
-  Image,
-  TouchableWithoutFeedback,
-  TextInput,
-} from 'react-native'
+import { StyleSheet, View, TextInput } from 'react-native'
 import SearchIcon from '@/assets/icon/icon_search.svg'
 
 export default ({ style }) => {

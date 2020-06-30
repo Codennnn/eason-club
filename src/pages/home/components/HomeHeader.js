@@ -57,7 +57,6 @@ export default ({ navigation }) => {
         <View
           style={{
             height: 200,
-            padding: 20,
             flexDirection: 'row',
             justifyContent: 'center',
             borderRadius: 10,
@@ -69,10 +68,17 @@ export default ({ navigation }) => {
               'https://gitee.com/chinesee/images/raw/master/img/img_040.png',
               'https://gitee.com/chinesee/images/raw/master/img/img_041.png',
             ].map(uri => (
-              <View style={{ width: '100%', height: '100%' }}>
+              <View
+                key={uri}
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  borderRadius: 10,
+                  padding: 20,
+                }}>
                 <Image
                   source={{ uri }}
-                  style={{ width: '100%', height: '100%' }}
+                  style={{ width: '100%', height: '100%', borderRadius: 10 }}
                 />
               </View>
             ))}
