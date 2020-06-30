@@ -1,15 +1,14 @@
 import React from 'react'
 import { StatusBar, Image } from 'react-native'
-
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
+import routes from '@/config/route.config'
 
 import Home from './pages/home'
 import Explore from './pages/explore'
 import Message from './pages/message'
 import Profile from './pages/profile'
-import Club from './pages/club'
 
 const Tabbar = {
   Home: {
@@ -85,18 +84,25 @@ const Tabs = () => {
 const App = () => {
   return (
     <NavigationContainer>
-      <StatusBar backgroundColor="white" barStyle="dark-content" />
+      <StatusBar
+        animated={true}
+        backgroundColor="white"
+        barStyle="dark-content"
+      />
       <Stack.Navigator initialRouteName="Home">
         <Stack.Screen
           name="Home"
           component={Tabs}
           options={{ headerShown: false }}
         />
-        <Stack.Screen
-          name="Club"
-          component={Club}
-          options={{ headerShown: false }}
-        />
+        {routes.map(({ name, component, headerShown = false }) => (
+          <Stack.Screen
+            key={name}
+            name={name}
+            component={component}
+            options={{ headerShown }}
+          />
+        ))}
       </Stack.Navigator>
     </NavigationContainer>
   )

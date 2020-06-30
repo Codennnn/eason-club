@@ -40,7 +40,7 @@ export default ({ style, imgList }) => {
 
   return (
     <View style={css.grid}>
-      <StatusBar hidden={showModal} />
+      <StatusBar animated={true} hidden={showModal} />
       <Modal visible={showModal} transparent={true}>
         <ImageViewer
           imageUrls={imgList.map(url => ({ url }))}
