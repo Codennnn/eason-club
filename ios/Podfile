@@ -79,6 +79,8 @@ target 'ReactApp' do
 
   pod 'RNSVG', :path => '../node_modules/react-native-svg'
 
+  pod 'react-native-splash-screen', :path => '../node_modules/react-native-splash-screen'
+
   target 'ReactAppTests' do
     inherit! :complete
     # Pods for testing
