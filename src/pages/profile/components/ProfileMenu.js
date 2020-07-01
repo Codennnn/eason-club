@@ -30,7 +30,7 @@ export default ({ style }) => {
     { label: '我的收藏', route: '', icon: require('@img/cell_star.png') },
     { label: '新建消息', icon: require('@img/cell_add.png') },
     { label: '更多', icon: require('@img/cell_more.png') },
-    { label: '立即登录', route: 'Login', icon: require('@img/cell_login.png') },
+    { label: '应用设置', route: 'Login', icon: require('@img/cell_login.png') },
   ]
 
   return (

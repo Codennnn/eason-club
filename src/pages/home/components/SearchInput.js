@@ -1,8 +1,13 @@
 import React from 'react'
-import { StyleSheet, View, TextInput } from 'react-native'
+import {
+  StyleSheet,
+  TouchableWithoutFeedback,
+  TextInput,
+  View,
+} from 'react-native'
 import SearchIcon from '@/assets/icon/icon_search.svg'
 
-export default ({ style }) => {
+export default ({ style, clickFunc }) => {
   const css = StyleSheet.create({
     inputWrapper: {
       height: 36,
@@ -15,9 +20,11 @@ export default ({ style }) => {
   })
 
   return (
-    <View style={{ ...style, ...css.inputWrapper }}>
-      <SearchIcon width={20} height={20} />
-      <TextInput style={{ flex: 1 }} />
-    </View>
+    <TouchableWithoutFeedback onPress={() => clickFunc()}>
+      <View style={{ ...style, ...css.inputWrapper }}>
+        <SearchIcon width={20} height={20} />
+        <TextInput style={{ flex: 1 }} editable={false} />
+      </View>
+    </TouchableWithoutFeedback>
   )
 }

@@ -49,7 +49,10 @@ export default ({ navigation }) => {
             alignItems: 'center',
           }}>
           <Avatar src="https://portrait.gitee.com/uploads/avatars/user/1608/4826670_chinesee_1578975163.png!avatar200" />
-          <SearchInput style={{ flex: 1, marginHorizontal: 20 }} />
+          <SearchInput
+            style={{ flex: 1, marginHorizontal: 20 }}
+            clickFunc={() => nav.navigate('Search')}
+          />
           <CubeIcon style={{ marginRight: 10 }} width={25} height={25} />
           <MailIcon width={25} height={25} />
         </View>
