@@ -73,10 +73,14 @@ export default ({ style, info }) => {
           alignItems: 'center',
         }}>
         <View style={css.line} />
-        <Text style={{ fontSize: 17 }}>{info.title}</Text>
+        <Text style={{ fontSize: 17, fontWeight: 'bold' }}>{info.title}</Text>
       </View>
 
-      <View>{info.content?.length > 0 && <Text>{info.content}</Text>}</View>
+      {info.content?.length > 0 && (
+        <Text style={{ fontSize: 16, lineHeight: 28, textAlign: 'justify' }}>
+          {info.content}
+        </Text>
+      )}
 
       <TouchableWithoutFeedback>
         <View style={css.btn}>

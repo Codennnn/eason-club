@@ -10,15 +10,16 @@ export default () => {
       <FlatList
         style={{ padding: 15 }}
         data={recruitList}
-        renderItem={({ item }, i) => (
+        renderItem={({ item }) => (
           <RecruitCard
-            key={i}
+            key={item.id}
             info={item}
             style={{
               padding: 12,
               marginBottom: 10,
               backgroundColor: 'white',
               borderRadius: 10,
+              overflow: 'hidden',
             }}
           />
         )}
