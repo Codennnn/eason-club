@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {
   StyleSheet,
   View,
@@ -9,11 +9,22 @@ import {
 import SearchIcon from '@/assets/icon/icon_search.svg'
 import { primary, secondary } from '@/config/style.config'
 import { useNavigation } from '@react-navigation/native'
-import { hotList, searchHistory, lightGray } from '@/mock-data/search'
+import { hotList, searchHistory } from '@/mock-data/search'
 import FlameIcon from '@icon/icon_flame.svg'
 
 export default ({ style }) => {
   const nav = useNavigation()
+
+  const maxHeight = 90 // 搜索历史最大高度，超过将隐藏剩余记录
+  const [isOpened, setIsOpened] = useState(true) // 搜索历史是否展开
+  const [isSet, setIsSet] = useState(false) // 是否主动点击展开
+
+  const onHistoryLayout = e => {
+    const { height } = e.nativeEvent.layout
+    if (height > maxHeight && !isSet) {
+      setIsOpened(false)
+    }
+  }
 
   const css = StyleSheet.create({
     page: {
@@ -56,8 +67,9 @@ export default ({ style }) => {
     history_item: {
       marginRight: 10,
       marginBottom: 10,
-      paddingVertical: 5,
+      height: 35,
       paddingHorizontal: 10,
+      justifyContent: 'center',
       backgroundColor: '#f6f6f6',
       borderRadius: 5,
     },
@@ -111,8 +123,27 @@ export default ({ style }) => {
       </View>
 
       <View style={css.sec}>
-        <Text style={{ ...css.sec_title, marginBottom: 10 }}>搜索历史</Text>
-        <View style={{ flexDirection: 'row', flexWrap: 'wrap' }}>
+        <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+          <Text style={{ ...css.sec_title, marginBottom: 10 }}>搜索历史</Text>
+          <TouchableWithoutFeedback
+            onPress={() => {
+              setIsSet(true)
+              setIsOpened(!isOpened)
+            }}>
+            <Text
+              style={{ marginLeft: 'auto', fontSize: 11, color: secondary }}>
+              {isOpened ? '收起' : '展开'}
+            </Text>
+          </TouchableWithoutFeedback>
+        </View>
+        <View
+          style={{
+            maxHeight: isOpened ? null : maxHeight,
+            flexDirection: 'row',
+            flexWrap: 'wrap',
+            overflow: 'hidden',
+          }}
+          onLayout={onHistoryLayout}>
           {searchHistory.map(({ content }, i) => (
             <TouchableWithoutFeedback key={i}>
               <View style={css.history_item}>

@@ -19,4 +19,7 @@ export const searchHistory = [
   { content: 'React' },
   { content: '百度之死' },
   { content: '意想社团' },
+  { content: '小爱同学' },
+  { content: 'One Plus 7 pro' },
+  { content: '软件工程系' },
 ]

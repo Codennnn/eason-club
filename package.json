@@ -16,6 +16,7 @@
     "@react-navigation/stack": "^5.6.2",
     "react": "16.11.0",
     "react-native": "0.62.2",
+    "react-native-easy-toast": "^1.2.0",
     "react-native-gesture-handler": "^1.6.1",
     "react-native-image-zoom-viewer": "^3.0.1",
     "react-native-material-ripple": "^0.9.1",
