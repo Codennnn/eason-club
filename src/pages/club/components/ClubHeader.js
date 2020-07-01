@@ -1,38 +1,115 @@
 import React from 'react'
 import { StyleSheet, View, Text, TouchableWithoutFeedback } from 'react-native'
-import { primary } from '@/config/style.config'
+import { primary, secondary } from '@/config/style.config'
 
 import Avatar from '@comp/Avatar'
 
-import AddIcon from '@icon/icon_add.svg'
+import DownIcon from '@icon/icon_down.svg'
 import VIcon from '@icon/icon_v.svg'
 
 const css = StyleSheet.create({
   club_header: {
+    paddingVertical: 20,
+    paddingHorizontal: 15,
+    backgroundColor: 'white',
+  },
+  club_header_top: {
     flexDirection: 'row',
     alignItems: 'center',
+    justifyContent: 'space-between',
   },
-  follow_btn: { flexDirection: 'row', alignItems: 'center' },
+  club_header_bottom: {
+    paddingHorizontal: 2,
+  },
+  follow_btn: {
+    height: 30,
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#eee',
+    borderRadius: 5,
+  },
+  drop_btn: {
+    width: 30,
+    height: 30,
+    marginLeft: 5,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#eee',
+    borderRadius: 5,
+  },
 })
 
-export default ({ avatar_url, name = '无法显示名称', own = '无' }) => {
+export default ({ avatar_url, name, introduction = '还没有写简介呢~~' }) => {
   return (
     <View style={css.club_header}>
-      <View>
-        <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-          <Text>{name}</Text>
-          <VIcon width={24} />
+      <View style={css.club_header_top}>
+        <Avatar src={avatar_url} size={90} />
+        <View style={{ marginLeft: 40, flex: 1 }}>
+          <View
+            style={{
+              marginBottom: 10,
+              flexDirection: 'row',
+              justifyContent: 'space-between',
+            }}>
+            {[
+              { value: '1.2w', label: '粉丝' },
+              { value: '76', label: '关注' },
+              { value: '61.5w', label: '获赞' },
+            ].map(({ value, label }, i) => (
+              <>
+                <View key={label} style={{ alignItems: 'center' }}>
+                  <Text style={{ marginBottom: 4, fontSize: 18 }}>{value}</Text>
+                  <Text style={{ fontSize: 11, color: secondary }}>
+                    {label}
+                  </Text>
+                </View>
+                {i <= 1 && (
+                  <View
+                    style={{
+                      width: 1,
+                      height: 20,
+                      marginTop: 18,
+                      backgroundColor: '#ccc',
+                    }}
+                  />
+                )}
+              </>
+            ))}
+          </View>
+          <View style={{ flexDirection: 'row' }}>
+            <View style={css.follow_btn}>
+              <TouchableWithoutFeedback>
+                <Text style={{ color: '#aaa' }}>已关注</Text>
+              </TouchableWithoutFeedback>
+            </View>
+            <View style={css.drop_btn}>
+              <TouchableWithoutFeedback>
+                <DownIcon width={20} height={20} />
+              </TouchableWithoutFeedback>
+            </View>
+          </View>
         </View>
-        <Text>{own}</Text>
+      </View>
+
+      <View style={css.club_header_bottom}>
+        <Text style={{ fontSize: 18, color: primary }}>{name}</Text>
+        <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+          <VIcon width={20} />
+          <Text style={{ fontSize: 12, color: '#444' }}>意想社团认证：</Text>
+          <Text style={{ fontSize: 12, color: '#444' }}>
+            广大华软软件系组织
+          </Text>
+        </View>
 
         <TouchableWithoutFeedback>
-          <View style={css.follow_btn}>
-            <AddIcon width={20} height={20} />
-            <Text style={{ color: primary }}>关注</Text>
+          <View>
+            <Text style={{ fontSize: 12, color: secondary }}>
+              {introduction}
+            </Text>
           </View>
         </TouchableWithoutFeedback>
       </View>
-      <Avatar src={avatar_url} size={90} style={{ marginLeft: 'auto' }} />
     </View>
   )
 }
