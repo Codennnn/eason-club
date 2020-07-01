@@ -57,8 +57,8 @@ export default ({ avatar_url, name, introduction = '还没有写简介呢~~' }) 
               { value: '76', label: '关注' },
               { value: '61.5w', label: '获赞' },
             ].map(({ value, label }, i) => (
-              <>
-                <View key={label} style={{ alignItems: 'center' }}>
+              <View key={label} style={{ flexDirection: 'row' }}>
+                <View style={{ alignItems: 'center' }}>
                   <Text style={{ marginBottom: 4, fontSize: 18 }}>{value}</Text>
                   <Text style={{ fontSize: 11, color: secondary }}>
                     {label}
@@ -70,11 +70,12 @@ export default ({ avatar_url, name, introduction = '还没有写简介呢~~' }) 
                       width: 1,
                       height: 20,
                       marginTop: 18,
+                      marginLeft: 35,
                       backgroundColor: '#ccc',
                     }}
                   />
                 )}
-              </>
+              </View>
             ))}
           </View>
           <View style={{ flexDirection: 'row' }}>
@@ -104,7 +105,8 @@ export default ({ avatar_url, name, introduction = '还没有写简介呢~~' }) 
 
         <TouchableWithoutFeedback>
           <View>
-            <Text style={{ fontSize: 12, color: secondary }}>
+            <Text
+              style={{ paddingHorizontal: 4, fontSize: 12, color: secondary }}>
               {introduction}
             </Text>
           </View>

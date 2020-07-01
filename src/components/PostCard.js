@@ -65,6 +65,7 @@ export default ({ style, post }) => {
     optionsContainer: {
       width: 155,
       borderRadius: 10,
+      overflow: 'hidden',
     },
     optionWrapper: {
       padding: 10,
