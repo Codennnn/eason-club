@@ -3,6 +3,12 @@ import { StyleSheet, View, Text } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 import Ripple from 'react-native-material-ripple'
 import { secondary, lightGray } from '@/config/style.config'
+import {
+  Menu,
+  MenuOptions,
+  MenuOption,
+  MenuTrigger,
+} from 'react-native-popup-menu'
 
 import Avatar from './Avatar'
 import ImageGrid from './ImageGrid'
@@ -12,6 +18,7 @@ import ShareIcon from '@/assets/icon/icon_share.svg'
 import CommentIcon from '@/assets/icon/icon_comment.svg'
 import LikeIcon from '@/assets/icon/icon_like.svg'
 import VIcon from '@icon/icon_v.svg'
+import HandIcon from '@icon/icon_hand.svg'
 
 const css = StyleSheet.create({
   post_card: {
@@ -54,13 +61,27 @@ export default ({ style, post }) => {
     nav.navigate('Club')
   }
 
+  const optionsStyles = {
+    optionsContainer: {
+      width: 155,
+      borderRadius: 10,
+    },
+    optionWrapper: {
+      padding: 10,
+    },
+    optionTouchable: {
+      padding: 10,
+      activeOpacity: 10,
+    },
+  }
+
   return (
     <View style={{ ...style, ...css.post_card }}>
       <View style={css.post_header}>
         <Avatar
           style={css.post_avatar}
           src={post.owner.avatar_url}
-          click={onClickAvatar}
+          clickFunc={onClickAvatar}
         />
         <View>
           <View style={css.post_owner_name}>
@@ -75,7 +96,25 @@ export default ({ style, post }) => {
           </Text>
         </View>
         <View style={{ marginLeft: 'auto' }}>
-          <MoreIcon fill="#7c7c7c" width={17} height={17} />
+          <Menu>
+            <MenuTrigger style={{ padding: 6 }}>
+              <MoreIcon fill="#7c7c7c" width={17} height={17} />
+            </MenuTrigger>
+            <MenuOptions customStyles={optionsStyles}>
+              <MenuOption>
+                <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                  <HandIcon width={20} height={20} />
+                  <Text style={{ marginLeft: 15 }}>不感兴趣</Text>
+                </View>
+              </MenuOption>
+              <MenuOption>
+                <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                  <HandIcon width={20} height={20} />
+                  <Text style={{ marginLeft: 15 }}>举报违规内容</Text>
+                </View>
+              </MenuOption>
+            </MenuOptions>
+          </Menu>
         </View>
       </View>
 

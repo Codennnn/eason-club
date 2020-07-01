@@ -5347,6 +5347,11 @@ react-native-material-ripple@^0.9.1:
   dependencies:
     prop-types "^15.5.10"
 
+react-native-popup-menu@^0.15.8:
+  version "0.15.8"
+  resolved "https://registry.npm.taobao.org/react-native-popup-menu/download/react-native-popup-menu-0.15.8.tgz#6853dc7683b9d427335cb313e7400ac21c19f23b"
+  integrity sha1-aFPcdoO51CczXLMT50AKwhwZ8js=
+
 react-native-reanimated@^1.9.0:
   version "1.9.0"
   resolved "https://registry.npm.taobao.org/react-native-reanimated/download/react-native-reanimated-1.9.0.tgz#38676c99dd585504fdc7331efb45e5f48ec7339a"

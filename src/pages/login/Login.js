@@ -6,13 +6,16 @@ import {
   ImageBackground,
   StatusBar,
   TextInput,
+  TouchableWithoutFeedback,
 } from 'react-native'
 import Ripple from 'react-native-material-ripple'
 import Toast from 'react-native-easy-toast'
+import { useNavigation } from '@react-navigation/native'
 import { primary, secondary } from '@/config/style.config'
 
 import UserIcon from '@icon/icon_person.svg'
 import LockIcon from '@icon/icon_lock.svg'
+import BackIcon from '@icon/icon_back.svg'
 
 const css = StyleSheet.create({
   login: {
@@ -45,6 +48,7 @@ const css = StyleSheet.create({
 })
 
 export default () => {
+  const nav = useNavigation()
   const toast = useRef(null)
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
@@ -105,6 +109,13 @@ export default () => {
           style={{ with: '100%', height: 160 }}
         />
       </View>
+
+      <TouchableWithoutFeedback onPress={() => nav.goBack()}>
+        <View
+          style={{ position: 'absolute', left: 20, bottom: 30, zIndex: 100 }}>
+          <BackIcon width={28} height={28} />
+        </View>
+      </TouchableWithoutFeedback>
     </View>
   )
 }

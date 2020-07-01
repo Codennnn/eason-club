@@ -24,9 +24,9 @@ const css = StyleSheet.create({
     bottom: 0,
     right: -50,
     width: 125,
-    height: 34,
+    height: 38,
     borderWidth: 2,
-    borderRadius: 34 / 2,
+    borderRadius: 38 / 2,
     overflow: 'hidden',
   },
   profile_btn_inner: {
@@ -54,7 +54,7 @@ export default ({ style }) => {
         <View style={css.profile_btn}>
           <TouchableHighlight>
             <View style={css.profile_btn_inner}>
-              <Text>个人信息</Text>
+              <Text>个人空间</Text>
             </View>
           </TouchableHighlight>
         </View>

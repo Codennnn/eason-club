@@ -3,6 +3,7 @@ import { StatusBar, Image } from 'react-native'
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
+import { MenuProvider } from 'react-native-popup-menu'
 import routes from '@/config/route.config'
 
 import Home from './pages/home'
@@ -83,28 +84,30 @@ const Tabs = () => {
 
 const App = () => {
   return (
-    <NavigationContainer>
-      <StatusBar
-        animated={true}
-        backgroundColor="white"
-        barStyle="dark-content"
-      />
-      <Stack.Navigator initialRouteName="Home">
-        <Stack.Screen
-          name="Home"
-          component={Tabs}
-          options={{ headerShown: false }}
+    <MenuProvider>
+      <NavigationContainer>
+        <StatusBar
+          animated={true}
+          backgroundColor="white"
+          barStyle="dark-content"
         />
-        {routes.map(({ name, component, title, headerShown = false }) => (
+        <Stack.Navigator initialRouteName="Home">
           <Stack.Screen
-            key={name}
-            name={name}
-            component={component}
-            options={{ title, headerShown }}
+            name="Home"
+            component={Tabs}
+            options={{ headerShown: false }}
           />
-        ))}
-      </Stack.Navigator>
-    </NavigationContainer>
+          {routes.map(({ name, component, title, headerShown = false }) => (
+            <Stack.Screen
+              key={name}
+              name={name}
+              component={component}
+              options={{ title, headerShown }}
+            />
+          ))}
+        </Stack.Navigator>
+      </NavigationContainer>
+    </MenuProvider>
   )
 }
 
