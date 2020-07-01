@@ -1,5 +1,11 @@
 import React from 'react'
-import { StyleSheet, View, Text, TouchableWithoutFeedback } from 'react-native'
+import {
+  StyleSheet,
+  SafeAreaView,
+  View,
+  Text,
+  TouchableWithoutFeedback,
+} from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 import { secondary } from '@/config/style.config'
 
@@ -8,7 +14,6 @@ import LoginPlate from '@img/login_plate.svg'
 import Wechat from '@img/wechat.svg'
 import Weibo from '@img/weibo.svg'
 import QQ from '@img/qq.svg'
-import { TouchableNativeFeedback } from 'react-native-gesture-handler'
 
 export default () => {
   const nav = useNavigation()
@@ -36,7 +41,7 @@ export default () => {
   })
 
   return (
-    <View style={css.page}>
+    <SafeAreaView style={css.page}>
       <View style={css.bar}>
         <TouchableWithoutFeedback onPress={() => nav.goBack()}>
           <BackIcon width={28} height={28} />
@@ -76,7 +81,7 @@ export default () => {
           ))}
         </View>
         <View style={{ paddingVertical: 20, alignItems: 'center' }}>
-          <TouchableNativeFeedback onPress={() => nav.navigate('Login')}>
+          <TouchableWithoutFeedback onPress={() => nav.navigate('Login')}>
             <Text
               style={{
                 paddingHorizontal: 10,
@@ -85,9 +90,9 @@ export default () => {
               }}>
               或选择账号登录
             </Text>
-          </TouchableNativeFeedback>
+          </TouchableWithoutFeedback>
         </View>
       </View>
-    </View>
+    </SafeAreaView>
   )
 }

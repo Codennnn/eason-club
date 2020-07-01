@@ -95,12 +95,12 @@ const App = () => {
           component={Tabs}
           options={{ headerShown: false }}
         />
-        {routes.map(({ name, component, headerShown = false }) => (
+        {routes.map(({ name, component, title, headerShown = false }) => (
           <Stack.Screen
             key={name}
             name={name}
             component={component}
-            options={{ headerShown }}
+            options={{ title, headerShown }}
           />
         ))}
       </Stack.Navigator>

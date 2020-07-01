@@ -19,7 +19,7 @@ export default ({ navigation }) => {
     {
       label: '社团招新',
       icon: require('@img/home_new.png'),
-      routeName: 'Activity',
+      routeName: 'Recruit',
     },
     {
       label: '社团活动',
@@ -29,12 +29,12 @@ export default ({ navigation }) => {
     {
       label: '社团推荐',
       icon: require('@img/home_like.png'),
-      routeName: 'Activity',
+      routeName: 'Recruit',
     },
     {
       label: '寻找社团',
       icon: require('@img/home_search.png'),
-      routeName: 'Activity',
+      routeName: 'Recruit',
     },
   ]
 
