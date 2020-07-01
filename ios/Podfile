@@ -81,6 +81,8 @@ target 'ReactApp' do
 
   pod 'react-native-splash-screen', :path => '../node_modules/react-native-splash-screen'
 
+  pod 'react-native-viewpager', :path => '../node_modules/@react-native-community/viewpager'
+
   target 'ReactAppTests' do
     inherit! :complete
     # Pods for testing
