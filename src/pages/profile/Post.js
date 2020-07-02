@@ -24,10 +24,10 @@ const css = StyleSheet.create({
     left: 0,
     bottom: 0,
     width: '100%',
-    height: 30,
+    height: 50,
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#aaa',
+    backgroundColor: '#f0f0f0',
   },
 })
 
