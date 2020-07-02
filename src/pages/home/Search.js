@@ -84,7 +84,7 @@ export default ({ style }) => {
           paddingHorizontal: 10,
           paddingVertical: 20,
         }}>
-        <View style={{ ...style, ...css.inputWrapper }}>
+        <View style={[style, css.inputWrapper]}>
           <SearchIcon width={20} height={20} />
           <TextInput
             style={{ flex: 1, height: '100%' }}
@@ -108,10 +108,10 @@ export default ({ style }) => {
             <TouchableWithoutFeedback key={i}>
               <View style={css.hot_item}>
                 <Text
-                  style={{
-                    ...css.hot_item_sort,
-                    color: i >= 4 ? secondary : null,
-                  }}>
+                  style={[
+                    css.hot_item_sort,
+                    { color: i >= 4 ? secondary : null },
+                  ]}>
                   {i + 1}
                 </Text>
                 <Text numberOfLines={1}>{content}</Text>
@@ -124,7 +124,7 @@ export default ({ style }) => {
 
       <View style={css.sec}>
         <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-          <Text style={{ ...css.sec_title, marginBottom: 10 }}>搜索历史</Text>
+          <Text style={[css.sec_title, { marginBottom: 10 }]}>搜索历史</Text>
           <TouchableWithoutFeedback
             onPress={() => {
               setIsSet(true)

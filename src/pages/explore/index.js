@@ -64,7 +64,7 @@ export default function() {
         ))}
       </View>
 
-      <Text style={{ ...css.title, marginBottom: 10 }}>官方组织</Text>
+      <Text style={[css.title, { marginBottom: 10 }]}>官方组织</Text>
       <View style={{ flexDirection: 'row', paddingBottom: 15 }}>
         <View style={{ flex: 1, alignItems: 'center' }}>
           <Ripple rippleContainerBorderRadius={20} style={{ padding: 20 }}>

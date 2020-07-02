@@ -38,7 +38,7 @@ export default ({ style }) => {
   ]
 
   return (
-    <View style={{ ...style, ...css.profile_menu }}>
+    <View style={[style, css.profile_menu]}>
       {menus.map(({ label, route, icon, clickFunc = routeTo }, i) => (
         <View
           key={label}
@@ -53,10 +53,10 @@ export default ({ style }) => {
               <Image source={icon} style={{ width: 26, height: 26 }} />
             </View>
             <View
-              style={{
-                ...css.profile_menu_item_right,
-                borderBottomWidth: i >= menus.length - 2 ? 0 : 1,
-              }}>
+              style={[
+                css.profile_menu_item_right,
+                { borderBottomWidth: i >= menus.length - 2 ? 0 : 1 },
+              ]}>
               <Text style={{}}>{label}</Text>
               <ArrowIcon
                 width={20}

@@ -44,7 +44,7 @@ const css = StyleSheet.create({
 
 export default ({ style }) => {
   return (
-    <View style={{ ...style, ...css.profile_header }}>
+    <View style={[style, css.profile_header]}>
       <View style={css.profile_info}>
         <Avatar size={75} />
         <View style={{ marginLeft: 16 }}>

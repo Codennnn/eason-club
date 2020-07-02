@@ -19,7 +19,7 @@ export default ({ style }) => {
   ]
 
   return (
-    <View style={{ ...style, ...css.profile_item }}>
+    <View style={[style, css.profile_item]}>
       {blocks.map(({ label, icon, iconWidth = 32 }) => (
         <TouchableHighlight key={label}>
           <View style={{ justifyContent: 'center', alignItems: 'center' }}>

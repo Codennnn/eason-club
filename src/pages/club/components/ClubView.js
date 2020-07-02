@@ -3,6 +3,7 @@ import { StyleSheet, View, Text } from 'react-native'
 import ScrollableTabView, {
   DefaultTabBar,
 } from 'react-native-scrollable-tab-view'
+import CustomTabBar from './CustomTabBar'
 import { primary, secondary } from '@/config/style.config'
 
 const css = StyleSheet.create({
@@ -24,7 +25,7 @@ export default () => {
       tabBarTextStyle={css.tabBarText}
       tabBarUnderlineStyle={css.tabBarUnderline}
       scrollWithoutAnimation={true}
-      renderTabBar={() => <DefaultTabBar />}>
+      renderTabBar={() => <CustomTabBar />}>
       <Text tabLabel="主页">My</Text>
       <Text tabLabel="动态">favorite</Text>
       <Text tabLabel="成员">project</Text>

@@ -47,7 +47,7 @@ export default ({ style, info }) => {
   })
 
   return (
-    <View style={{ ...style, ...css.card }}>
+    <View style={[style, css.card]}>
       <View style={css.info}>
         <View>
           <Avatar />

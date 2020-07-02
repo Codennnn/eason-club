@@ -77,7 +77,7 @@ export default ({ style, post }) => {
   }
 
   return (
-    <View style={{ ...style, ...css.post_card }}>
+    <View style={[style, css.post_card]}>
       <View style={css.post_header}>
         <Avatar
           style={css.post_avatar}

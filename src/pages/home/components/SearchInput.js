@@ -21,7 +21,7 @@ export default ({ style, clickFunc }) => {
 
   return (
     <TouchableWithoutFeedback onPress={() => clickFunc()}>
-      <View style={{ ...style, ...css.inputWrapper }}>
+      <View style={[style, css.inputWrapper]}>
         <SearchIcon width={20} height={20} />
         <TextInput style={{ flex: 1 }} editable={false} />
       </View>

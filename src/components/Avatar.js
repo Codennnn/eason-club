@@ -24,7 +24,7 @@ export default ({ style, src, clickFunc, size = 45 }) => {
 
   return (
     <TouchableWithoutFeedback onPress={() => clickFunc?.()}>
-      <View style={{ ...style, ...css.avatarWrapper }}>
+      <View style={[style, css.avatarWrapper]}>
         <Image
           style={css.avatarImg}
           source={avatarSrc}

@@ -50,7 +50,7 @@ export default ({ style, imgList }) => {
       </Modal>
       {imgList.map((uri, i) => (
         <TouchableWithoutFeedback key={i} onPress={onShowModal}>
-          <View style={{ ...style, ...css.imgWrapper }}>
+          <View style={[style, css.imgWrapper]}>
             <Image source={{ uri }} style={css.img} />
           </View>
         </TouchableWithoutFeedback>
