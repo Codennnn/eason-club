@@ -18,6 +18,7 @@ import ShareIcon from '@/assets/icon/icon_share.svg'
 import CommentIcon from '@/assets/icon/icon_comment.svg'
 import LikeIcon from '@/assets/icon/icon_like.svg'
 import VIcon from '@icon/icon_v.svg'
+import DislikeIcon from '@icon/icon_dislike.svg'
 import HandIcon from '@icon/icon_hand.svg'
 
 const css = StyleSheet.create({
@@ -104,7 +105,7 @@ export default ({ style, post }) => {
             <MenuOptions customStyles={optionsStyles}>
               <MenuOption>
                 <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                  <HandIcon width={20} height={20} />
+                  <DislikeIcon width={20} height={20} />
                   <Text style={{ marginLeft: 5 }}>不感兴趣</Text>
                 </View>
               </MenuOption>

@@ -8,6 +8,7 @@ import Recruit from '@/pages/home/Recruit'
 import Club from '@/pages/club'
 import ClubClass from '@/pages/explore/ClubClass'
 
+import Management from '@/pages/profile/Management'
 import Setting from '@/pages/profile/Setting'
 
 export default [
@@ -16,6 +17,12 @@ export default [
   { name: 'Search', component: Search },
   { name: 'Club', component: Club },
   { name: 'ClubClass', component: ClubClass, title: '分类', headerShown: true },
+  {
+    name: 'Management',
+    component: Management,
+    title: '社团管理',
+    headerShown: true,
+  },
   { name: 'Setting', component: Setting, title: '应用设置', headerShown: true },
   { name: 'Recruit', component: Recruit, title: '社团招新', headerShown: true },
   {
