@@ -4,7 +4,7 @@ import Ripple from 'react-native-material-ripple'
 
 const css = StyleSheet.create({
   tab: {
-    paddingBottom: 10,
+    paddingBottom: 5,
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',

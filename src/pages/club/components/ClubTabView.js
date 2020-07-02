@@ -1,15 +1,10 @@
 import React from 'react'
 import { StyleSheet, View, Text } from 'react-native'
-import ScrollableTabView, {
-  DefaultTabBar,
-} from 'react-native-scrollable-tab-view'
+import ScrollableTabView from 'react-native-scrollable-tab-view'
 import CustomTabBar from './CustomTabBar'
 import { primary, secondary } from '@/config/style.config'
 
 const css = StyleSheet.create({
-  tabBarText: {
-    // color: secondary,
-  },
   tabBarUnderline: {
     backgroundColor: primary,
     borderRadius: 5,
@@ -22,7 +17,6 @@ export default () => {
       style={{ backgroundColor: 'white' }}
       tabBarActiveTextColor={primary}
       tabBarInactiveTextColor={secondary}
-      tabBarTextStyle={css.tabBarText}
       tabBarUnderlineStyle={css.tabBarUnderline}
       scrollWithoutAnimation={true}
       renderTabBar={() => <CustomTabBar />}>

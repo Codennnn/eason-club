@@ -54,7 +54,7 @@ export default () => {
   const [password, setPassword] = useState('')
 
   const onLogin = () => {
-    if (username.trim.length <= 0 || password.trim.length <= 0) {
+    if (username.trim().length <= 0 || password.trim.length <= 0) {
       toast.current.show('请输入账号或密码', 1000)
     }
   }

@@ -1,8 +1,8 @@
 import React from 'react'
-import { SafeAreaView } from 'react-native'
+import { SafeAreaView, StatusBar } from 'react-native'
 
 import ClubHeader from './components/ClubHeader'
-import ClubView from './components/ClubView'
+import ClubTabView from './components/ClubTabView'
 
 const info = {
   owner: {
@@ -14,12 +14,13 @@ const info = {
 export default () => {
   return (
     <SafeAreaView style={{ flex: 1 }}>
+      <StatusBar barStyle="light-content" />
       <ClubHeader
         avatar_url={info.owner.avatar_url}
         name={info.owner.name}
         introduction={info.introduction}
       />
-      <ClubView />
+      <ClubTabView />
     </SafeAreaView>
   )
 }

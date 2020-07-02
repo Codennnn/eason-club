@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import {
   StyleSheet,
   View,
@@ -6,13 +6,18 @@ import {
   TextInput,
   TouchableWithoutFeedback,
 } from 'react-native'
-import SearchIcon from '@/assets/icon/icon_search.svg'
 import { primary, secondary } from '@/config/style.config'
 import { useNavigation } from '@react-navigation/native'
 import { hotList, searchHistory } from '@/mock-data/search'
+
+import SearchIcon from '@/assets/icon/icon_search.svg'
+import CloseIcon from '@/assets/icon/icon_close_circle.svg'
 import FlameIcon from '@icon/icon_flame.svg'
 
 export default ({ style }) => {
+  const searchInput = useRef()
+  const [searchText, setSearchText] = useState('')
+
   const nav = useNavigation()
 
   const maxHeight = 90 // 搜索历史最大高度，超过将隐藏剩余记录
@@ -87,12 +92,28 @@ export default ({ style }) => {
         <View style={[style, css.inputWrapper]}>
           <SearchIcon width={20} height={20} />
           <TextInput
+            ref={searchInput}
             style={{ flex: 1, height: '100%' }}
             placeholder="搜一搜"
             selectionColor={secondary}
             autoFocus={true}
             maxLength={50}
+            onChangeText={text => setSearchText(text)}
           />
+          {searchText?.trim().length > 0 && (
+            <TouchableWithoutFeedback
+              onPress={() => {
+                searchInput.current.clear()
+                setSearchText('')
+              }}>
+              <CloseIcon
+                style={{ marginLeft: 'auto' }}
+                fill="#aaa"
+                width={20}
+                height={20}
+              />
+            </TouchableWithoutFeedback>
+          )}
         </View>
         <TouchableWithoutFeedback onPress={() => nav.goBack()}>
           <Text style={{ marginLeft: 15, fontSize: 16, color: secondary }}>
