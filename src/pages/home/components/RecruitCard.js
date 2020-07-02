@@ -1,11 +1,13 @@
 import React from 'react'
 import { StyleSheet, View, Text, TouchableWithoutFeedback } from 'react-native'
+import { useNavigation } from '@react-navigation/native'
 import { primary, secondary } from '@/config/style.config'
 
 import Avatar from '@comp/Avatar'
 import VIcon from '@icon/icon_v.svg'
 
 export default ({ style, info }) => {
+  const nav = useNavigation()
   const css = StyleSheet.create({
     card: {
       backgroundColor: 'white',
@@ -50,20 +52,22 @@ export default ({ style, info }) => {
     <View style={[style, css.card]}>
       <View style={css.info}>
         <View>
-          <Avatar />
+          <Avatar clickFunc={() => nav.navigate('Club')} />
           <VIcon
             style={{ position: 'absolute', right: -5, bottom: -5 }}
             width={20}
           />
         </View>
-        <View style={{ marginLeft: 15 }}>
-          <Text style={{ fontSize: 16, fontWeight: 'bold' }}>
-            {info.owner.name}
-          </Text>
-          <Text style={{ marginLeft: 1, color: secondary, fontSize: 12 }}>
-            {info.owner.own}
-          </Text>
-        </View>
+        <TouchableWithoutFeedback onPress={() => nav.navigate('Club')}>
+          <View style={{ marginLeft: 15 }}>
+            <Text style={{ fontSize: 16, fontWeight: 'bold' }}>
+              {info.owner.name}
+            </Text>
+            <Text style={{ marginLeft: 1, color: secondary, fontSize: 12 }}>
+              {info.owner.own}
+            </Text>
+          </View>
+        </TouchableWithoutFeedback>
       </View>
 
       <View
@@ -73,16 +77,20 @@ export default ({ style, info }) => {
           alignItems: 'center',
         }}>
         <View style={css.line} />
-        <Text style={{ fontSize: 17, fontWeight: 'bold' }}>{info.title}</Text>
+        <Text style={{ fontSize: 17, fontWeight: 'bold' }} selectable={true}>
+          {info.title}
+        </Text>
       </View>
 
       {info.content?.length > 0 && (
-        <Text style={{ fontSize: 16, lineHeight: 28, textAlign: 'justify' }}>
+        <Text
+          style={{ fontSize: 16, lineHeight: 28, textAlign: 'justify' }}
+          selectable={true}>
           {info.content}
         </Text>
       )}
 
-      <TouchableWithoutFeedback>
+      <TouchableWithoutFeedback onPress={() => nav.navigate('Club')}>
         <View style={css.btn}>
           <View style={css.btn_inner}>
             <Text>进入主页</Text>

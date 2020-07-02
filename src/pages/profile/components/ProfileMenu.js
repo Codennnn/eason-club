@@ -32,7 +32,7 @@ export default ({ style }) => {
     { label: '更多', icon: require('@img/cell_more.png') },
     {
       label: '应用设置',
-      route: 'LoginWay',
+      route: 'Setting',
       icon: require('@img/cell_login.png'),
     },
   ]

@@ -22,7 +22,7 @@ export default ({ navigation }) => {
       routeName: 'Recruit',
     },
     {
-      label: '社团活动',
+      label: '活动中心',
       icon: require('@img/home_activity.png'),
       routeName: 'Activity',
     },
@@ -32,9 +32,9 @@ export default ({ navigation }) => {
       routeName: 'LoginWay',
     },
     {
-      label: '寻找社团',
+      label: '寻找伙伴',
       icon: require('@img/home_search.png'),
-      routeName: 'Club',
+      routeName: 'Search',
     },
   ]
 
@@ -64,8 +64,6 @@ export default ({ navigation }) => {
             height: 200,
             flexDirection: 'row',
             justifyContent: 'center',
-            borderRadius: 10,
-            overflow: 'hidden',
           }}>
           <Swiper showsPagination={false}>
             {[
@@ -92,30 +90,27 @@ export default ({ navigation }) => {
 
         <View
           style={{
-            height: 50,
+            width: '100%',
             marginBottom: 10,
-            paddingTop: 45,
-            paddingBottom: 25,
+            flexDirection: 'row',
+            alignItems: 'center',
+            justifyContent: 'space-around',
           }}>
-          <View
-            style={{
-              flex: 1,
-              flexDirection: 'row',
-              alignItems: 'center',
-              justifyContent: 'space-around',
-            }}>
-            {plates.map(({ icon, label, routeName }) => (
-              <TouchableWithoutFeedback
-                key={label}
-                onPress={() => routeTo(routeName)}>
-                <View
-                  style={{ justifyContent: 'center', alignItems: 'center' }}>
-                  <Image source={icon} style={{ width: 40, height: 40 }} />
-                  <Text style={{ fontSize: 12 }}>{label}</Text>
-                </View>
-              </TouchableWithoutFeedback>
-            ))}
-          </View>
+          {plates.map(({ icon, label, routeName }) => (
+            <TouchableWithoutFeedback
+              key={label}
+              onPress={() => routeTo(routeName)}>
+              <View
+                style={{
+                  paddingTop: 5,
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                }}>
+                <Image source={icon} style={{ width: 40, height: 40 }} />
+                <Text style={{ fontSize: 12 }}>{label}</Text>
+              </View>
+            </TouchableWithoutFeedback>
+          ))}
         </View>
       </View>
     </>
