@@ -21,7 +21,11 @@ export default ({ style }) => {
     },
     { label: '我的任务', icon: require('@img/profile_tab.png') },
     { label: '社团消息', icon: require('@img/profile_msg.png'), iconWidth: 38 },
-    { label: '发送动态', icon: require('@img/profile_show.png') },
+    {
+      label: '发送动态',
+      icon: require('@img/profile_show.png'),
+      route: 'Post',
+    },
   ]
 
   return (

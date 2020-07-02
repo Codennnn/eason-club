@@ -22,9 +22,7 @@ import DislikeIcon from '@icon/icon_dislike.svg'
 import HandIcon from '@icon/icon_hand.svg'
 
 const css = StyleSheet.create({
-  post_card: {
-    paddingBottom: 5,
-  },
+  post_card: {},
   post_header: {
     marginBottom: 15,
     flexDirection: 'row',
@@ -78,7 +76,7 @@ export default ({ style, post }) => {
   }
 
   return (
-    <View style={[style, css.post_card]}>
+    <View style={[css.post_card, style]}>
       <View style={css.post_header}>
         <Avatar
           style={css.post_avatar}

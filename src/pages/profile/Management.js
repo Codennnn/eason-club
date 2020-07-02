@@ -24,21 +24,27 @@ const blocks = [
 
 export default () => {
   return (
-    <SafeAreaView>
+    <SafeAreaView style={{ paddingVertical: 20 }}>
       <View style={{ flexDirection: 'row', flexWrap: 'wrap' }}>
         {blocks.map(({ Icon, label }) => (
-          <TouchableNativeFeedback>
-            <View
-              style={{
-                width: Dimensions.get('window').width / 3,
-                paddingVertical: 40,
-                justifyContent: 'center',
-                alignItems: 'center',
-              }}>
-              <Icon style={{ marginBottom: 10 }} width={40} height={40} />
-              <Text>{label}</Text>
-            </View>
-          </TouchableNativeFeedback>
+          <View
+            style={{
+              width: Dimensions.get('window').width / 3,
+              borderRadius: 10,
+              overflow: 'hidden',
+            }}>
+            <TouchableNativeFeedback>
+              <View
+                style={{
+                  paddingVertical: 40,
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                }}>
+                <Icon style={{ marginBottom: 10 }} width={40} height={40} />
+                <Text>{label}</Text>
+              </View>
+            </TouchableNativeFeedback>
+          </View>
         ))}
       </View>
     </SafeAreaView>

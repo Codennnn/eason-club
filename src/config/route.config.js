@@ -10,6 +10,7 @@ import ClubClass from '@/pages/explore/ClubClass'
 
 import Management from '@/pages/profile/Management'
 import Setting from '@/pages/profile/Setting'
+import Post from '@/pages/profile/Post'
 
 export default [
   { name: 'LoginWay', component: LoginWay },
@@ -31,4 +32,5 @@ export default [
     title: '社团活动',
     headerShown: true,
   },
+  { name: 'Post', component: Post },
 ]

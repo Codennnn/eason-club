@@ -18,6 +18,7 @@ export default () => {
             post={item}
             style={{
               padding: 12,
+              paddingBottom: 0,
               marginBottom: 10,
               backgroundColor: 'white',
             }}
