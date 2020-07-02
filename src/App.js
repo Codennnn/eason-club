@@ -91,7 +91,7 @@ const App = () => {
           backgroundColor="white"
           barStyle="dark-content"
         />
-        <Stack.Navigator initialRouteName="Home">
+        <Stack.Navigator mode="card" initialRouteName="Home">
           <Stack.Screen
             name="Home"
             component={Tabs}
