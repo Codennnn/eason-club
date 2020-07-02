@@ -9,13 +9,14 @@ import {
   TouchableNativeFeedback,
 } from 'react-native'
 
+import ImagePicker from '@comp/ImagePicker'
 import PhotoPreview from '@comp/PhotoPreview'
 
 import BackIcon from '@icon/icon_back.svg'
-import ImagesIcon from '@icon/icon_images.svg'
 import ImageIcon from '@icon/icon_image.svg'
 import HappyIcon from '@icon/icon_happy.svg'
 import LocationIcon from '@icon/icon_location.svg'
+import { useNavigation } from '@react-navigation/native'
 
 const css = StyleSheet.create({
   header: {
@@ -41,12 +42,15 @@ const css = StyleSheet.create({
 })
 
 export default () => {
+  const nav = useNavigation()
   const [content, setContent] = useState('')
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: 'white' }}>
       <View style={css.header}>
-        <BackIcon width={28} height={28} />
+        <TouchableWithoutFeedback onPress={() => nav.goBack()}>
+          <BackIcon width={28} height={28} />
+        </TouchableWithoutFeedback>
         <Text style={{ marginLeft: 15, fontSize: 16 }}>发布动态</Text>
         <TouchableWithoutFeedback>
           <Text
@@ -66,8 +70,9 @@ export default () => {
           numberOfLines={5}
           onChangeText={text => setContent(text)}
         />
-        {/* <ImagesIcon style={{ opacity: 0.5 }} width={28} height={28} /> */}
       </View>
+
+      <ImagePicker style={{ padding: 15 }} />
 
       <View style={css.action}>
         <View style={css.action_bar}>

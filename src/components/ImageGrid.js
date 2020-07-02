@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import {
   StyleSheet,
-  Dimensions,
   StatusBar,
   View,
   Image,
@@ -19,9 +18,9 @@ const css = StyleSheet.create({
   },
   imgWrapper: {
     width: '33.3%',
+    aspectRatio: 1,
     padding: 3,
     marginBottom: -2,
-    height: Dimensions.get('window').width / 3 - 10,
   },
   img: {
     width: '100%',
