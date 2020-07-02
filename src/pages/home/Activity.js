@@ -1,10 +1,13 @@
 import React from 'react'
-import { View, Text } from 'react-native'
+import { SafeAreaView, View, Text } from 'react-native'
+
+// import ClubView from '../club/components/ClubView'
 
 export default function({ navigation }) {
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Activity Screen</Text>
-    </View>
+    <SafeAreaView
+      style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      {/* <ClubView /> */}
+    </SafeAreaView>
   )
 }

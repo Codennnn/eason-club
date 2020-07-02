@@ -1,6 +1,6 @@
 import LoginWay from '@/pages/login/LoginWay'
 import Login from '@/pages/login/Login'
-import Search from '@/pages/home/search/Search'
+import Search from '@/pages/home/Search'
 import Activity from '@/pages/home/Activity'
 import Recruit from '@/pages/home/Recruit'
 import Club from '@/pages/club'

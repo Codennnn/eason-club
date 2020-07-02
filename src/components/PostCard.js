@@ -63,7 +63,7 @@ export default ({ style, post }) => {
 
   const optionsStyles = {
     optionsContainer: {
-      width: 155,
+      width: 145,
       borderRadius: 10,
       overflow: 'hidden',
     },
@@ -105,13 +105,13 @@ export default ({ style, post }) => {
               <MenuOption>
                 <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                   <HandIcon width={20} height={20} />
-                  <Text style={{ marginLeft: 15 }}>不感兴趣</Text>
+                  <Text style={{ marginLeft: 5 }}>不感兴趣</Text>
                 </View>
               </MenuOption>
               <MenuOption>
                 <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                   <HandIcon width={20} height={20} />
-                  <Text style={{ marginLeft: 15 }}>举报违规内容</Text>
+                  <Text style={{ marginLeft: 5 }}>举报违规内容</Text>
                 </View>
               </MenuOption>
             </MenuOptions>

@@ -29,12 +29,12 @@ export default ({ navigation }) => {
     {
       label: '社团推荐',
       icon: require('@img/home_like.png'),
-      routeName: 'Recruit',
+      routeName: 'LoginWay',
     },
     {
       label: '寻找社团',
       icon: require('@img/home_search.png'),
-      routeName: 'Recruit',
+      routeName: 'Club',
     },
   ]
 

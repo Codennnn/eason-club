@@ -9,6 +9,7 @@ import VIcon from '@icon/icon_v.svg'
 
 const css = StyleSheet.create({
   club_header: {
+    width: '100%',
     paddingVertical: 20,
     paddingHorizontal: 15,
     backgroundColor: 'white',
