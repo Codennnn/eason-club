@@ -11,6 +11,7 @@ import Ripple from 'react-native-material-ripple'
 
 import MedalIcon from '@/assets/icon/icon_medal.svg'
 import RibbonIcon from '@/assets/icon/icon_ribbon.svg'
+import { useNavigation } from '@react-navigation/native'
 
 const css = StyleSheet.create({
   title: {
@@ -28,6 +29,10 @@ const css = StyleSheet.create({
 })
 
 export default function() {
+  const nav = useNavigation()
+  const routeTo = () => {
+    nav.navigate('ClubClass')
+  }
   const items = [
     { icon: require('@img/item_wenyi.png'), label: '文艺', iconWith: 42 },
     { icon: require('@img/item_yinyue.png'), label: '音乐' },
@@ -57,7 +62,8 @@ export default function() {
             rippleSize={Dimensions.get('window').width / 3.2}
             rippleDuration={300}
             rippleContainerBorderRadius={20}
-            style={css.item}>
+            style={css.item}
+            onPress={() => routeTo()}>
             <Image source={icon} style={{ width: iconWith, height: 40 }} />
             <Text style={{ marginTop: 8 }}>{label}</Text>
           </Ripple>
@@ -67,13 +73,19 @@ export default function() {
       <Text style={[css.title, { marginBottom: 10 }]}>官方组织</Text>
       <View style={{ flexDirection: 'row', paddingBottom: 15 }}>
         <View style={{ flex: 1, alignItems: 'center' }}>
-          <Ripple rippleContainerBorderRadius={20} style={{ padding: 20 }}>
+          <Ripple
+            rippleContainerBorderRadius={20}
+            style={{ padding: 20 }}
+            onPress={() => routeTo()}>
             <MedalIcon width={50} height={50} style={{ marginBottom: 5 }} />
             <Text>院组织</Text>
           </Ripple>
         </View>
         <View style={{ flex: 1, alignItems: 'center' }}>
-          <Ripple rippleContainerBorderRadius={20} style={{ padding: 20 }}>
+          <Ripple
+            rippleContainerBorderRadius={20}
+            style={{ padding: 20 }}
+            onPress={() => routeTo()}>
             <RibbonIcon width={50} height={50} style={{ marginBottom: 8 }} />
             <Text>系组织</Text>
           </Ripple>
