@@ -54,7 +54,7 @@ const css = StyleSheet.create({
   },
 })
 
-export default ({ style, post }) => {
+export default ({ style, post, openActionSheet }) => {
   const nav = useNavigation()
 
   return (
@@ -113,15 +113,31 @@ export default ({ style, post }) => {
 
       <View style={css.post_footer}>
         {[
-          { id: '1', Icon: ShareIcon, num: post.share_num },
-          { id: '2', Icon: CommentIcon, num: post.comment_num },
-          { id: '3', Icon: LikeIcon, num: post.like_num },
-        ].map(({ id, Icon, num }) => (
+          {
+            id: '1',
+            Icon: ShareIcon,
+            num: post.share_num,
+            clickFunc: () => openActionSheet(),
+          },
+          {
+            id: '2',
+            Icon: CommentIcon,
+            num: post.comment_num,
+            clickFunc: () => openActionSheet(),
+          },
+          {
+            id: '3',
+            Icon: LikeIcon,
+            num: post.like_num,
+            clickFunc: () => openActionSheet(),
+          },
+        ].map(({ id, Icon, num, clickFunc }) => (
           <Ripple
             key={id}
             rippleOpacity={0.15}
             rippleContainerBorderRadius={20}
-            style={css.post_footer_item}>
+            style={css.post_footer_item}
+            onPress={clickFunc}>
             <Icon style={{ marginRight: 3 }} width={20} height={20} />
             <Text style={{ color: secondary, fontSize: 13 }}>{num || 0}</Text>
           </Ripple>

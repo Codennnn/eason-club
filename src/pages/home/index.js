@@ -1,12 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { SafeAreaView, FlatList } from 'react-native'
 
 import HomeHeader from './components/HomeHeader'
 import PostCard from '@comp/PostCard'
+import CoverLayer from '@comp/CoverLayer'
+import ActionSheet from '@comp/ActionSheet'
 
 import { posts } from '@/mock-data'
 
 export default () => {
+  const [showModal, setShowModal] = useState(true)
   return (
     <SafeAreaView>
       <FlatList
@@ -16,6 +19,7 @@ export default () => {
           <PostCard
             key={item.id}
             post={item}
+            openActionSheet={() => setShowModal(true)}
             style={{
               padding: 12,
               paddingBottom: 0,
@@ -25,6 +29,10 @@ export default () => {
           />
         )}
       />
+
+      <CoverLayer visible={showModal} closeModal={() => setShowModal(false)}>
+        <ActionSheet />
+      </CoverLayer>
     </SafeAreaView>
   )
 }

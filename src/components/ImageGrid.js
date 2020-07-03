@@ -40,8 +40,9 @@ export default ({ style, imgList }) => {
   return (
     <View style={css.grid}>
       <StatusBar animated={true} hidden={showModal} />
-      <Modal visible={showModal} transparent={true}>
+      <Modal visible={showModal} transparent={true} statusBarTranslucent={true}>
         <ImageViewer
+          style={{ backgroundColor: 'rgba(0,0,0,0.5)' }}
           imageUrls={imgList.map(url => ({ url }))}
           enableSwipeDown={true}
           onCancel={() => setShowModal(false)}
