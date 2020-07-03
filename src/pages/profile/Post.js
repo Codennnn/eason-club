@@ -33,8 +33,6 @@ const css = StyleSheet.create({
     width: '100%',
   },
   action_bar: {
-    height: 50,
-    paddingHorizontal: 22,
     flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: '#f4f4f4',
@@ -44,6 +42,7 @@ const css = StyleSheet.create({
 export default () => {
   const nav = useNavigation()
   const [content, setContent] = useState('')
+  const [currAction, setCurrAction] = useState()
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: 'white' }}>
@@ -76,27 +75,23 @@ export default () => {
 
       <View style={css.action}>
         <View style={css.action_bar}>
-          <TouchableNativeFeedback>
-            <ImageIcon
-              style={{ marginRight: 20, opacity: 0.6 }}
-              width={28}
-              height={28}
-            />
-          </TouchableNativeFeedback>
-          <TouchableNativeFeedback>
-            <HappyIcon
-              style={{ marginRight: 16, opacity: 0.6 }}
-              width={28}
-              height={28}
-            />
-          </TouchableNativeFeedback>
-          <TouchableNativeFeedback>
-            <LocationIcon
-              style={{ marginRight: 20, opacity: 0.6 }}
-              width={28}
-              height={28}
-            />
-          </TouchableNativeFeedback>
+          {[{ Icon: ImageIcon }, { Icon: HappyIcon }].map(({ Icon }, i) => (
+            <TouchableNativeFeedback onPress={() => setCurrAction(i)}>
+              <View
+                style={{
+                  height: 50,
+                  width: 50,
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                }}>
+                <Icon
+                  style={{ opacity: currAction === i ? 1 : 0.6 }}
+                  width={28}
+                  height={28}
+                />
+              </View>
+            </TouchableNativeFeedback>
+          ))}
         </View>
 
         <PhotoPreview />
