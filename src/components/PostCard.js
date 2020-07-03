@@ -1,8 +1,8 @@
 import React from 'react'
-import { StyleSheet, View, Text } from 'react-native'
+import { StyleSheet, View, Text, TouchableOpacity } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 import Ripple from 'react-native-material-ripple'
-import { secondary, lightGray } from '@/config/style.config'
+import { secondary, lightGray, menuStyle } from '@/config/style.config'
 import {
   Menu,
   MenuOptions,
@@ -56,24 +56,6 @@ const css = StyleSheet.create({
 
 export default ({ style, post }) => {
   const nav = useNavigation()
-  const onClickAvatar = () => {
-    nav.navigate('Club')
-  }
-
-  const optionsStyles = {
-    optionsContainer: {
-      width: 145,
-      borderRadius: 10,
-      overflow: 'hidden',
-    },
-    optionWrapper: {
-      padding: 10,
-    },
-    optionTouchable: {
-      padding: 10,
-      activeOpacity: 10,
-    },
-  }
 
   return (
     <View style={[css.post_card, style]}>
@@ -81,13 +63,16 @@ export default ({ style, post }) => {
         <Avatar
           style={css.post_avatar}
           src={post.owner.avatar_url}
-          clickFunc={onClickAvatar}
+          clickFunc={() => nav.navigate('Club')}
         />
         <View>
           <View style={css.post_owner_name}>
-            <Text style={{ marginRight: 4, fontSize: 15, fontWeight: 'bold' }}>
-              {post.owner.name}
-            </Text>
+            <TouchableOpacity onPress={() => nav.navigate('Club')}>
+              <Text
+                style={{ marginRight: 4, fontSize: 15, fontWeight: 'bold' }}>
+                {post.owner.name}
+              </Text>
+            </TouchableOpacity>
             <VIcon width={24} />
           </View>
           <Text style={{ color: lightGray, fontSize: 11 }}>
@@ -100,7 +85,7 @@ export default ({ style, post }) => {
             <MenuTrigger style={{ padding: 6 }}>
               <MoreIcon fill={secondary} width={17} height={17} />
             </MenuTrigger>
-            <MenuOptions customStyles={optionsStyles}>
+            <MenuOptions customStyles={menuStyle}>
               <MenuOption>
                 <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                   <DislikeIcon width={20} height={20} />

@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text, Image, TouchableWithoutFeedback } from 'react-native'
+import { View, Text, Image, TouchableOpacity } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 import Swiper from 'react-native-swiper'
 
@@ -97,8 +97,9 @@ export default ({ navigation }) => {
             justifyContent: 'space-around',
           }}>
           {plates.map(({ icon, label, routeName }) => (
-            <TouchableWithoutFeedback
+            <TouchableOpacity
               key={label}
+              activeOpacity={0.6}
               onPress={() => routeTo(routeName)}>
               <View
                 style={{
@@ -109,7 +110,7 @@ export default ({ navigation }) => {
                 <Image source={icon} style={{ width: 40, height: 40 }} />
                 <Text style={{ fontSize: 12 }}>{label}</Text>
               </View>
-            </TouchableWithoutFeedback>
+            </TouchableOpacity>
           ))}
         </View>
       </View>

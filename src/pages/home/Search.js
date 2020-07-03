@@ -13,6 +13,7 @@ import { hotList, searchHistory } from '@/mock-data'
 import SearchIcon from '@/assets/icon/icon_search.svg'
 import CloseIcon from '@/assets/icon/icon_close_circle.svg'
 import FlameIcon from '@icon/icon_flame.svg'
+import { lightGray } from '../../config/style.config'
 
 export default ({ style }) => {
   const searchInput = useRef()
@@ -108,7 +109,7 @@ export default ({ style }) => {
               }}>
               <CloseIcon
                 style={{ marginLeft: 'auto' }}
-                fill="#aaa"
+                fill={lightGray}
                 width={20}
                 height={20}
               />

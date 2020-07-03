@@ -6,6 +6,7 @@ import Avatar from '@comp/Avatar'
 
 import DownIcon from '@icon/icon_down.svg'
 import VIcon from '@icon/icon_v.svg'
+import { lightGray } from '../../../config/style.config'
 
 const css = StyleSheet.create({
   club_header: {
@@ -82,7 +83,7 @@ export default ({ avatar_url, name, introduction = '还没有写简介呢~~' }) 
           <View style={{ flexDirection: 'row' }}>
             <View style={css.follow_btn}>
               <TouchableWithoutFeedback>
-                <Text style={{ color: '#aaa' }}>已关注</Text>
+                <Text style={{ color: lightGray }}>已关注</Text>
               </TouchableWithoutFeedback>
             </View>
             <View style={css.drop_btn}>

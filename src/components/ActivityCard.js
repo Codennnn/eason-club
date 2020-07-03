@@ -2,12 +2,22 @@ import React, { useState } from 'react'
 import {
   StyleSheet,
   TouchableNativeFeedback,
-  TouchableHighlight,
+  TouchableOpacity,
   View,
   Text,
   Image,
 } from 'react-native'
-import { secondary } from '@/config/style.config'
+import { useNavigation } from '@react-navigation/native'
+import {
+  Menu,
+  MenuOptions,
+  MenuOption,
+  MenuTrigger,
+} from 'react-native-popup-menu'
+import { primary, secondary, menuStyle } from '@/config/style.config'
+
+import Avatar from '@comp/Avatar'
+import MoreIcon from '@icon/icon_ellipsis_horizontal.svg'
 
 const css = StyleSheet.create({
   card: {
@@ -16,19 +26,28 @@ const css = StyleSheet.create({
   },
 })
 
-export default ({ style, title, content, cover_url, created_at }) => {
+export default ({
+  style,
+  title,
+  content,
+  cover_url,
+  name,
+  avatar_url,
+  created_at,
+}) => {
   const localAvatar = require('@img/default_avatar.png')
   const [imgSrc, setImgSrc] = useState(
-    cover_url > 0 ? { uri: cover_url } : localAvatar,
+    cover_url ? { uri: cover_url } : localAvatar,
   )
+  const nav = useNavigation()
 
   return (
     <View style={[css.card, style]}>
-      <TouchableHighlight
+      <TouchableNativeFeedback
         activeOpacity={0.95}
-        underlayColor="#eee"
-        onPress={() => {}}>
-        <View>
+        underlayColor="#efefef"
+        onPress={() => nav.navigate('Club')}>
+        <View style={{ padding: 15 }}>
           <Image
             source={imgSrc}
             style={{
@@ -47,11 +66,61 @@ export default ({ style, title, content, cover_url, created_at }) => {
             numberOfLines={2}>
             {content}
           </Text>
-          <View style={{ marginTop: 10 }}>
-            <Text style={{ fontSize: 12, color: '#aaa' }}>{created_at}</Text>
+
+          <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+            <Menu style={{ marginTop: 20 }}>
+              <MenuTrigger style={{ padding: 6 }}>
+                <MoreIcon fill={secondary} width={20} height={20} />
+              </MenuTrigger>
+              <MenuOptions customStyles={menuStyle}>
+                <MenuOption>
+                  <View
+                    style={{
+                      flexDirection: 'row',
+                      alignItems: 'center',
+                    }}>
+                    <Text style={{ marginLeft: 5 }}>添加收藏</Text>
+                  </View>
+                </MenuOption>
+                <MenuOption>
+                  <View
+                    style={{
+                      flexDirection: 'row',
+                      alignItems: 'center',
+                    }}>
+                    <Text style={{ marginLeft: 5 }}>举报此活动</Text>
+                  </View>
+                </MenuOption>
+              </MenuOptions>
+            </Menu>
+
+            <View
+              style={{
+                marginTop: 10,
+                marginLeft: 'auto',
+              }}>
+              <TouchableOpacity
+                activeOpacity={0.6}
+                onPress={() => nav.navigate('Club')}>
+                <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                  <View style={{ marginRight: 10, alignItems: 'flex-end' }}>
+                    <Text style={{ color: primary, fontWeight: 'bold' }}>
+                      {name}
+                    </Text>
+                    <Text style={{ fontSize: 11, color: '#bbb' }}>
+                      {created_at}
+                    </Text>
+                  </View>
+                  <Avatar
+                    src={avatar_url}
+                    clickFunc={() => nav.navigate('Club')}
+                  />
+                </View>
+              </TouchableOpacity>
+            </View>
           </View>
         </View>
-      </TouchableHighlight>
+      </TouchableNativeFeedback>
     </View>
   )
 }

@@ -8,6 +8,7 @@ import {
   TouchableWithoutFeedback,
   TouchableNativeFeedback,
 } from 'react-native'
+import { primary, lightGray } from '@/config/style.config'
 
 import ImagePicker from '@comp/ImagePicker'
 import PhotoPreview from '@comp/PhotoPreview'
@@ -15,7 +16,6 @@ import PhotoPreview from '@comp/PhotoPreview'
 import BackIcon from '@icon/icon_back.svg'
 import ImageIcon from '@icon/icon_image.svg'
 import HappyIcon from '@icon/icon_happy.svg'
-import LocationIcon from '@icon/icon_location.svg'
 import { useNavigation } from '@react-navigation/native'
 
 const css = StyleSheet.create({
@@ -55,7 +55,7 @@ export default () => {
           <Text
             style={{
               marginLeft: 'auto',
-              color: content?.trim().length > 0 ? null : '#aaa',
+              color: content?.trim().length > 0 ? primary : lightGray,
             }}>
             发布
           </Text>

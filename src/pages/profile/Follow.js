@@ -13,6 +13,7 @@ import {
   MenuOption,
   MenuTrigger,
 } from 'react-native-popup-menu'
+import { menuStyle, lightGray } from '@/config/style.config'
 
 import RefreshView from '@comp/RefreshView'
 import Avatar from '@comp/Avatar'
@@ -22,21 +23,6 @@ import { followList } from '@/mock-data'
 
 export default () => {
   const nav = useNavigation()
-
-  const optionsStyles = {
-    optionsContainer: {
-      width: 145,
-      borderRadius: 10,
-      overflow: 'hidden',
-    },
-    optionWrapper: {
-      padding: 10,
-    },
-    optionTouchable: {
-      padding: 10,
-      activeOpacity: 10,
-    },
-  }
 
   function renderItems(list, title) {
     return (
@@ -63,7 +49,7 @@ export default () => {
               <View style={{ paddingRight: 120 }}>
                 <Text style={{ fontSize: 16 }}>{name}</Text>
                 <Text
-                  style={{ marginTop: 3, fontSize: 12, color: '#aaa' }}
+                  style={{ marginTop: 3, fontSize: 12, color: lightGray }}
                   numberOfLines={1}>
                   {intro}
                 </Text>
@@ -73,7 +59,7 @@ export default () => {
                 <MenuTrigger style={{ padding: 6 }}>
                   <MoreIcon fill="#ccc" width={20} height={20} />
                 </MenuTrigger>
-                <MenuOptions customStyles={optionsStyles}>
+                <MenuOptions customStyles={menuStyle}>
                   <MenuOption>
                     <View
                       style={{

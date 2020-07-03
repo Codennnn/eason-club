@@ -7,6 +7,7 @@ import {
   TouchableWithoutFeedback,
 } from 'react-native'
 import ImagePicker from 'react-native-image-picker'
+import { lightGray } from '@/config/style.config'
 
 import ImagesIcon from '@icon/icon_images.svg'
 
@@ -51,7 +52,7 @@ export default ({ style }) => {
   return (
     <View style={[css.grid, style]}>
       {imgList?.map((img, i) => (
-        <TouchableWithoutFeedback key={i} onPress={() => {}}>
+        <TouchableWithoutFeedback key={i} onPress={() => { }}>
           <View style={[style, css.imgWrapper]}>
             <Image source={img} style={css.img} />
           </View>
@@ -68,11 +69,11 @@ export default ({ style }) => {
               borderRadius: 15,
               borderStyle: 'dashed',
               borderWidth: 1,
-              borderColor: '#aaa',
+              borderColor: lightGray,
             },
           ]}>
           <ImagesIcon style={{ opacity: 0.5 }} width={28} height={28} />
-          <Text style={{ marginTop: 10, fontSize: 12, color: '#aaa' }}>
+          <Text style={{ marginTop: 10, fontSize: 12, color: lightGray }}>
             添加图片
           </Text>
         </View>

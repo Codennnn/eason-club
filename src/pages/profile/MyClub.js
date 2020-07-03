@@ -1,5 +1,6 @@
 import React from 'react'
 import { SafeAreaView, Text, View } from 'react-native'
+import { lightGray } from '@/config/style.config'
 
 import RefreshView from '@comp/RefreshView'
 import Empty from '@img/empty.svg'
@@ -16,7 +17,7 @@ export default () => {
             backgroundColor: 'white',
           }}>
           <Empty style={{ marginBottom: 40 }} width={200} height={150} />
-          <Text style={{ color: '#aaa' }}>暂无数据</Text>
+          <Text style={{ color: lightGray }}>暂无数据</Text>
         </View>
       </RefreshView>
     </SafeAreaView>
