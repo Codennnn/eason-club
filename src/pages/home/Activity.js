@@ -1,5 +1,5 @@
 import React from 'react'
-import { SafeAreaView } from 'react-native'
+import { SafeAreaView, FlatList } from 'react-native'
 
 import ActivityCard from '@comp/ActivityCard'
 
@@ -10,17 +10,23 @@ export default function({ navigation }) {
     <SafeAreaView
       style={{
         height: '100%',
-        padding: 15,
         alignItems: 'center',
-        backgroundColor: 'white',
+        backgroundColor: '#f7f7f7',
       }}>
-      {activityList.map(data => (
-        <ActivityCard
-          key={data.id}
-          style={{ padding: 15, borderRadius: 10, backgroundColor: 'white' }}
-          {...data}
-        />
-      ))}
+      <FlatList
+        data={activityList}
+        renderItem={({ item }, i) => (
+          <ActivityCard
+            key={item.id}
+            style={{
+              marginBottom: 10,
+              // padding: 15,
+              backgroundColor: 'white',
+            }}
+            {...item}
+          />
+        )}
+      />
     </SafeAreaView>
   )
 }

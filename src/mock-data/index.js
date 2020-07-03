@@ -112,6 +112,22 @@ export const activityList = [
       '你认为自我无一专长却有一颗热忱的心，愿意为社团运作贡献出自我的力量吗？如果你热爱青春,期望展示自我，那就加入学生会。',
     created_at: '54分钟前',
   },
+  {
+    id: '2',
+    title: '新媒体在路上，等风也等你',
+    cover_url: 'https://gitee.com/chinesee/images/raw/master/club/008.jpg',
+    content:
+      '你认为自我无一专长却有一颗热忱的心，愿意为社团运作贡献出自我的力量吗？如果你热爱青春,期望展示自我，那就加入学生会。',
+    created_at: '54分钟前',
+  },
+  {
+    id: '3',
+    title: '新媒体在路上，等风也等你',
+    cover_url: 'https://gitee.com/chinesee/images/raw/master/club/008.jpg',
+    content:
+      '你认为自我无一专长却有一颗热忱的心，愿意为社团运作贡献出自我的力量吗？如果你热爱青春,期望展示自我，那就加入学生会。',
+    created_at: '54分钟前',
+  },
 ]
 
 export const followList = [
