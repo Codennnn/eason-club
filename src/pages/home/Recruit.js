@@ -2,7 +2,7 @@ import React from 'react'
 import { SafeAreaView, FlatList } from 'react-native'
 import RecruitCard from './components/RecruitCard'
 
-import { recruitList } from '@/mock-data/recruit'
+import { recruitList } from '@/mock-data'
 
 export default () => {
   return (

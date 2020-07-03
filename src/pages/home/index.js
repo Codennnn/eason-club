@@ -4,7 +4,7 @@ import { SafeAreaView, FlatList } from 'react-native'
 import HomeHeader from './components/HomeHeader'
 import PostCard from '@comp/PostCard'
 
-import { posts } from '@/mock-data/post'
+import { posts } from '@/mock-data'
 
 export default () => {
   return (

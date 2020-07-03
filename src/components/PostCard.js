@@ -98,7 +98,7 @@ export default ({ style, post }) => {
         <View style={{ marginLeft: 'auto' }}>
           <Menu>
             <MenuTrigger style={{ padding: 6 }}>
-              <MoreIcon fill="#7c7c7c" width={17} height={17} />
+              <MoreIcon fill={secondary} width={17} height={17} />
             </MenuTrigger>
             <MenuOptions customStyles={optionsStyles}>
               <MenuOption>

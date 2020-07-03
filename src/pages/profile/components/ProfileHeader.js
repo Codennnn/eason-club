@@ -65,7 +65,7 @@ export default ({ style }) => {
 
       <View style={css.profile_statistics}>
         {[
-          { label: '我的社团', num: 3 },
+          { label: '我的社团', num: 3, route: 'MyClub' },
           { label: '我的关注', num: 3, route: 'Follow' },
           { label: '我的活动', num: 3 },
         ].map(({ label, num, route }) => (

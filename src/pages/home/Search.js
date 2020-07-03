@@ -8,7 +8,7 @@ import {
 } from 'react-native'
 import { primary, secondary } from '@/config/style.config'
 import { useNavigation } from '@react-navigation/native'
-import { hotList, searchHistory } from '@/mock-data/search'
+import { hotList, searchHistory } from '@/mock-data'
 
 import SearchIcon from '@/assets/icon/icon_search.svg'
 import CloseIcon from '@/assets/icon/icon_close_circle.svg'

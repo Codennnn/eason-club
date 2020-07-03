@@ -4,55 +4,111 @@ import {
   ScrollView,
   View,
   Text,
-  RefreshControl,
   TouchableNativeFeedback,
 } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
+import {
+  Menu,
+  MenuOptions,
+  MenuOption,
+  MenuTrigger,
+} from 'react-native-popup-menu'
 
+import RefreshView from '@comp/RefreshView'
 import Avatar from '@comp/Avatar'
+import MoreIcon from '@icon/icon_ellipsis_horizontal.svg'
 
-import ArrowIcon from '@icon/icon_chevron.svg'
-
-const followList = [
-  { label: '账号资料' },
-  { label: '安全隐私', divider: true },
-  { label: '清理存储空间' },
-  { label: '动态设置' },
-  { label: '用户协议' },
-  { label: '隐私策略', divider: true },
-  { label: '退出登录', route: 'LoginWay' },
-]
+import { followList } from '@/mock-data'
 
 export default () => {
   const nav = useNavigation()
+
+  const optionsStyles = {
+    optionsContainer: {
+      width: 145,
+      borderRadius: 10,
+      overflow: 'hidden',
+    },
+    optionWrapper: {
+      padding: 10,
+    },
+    optionTouchable: {
+      padding: 10,
+      activeOpacity: 10,
+    },
+  }
+
+  function renderItems(list, title) {
+    return (
+      <View
+        style={{
+          paddingTop: 10,
+          backgroundColor: 'white',
+        }}>
+        <View style={{ paddingHorizontal: 14 }}>
+          <Text style={{ fontSize: 16 }}>{title}</Text>
+        </View>
+        {list.map(({ name, intro, route = 'Home' }) => (
+          <TouchableNativeFeedback
+            key={name}
+            onPress={() => nav.navigate(route)}>
+            <View
+              style={{
+                paddingVertical: 12,
+                paddingHorizontal: 15,
+                flexDirection: 'row',
+                alignItems: 'center',
+              }}>
+              <Avatar rounded={false} style={{ marginRight: 15 }} />
+              <View style={{ paddingRight: 120 }}>
+                <Text style={{ fontSize: 16 }}>{name}</Text>
+                <Text
+                  style={{ marginTop: 3, fontSize: 12, color: '#aaa' }}
+                  numberOfLines={1}>
+                  {intro}
+                </Text>
+              </View>
+
+              <Menu style={{ marginLeft: 'auto' }}>
+                <MenuTrigger style={{ padding: 6 }}>
+                  <MoreIcon fill="#ccc" width={20} height={20} />
+                </MenuTrigger>
+                <MenuOptions customStyles={optionsStyles}>
+                  <MenuOption>
+                    <View
+                      style={{
+                        flexDirection: 'row',
+                        alignItems: 'center',
+                      }}>
+                      <Text style={{ marginLeft: 5 }}>设为特别关注</Text>
+                    </View>
+                  </MenuOption>
+                  <MenuOption>
+                    <View
+                      style={{
+                        flexDirection: 'row',
+                        alignItems: 'center',
+                      }}>
+                      <Text style={{ marginLeft: 5 }}>取消关注</Text>
+                    </View>
+                  </MenuOption>
+                </MenuOptions>
+              </Menu>
+            </View>
+          </TouchableNativeFeedback>
+        ))}
+      </View>
+    )
+  }
+
   return (
     <SafeAreaView>
       <ScrollView style={{ paddingTop: 12 }}>
-        <RefreshControl>
-          {followList.map(({ label, divider, route = 'Home' }) => (
-            <TouchableNativeFeedback
-              key={label}
-              onPress={() => nav.navigate(route)}>
-              <View
-                style={{
-                  paddingVertical: 12,
-                  paddingHorizontal: 18,
-                  flexDirection: 'row',
-                  alignItems: 'center',
-                  backgroundColor: 'white',
-                  marginBottom: divider ? 12 : 0,
-                }}>
-                <Avatar rounded={false} />
-                <Text>{label}</Text>
-                <ArrowIcon
-                  width={20}
-                  height={20}
-                  style={{ marginLeft: 'auto' }}
-                />
-              </View>
-            </TouchableNativeFeedback>
-          ))}
-        </RefreshControl>
+        <RefreshView>
+          {renderItems(followList.filter(el => el.top), '特别关注')}
+          <View style={{ height: 15, backgroundColor: '#f4f4f4' }} />
+          {renderItems(followList.filter(el => !el.top), '已关注')}
+        </RefreshView>
       </ScrollView>
     </SafeAreaView>
   )
