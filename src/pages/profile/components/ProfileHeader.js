@@ -1,5 +1,6 @@
 import React from 'react'
-import { StyleSheet, View, Text, TouchableHighlight } from 'react-native'
+import { StyleSheet, View, Text, TouchableWithoutFeedback } from 'react-native'
+import { useNavigation } from '@react-navigation/native'
 import { primary, secondary, lightGray } from '@/config/style.config'
 
 import Avatar from '@comp/Avatar'
@@ -43,6 +44,8 @@ const css = StyleSheet.create({
 })
 
 export default ({ style }) => {
+  const nav = useNavigation()
+
   return (
     <View style={[style, css.profile_header]}>
       <View style={css.profile_info}>
@@ -52,26 +55,28 @@ export default ({ style }) => {
           <Text style={{ color: secondary }}>123</Text>
         </View>
         <View style={css.profile_btn}>
-          <TouchableHighlight>
+          <TouchableWithoutFeedback>
             <View style={css.profile_btn_inner}>
               <Text>个人空间</Text>
             </View>
-          </TouchableHighlight>
+          </TouchableWithoutFeedback>
         </View>
       </View>
 
       <View style={css.profile_statistics}>
         {[
           { label: '我的社团', num: 3 },
-          { label: '我的关注', num: 3 },
+          { label: '我的关注', num: 3, route: 'Follow' },
           { label: '我的活动', num: 3 },
-        ].map(({ label, num }) => (
-          <TouchableHighlight key={label}>
+        ].map(({ label, num, route }) => (
+          <TouchableWithoutFeedback
+            key={label}
+            onPress={() => nav.navigate(route)}>
             <View style={{ justifyContent: 'center', alignItems: 'center' }}>
               <Text style={{ marginBottom: 5, fontSize: 19 }}>{num}</Text>
               <Text style={{ color: lightGray }}>{label}</Text>
             </View>
-          </TouchableHighlight>
+          </TouchableWithoutFeedback>
         ))}
       </View>
     </View>

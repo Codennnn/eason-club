@@ -10,6 +10,7 @@ import ClubClass from '@/pages/explore/ClubClass'
 
 import Management from '@/pages/profile/Management'
 import Setting from '@/pages/profile/Setting'
+import Follow from '@/pages/profile/Follow'
 import Post from '@/pages/profile/Post'
 
 export default [
@@ -30,6 +31,12 @@ export default [
     name: 'Activity',
     component: Activity,
     title: '社团活动',
+    headerShown: true,
+  },
+  {
+    name: 'Follow',
+    component: Follow,
+    title: '我的关注',
     headerShown: true,
   },
   { name: 'Post', component: Post },

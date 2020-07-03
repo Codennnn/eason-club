@@ -42,7 +42,7 @@ const css = StyleSheet.create({
 export default () => {
   const nav = useNavigation()
   const [content, setContent] = useState('')
-  const [currAction, setCurrAction] = useState()
+  const [currAction, setCurrAction] = useState(0)
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: 'white' }}>
@@ -94,7 +94,7 @@ export default () => {
           ))}
         </View>
 
-        <PhotoPreview />
+        {currAction === 0 && <PhotoPreview />}
       </View>
     </SafeAreaView>
   )

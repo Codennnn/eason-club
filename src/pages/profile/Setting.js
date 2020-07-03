@@ -2,14 +2,13 @@ import React from 'react'
 import {
   SafeAreaView,
   ScrollView,
-  Image,
   View,
   Text,
   TouchableNativeFeedback,
 } from 'react-native'
+import { useNavigation } from '@react-navigation/native'
 
 import ArrowIcon from '@icon/icon_chevron.svg'
-import { useNavigation } from '@react-navigation/native'
 
 const settingItems = [
   { label: '账号资料' },

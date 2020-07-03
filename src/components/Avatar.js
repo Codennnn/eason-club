@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { StyleSheet, TouchableWithoutFeedback, Image, View } from 'react-native'
 
-export default ({ style, src, clickFunc, size = 45 }) => {
+export default ({ style, src, clickFunc, rounded = true, size = 45 }) => {
   const localAvatar = require('@img/default_avatar.png')
   const [avatarSrc, setAvatarSrc] = useState(src ? { uri: src } : localAvatar)
   const avatarSize = size
@@ -10,7 +10,7 @@ export default ({ style, src, clickFunc, size = 45 }) => {
     avatarWrapper: {
       width: avatarSize,
       height: avatarSize,
-      borderRadius: avatarSize / 2,
+      borderRadius: rounded ? avatarSize / 2 : 10,
       borderWidth: 0.8,
       borderStyle: 'solid',
       borderColor: '#ddd',
