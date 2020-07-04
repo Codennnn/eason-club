@@ -1,11 +1,8 @@
 import React from 'react'
 import {
   StyleSheet,
-  SafeAreaView,
-  ScrollView,
   View,
   Text,
-  TextInput,
   TouchableWithoutFeedback,
   TouchableNativeFeedback,
 } from 'react-native'
@@ -18,9 +15,19 @@ import LikeIcon from '@icon/icon_like.svg'
 export default ({ style, data }) => {
   const nav = useNavigation()
 
+  const css = StyleSheet.create({
+    item: { padding: 15, backgroundColor: 'white' },
+    item_header: { flexDirection: 'row', alignItems: 'center' },
+    reply: {
+      padding: 10,
+      borderRadius: 5,
+      backgroundColor: '#f4f4f4',
+    },
+  })
+
   return (
-    <View style={[{ padding: 15, backgroundColor: 'white' }, style]}>
-      <View style={[{ flexDirection: 'row', alignItems: 'center' }, style]}>
+    <View style={[css.item, style]}>
+      <View style={css.item_header}>
         <Avatar
           style={{ marginRight: 15 }}
           clickFunc={() => nav.navigate('Club')}
@@ -40,12 +47,7 @@ export default ({ style, data }) => {
           <Text style={{ marginBottom: 10, lineHeight: 20 }}>
             {data.content}
           </Text>
-          <View
-            style={{
-              padding: 10,
-              borderRadius: 5,
-              backgroundColor: '#f4f4f4',
-            }}>
+          <View style={css.reply}>
             <View>
               {data.replies.map(({ name, content }, i) => (
                 <Text key={i} style={{ color: '#444' }} numberOfLines={2}>

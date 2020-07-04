@@ -219,9 +219,43 @@ export const followList = [
   },
 ]
 
+export const postDetail = {
+  id: '1',
+  owner: {
+    avatar_url:
+      'https://i2.hdslb.com/bfs/face/9fde235378806dacaa4761bf32a6498a7531b55a.jpg_64x64.jpg',
+    name: '意想社团',
+    own: '广大华软',
+  },
+  content: '社团招新',
+  imgList: [
+    'https://gitee.com/chinesee/images/raw/master/club/001.png',
+    'https://gitee.com/chinesee/images/raw/master/club/002.png',
+    'https://gitee.com/chinesee/images/raw/master/club/003.png',
+  ],
+  share_num: 198,
+  comment_num: 4014,
+  like_num: '4.8w',
+  is_like: true,
+  created_at: '24分钟前',
+}
+
 export const commentList = [
   {
-    id: 'a1',
+    id: 'c1',
+    name: '123',
+    content: '123123123123123123123123123123123123',
+    created_at: '5分钟前',
+    total_replies: 8,
+    replies: [
+      {
+        name: '123',
+        content: '123',
+      },
+    ],
+  },
+  {
+    id: 'c2',
     name: '123',
     content: '123123123123123123123123123123123123',
     created_at: '5分钟前',

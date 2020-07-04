@@ -69,7 +69,7 @@ export default ({ style, post, openActionSheet, renderFooter }) => {
         <View style={css.post_header}>
           <Avatar
             style={css.post_avatar}
-            src={post.owner.avatar_url}
+            src={post?.owner.avatar_url}
             clickFunc={() => nav.navigate('Club')}
           />
           <View>
@@ -77,13 +77,13 @@ export default ({ style, post, openActionSheet, renderFooter }) => {
               <TouchableOpacity onPress={() => nav.navigate('Club')}>
                 <Text
                   style={{ marginRight: 4, fontSize: 15, fontWeight: 'bold' }}>
-                  {post.owner.name}
+                  {post?.owner.name}
                 </Text>
               </TouchableOpacity>
               <VIcon width={24} />
             </View>
             <Text style={{ color: lightGray, fontSize: 11 }}>
-              <Text>{post.owner.own}</Text>
+              <Text>{post?.owner.own}</Text>
               <Text> - {post.created_at}</Text>
             </Text>
           </View>
@@ -125,20 +125,23 @@ export default ({ style, post, openActionSheet, renderFooter }) => {
                 id: '1',
                 Icon: ShareIcon,
                 num: post.share_num,
+                label: '转发',
                 clickFunc: () => openActionSheet(),
               },
               {
                 id: '2',
                 Icon: CommentIcon,
                 num: post.comment_num,
+                label: '评论',
                 clickFunc: () => nav.navigate('PostDetail'),
               },
               {
                 id: '3',
                 Icon: HeartIcon,
                 num: post.like_num,
+                label: '点赞',
               },
-            ].map(({ id, Icon, num, clickFunc }, i) => (
+            ].map(({ id, Icon, num, label, clickFunc }, i) => (
               <Ripple
                 key={id}
                 rippleOpacity={0.15}
@@ -151,7 +154,7 @@ export default ({ style, post, openActionSheet, renderFooter }) => {
                     color: i === 2 && post.is_like ? primary : secondary,
                     fontSize: 13,
                   }}>
-                  {num || 0}
+                  {num || label}
                 </Text>
               </Ripple>
             ))}

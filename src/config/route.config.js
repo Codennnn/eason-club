@@ -14,6 +14,7 @@ import Setting from '@/pages/profile/Setting'
 import Follow from '@/pages/profile/Follow'
 import Post from '@/pages/profile/Post'
 import MyClub from '@/pages/profile/MyClub'
+import MyActivity from '@/pages/profile/MyActivity'
 
 export default [
   { name: 'LoginWay', component: LoginWay },
@@ -47,4 +48,10 @@ export default [
   },
   { name: 'Post', component: Post },
   { name: 'MyClub', component: MyClub, title: '我的社团', headerShown: true },
+  {
+    name: 'MyActivity',
+    component: MyActivity,
+    title: '我的活动',
+    headerShown: true,
+  },
 ]
