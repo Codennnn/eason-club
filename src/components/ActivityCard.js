@@ -79,7 +79,7 @@ export default ({
                       flexDirection: 'row',
                       alignItems: 'center',
                     }}>
-                    <Text style={{ marginLeft: 5 }}>添加收藏</Text>
+                    <Text style={{ marginLeft: 5 }}>添加到收藏夹</Text>
                   </View>
                 </MenuOption>
                 <MenuOption>

@@ -2,15 +2,15 @@ import React, { useRef, useEffect } from 'react'
 import { Animated, View, TouchableNativeFeedback, Text } from 'react-native'
 
 export default ({ style }) => {
-  const fadeAnim = useRef(new Animated.Value(0)).current
+  // const fadeAnim = useRef(new Animated.Value(0)).current
   const pos = useRef(new Animated.Value(100)).current
-  useEffect(() => {
-    Animated.timing(fadeAnim, {
-      toValue: 1,
-      duration: 200,
-      useNativeDriver: true,
-    }).start()
-  }, [fadeAnim])
+  // useEffect(() => {
+  //   Animated.timing(fadeAnim, {
+  //     toValue: 1,
+  //     duration: 200,
+  //     useNativeDriver: true,
+  //   }).start()
+  // }, [fadeAnim])
   useEffect(() => {
     Animated.timing(pos, {
       toValue: 0,
@@ -33,7 +33,7 @@ export default ({ style }) => {
               padding: 20,
               transform: [{ translateY: pos }],
               backgroundColor: 'white',
-              opacity: fadeAnim,
+              // opacity: fadeAnim,
               borderRadius: 15,
             },
             style,

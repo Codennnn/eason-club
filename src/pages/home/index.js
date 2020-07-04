@@ -4,12 +4,13 @@ import { SafeAreaView, FlatList } from 'react-native'
 import HomeHeader from './components/HomeHeader'
 import PostCard from '@comp/PostCard'
 import CoverLayer from '@comp/CoverLayer'
-import ActionSheet from '@comp/ActionSheet'
+import ShareActionSheet from '@comp/ShareActionSheet'
 
 import { posts } from '@/mock-data'
 
 export default () => {
   const [showModal, setShowModal] = useState(true)
+
   return (
     <SafeAreaView>
       <FlatList
@@ -19,7 +20,9 @@ export default () => {
           <PostCard
             key={item.id}
             post={item}
-            openActionSheet={() => setShowModal(true)}
+            openActionSheet={() => {
+              setShowModal(true)
+            }}
             style={{
               padding: 12,
               paddingBottom: 0,
@@ -31,7 +34,10 @@ export default () => {
       />
 
       <CoverLayer visible={showModal} closeModal={() => setShowModal(false)}>
-        <ActionSheet />
+        <ShareActionSheet
+          visible={showModal}
+          onCancel={() => setShowModal(false)}
+        />
       </CoverLayer>
     </SafeAreaView>
   )

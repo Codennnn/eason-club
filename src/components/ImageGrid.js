@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import {
   StyleSheet,
-  StatusBar,
   View,
   Image,
   Modal,
@@ -39,12 +38,20 @@ export default ({ style, imgList }) => {
 
   return (
     <View style={css.grid}>
-      <StatusBar animated={true} hidden={showModal} />
-      <Modal visible={showModal} transparent={true} statusBarTranslucent={true}>
+      <Modal
+        style={{ flex: 1, height: '100%' }}
+        visible={showModal}
+        transparent={true}
+        animationType="fade"
+        statusBarTranslucent={true}>
         <ImageViewer
-          style={{ backgroundColor: 'rgba(0,0,0,0.5)' }}
           imageUrls={imgList.map(url => ({ url }))}
           enableSwipeDown={true}
+          useNativeDriver={true}
+          backgroundColor="rgba(0,0,0,0.8)"
+          pageAnimateTime={150}
+          swipeDownThreshold={120}
+          onClick={() => setShowModal(false)}
           onCancel={() => setShowModal(false)}
         />
       </Modal>

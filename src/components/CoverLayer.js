@@ -7,9 +7,10 @@ export default ({ children, transparent, closeModal, ...props }) => {
       transparent={true}
       animationType="fade"
       statusBarTranslucent={true}
+      hardwareAccelerated={true}
       {...props}>
       <TouchableWithoutFeedback onPress={() => closeModal()}>
-        <View style={{ flex: 1, backgroundColor: 'rgba(0,0,0,0.2)' }}>
+        <View style={[{ flex: 1, backgroundColor: 'rgba(0,0,0,0.2)' }]}>
           {children}
         </View>
       </TouchableWithoutFeedback>
