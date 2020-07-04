@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import {
   SafeAreaView,
   View,
@@ -9,6 +9,7 @@ import {
   TouchableNativeFeedback,
   KeyboardAvoidingView,
 } from 'react-native'
+import { primary, lightGray } from '@/config/style.config'
 
 import PostCard from '@comp/PostCard'
 import CommentItem from '@comp/CommentItem'
@@ -21,14 +22,13 @@ import HeartIcon from '@/assets/icon/icon_heart.svg'
 import { postDetail, commentList } from '@/mock-data'
 
 function PostDetailFooter() {
+  const focusInput = useRef()
   const [showTextInput, setShowTextInput] = useState(false)
+  const [inputText, setInputText] = useState('')
 
   return (
     <View
       style={{
-        // position: 'absolute',
-        // left: 0,
-        // bottom: 0,
         width: '100%',
         height: 50,
         justifyContent: 'center',
@@ -37,6 +37,7 @@ function PostDetailFooter() {
       {!showTextInput && (
         <View
           style={{
+            height: '100%',
             flexDirection: 'row',
             justifyContent: 'space-around',
           }}>
@@ -49,15 +50,19 @@ function PostDetailFooter() {
             {
               Icon: CommentIcon,
               label: '评论',
-              clickFunc: () => setShowTextInput(true),
+              clickFunc: () => {
+                setShowTextInput(true)
+                setTimeout(() => {
+                  focusInput.current.focus()
+                }, 100)
+              },
             },
             {
               Icon: HeartIcon,
               label: '点赞',
-              clickFunc: () => setShowTextInput(true),
             },
           ].map(({ Icon, label, clickFunc }) => (
-            <TouchableNativeFeedback onPress={() => clickFunc()}>
+            <TouchableNativeFeedback onPress={() => clickFunc?.()}>
               <View
                 style={{
                   flex: 1,
@@ -82,9 +87,34 @@ function PostDetailFooter() {
           closeModal={() => setShowTextInput(false)}>
           <KeyboardAvoidingView
             style={{ flex: 1, justifyContent: 'flex-end' }}
-            behavior="padding">
-            <View style={{ backgroundColor: 'white' }}>
-              <TextInput placeholder="发条友善的评论" autoFocus={true} />
+            keyboardVerticalOffset={-37}
+            behavior="height">
+            <View
+              style={{
+                paddingVertical: 15,
+                paddingHorizontal: 10,
+                flexDirection: 'row',
+                alignItems: 'center',
+                backgroundColor: 'white',
+              }}>
+              <View
+                style={{
+                  flex: 1,
+                  marginRight: 10,
+                  paddingHorizontal: 10,
+                  borderRadius: 20,
+                  backgroundColor: '#f4f4f4',
+                }}>
+                <TextInput
+                  ref={focusInput}
+                  placeholder="发条友善的评论"
+                  onChangeText={text => setInputText(text)}
+                />
+              </View>
+              <Text
+                style={{ color: inputText.length > 0 ? primary : lightGray }}>
+                发布
+              </Text>
             </View>
           </KeyboardAvoidingView>
         </CoverLayer>
@@ -122,7 +152,20 @@ export default () => {
             </View>
           </View>
         }
-        // ListFooterComponent={{}}
+        ListFooterComponent={
+          commentList.length > 0 && (
+            <View
+              style={{
+                paddingVertical: 15,
+                flexDirection: 'row',
+                justifyContent: 'center',
+              }}>
+              <Text style={{ fontSize: 12, color: lightGray }}>
+                (≧∇≦)ﾉ 再怎么找也没有啦
+              </Text>
+            </View>
+          )
+        }
         renderItem={({ item }, i) => <CommentItem key={item.id} data={item} />}
       />
       <PostDetailFooter />
