@@ -1,11 +1,5 @@
 import React, { useRef, useEffect } from 'react'
-import {
-  Animated,
-  View,
-  Text,
-  TouchableNativeFeedback,
-  TouchableWithoutFeedback,
-} from 'react-native'
+import { Animated, View, Text, TouchableWithoutFeedback } from 'react-native'
 
 import Friend from '@img/friend.svg'
 import Wechat from '@img/wechat.svg'

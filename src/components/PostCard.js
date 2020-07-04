@@ -1,8 +1,14 @@
 import React from 'react'
-import { StyleSheet, View, Text, TouchableOpacity } from 'react-native'
+import {
+  StyleSheet,
+  View,
+  Text,
+  TouchableOpacity,
+  TouchableWithoutFeedback,
+} from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 import Ripple from 'react-native-material-ripple'
-import { secondary, lightGray, menuStyle } from '@/config/style.config'
+import { primary, secondary, lightGray, menuStyle } from '@/config/style.config'
 import {
   Menu,
   MenuOptions,
@@ -16,7 +22,7 @@ import ImageGrid from './ImageGrid'
 import MoreIcon from '@/assets/icon/icon_more.svg'
 import ShareIcon from '@/assets/icon/icon_share.svg'
 import CommentIcon from '@/assets/icon/icon_comment.svg'
-import LikeIcon from '@/assets/icon/icon_like.svg'
+import HeartIcon from '@/assets/icon/icon_heart.svg'
 import VIcon from '@icon/icon_v.svg'
 import DislikeIcon from '@icon/icon_dislike.svg'
 import HandIcon from '@icon/icon_hand.svg'
@@ -54,95 +60,104 @@ const css = StyleSheet.create({
   },
 })
 
-export default ({ style, post, openActionSheet }) => {
+export default ({ style, post, openActionSheet, renderFooter }) => {
   const nav = useNavigation()
 
   return (
-    <View style={[css.post_card, style]}>
-      <View style={css.post_header}>
-        <Avatar
-          style={css.post_avatar}
-          src={post.owner.avatar_url}
-          clickFunc={() => nav.navigate('Club')}
-        />
-        <View>
-          <View style={css.post_owner_name}>
-            <TouchableOpacity onPress={() => nav.navigate('Club')}>
-              <Text
-                style={{ marginRight: 4, fontSize: 15, fontWeight: 'bold' }}>
-                {post.owner.name}
-              </Text>
-            </TouchableOpacity>
-            <VIcon width={24} />
+    <TouchableWithoutFeedback onPress={() => nav.navigate('PostDetail')}>
+      <View style={[css.post_card, style]}>
+        <View style={css.post_header}>
+          <Avatar
+            style={css.post_avatar}
+            src={post.owner.avatar_url}
+            clickFunc={() => nav.navigate('Club')}
+          />
+          <View>
+            <View style={css.post_owner_name}>
+              <TouchableOpacity onPress={() => nav.navigate('Club')}>
+                <Text
+                  style={{ marginRight: 4, fontSize: 15, fontWeight: 'bold' }}>
+                  {post.owner.name}
+                </Text>
+              </TouchableOpacity>
+              <VIcon width={24} />
+            </View>
+            <Text style={{ color: lightGray, fontSize: 11 }}>
+              <Text>{post.owner.own}</Text>
+              <Text> - {post.created_at}</Text>
+            </Text>
           </View>
-          <Text style={{ color: lightGray, fontSize: 11 }}>
-            <Text>{post.owner.own}</Text>
-            <Text> - {post.created_at}</Text>
-          </Text>
+          <View style={{ marginLeft: 'auto' }}>
+            <Menu>
+              <MenuTrigger style={{ padding: 6 }}>
+                <MoreIcon fill={secondary} width={17} height={17} />
+              </MenuTrigger>
+              <MenuOptions customStyles={menuStyle}>
+                <MenuOption>
+                  <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                    <DislikeIcon width={20} height={20} />
+                    <Text style={{ marginLeft: 5 }}>不感兴趣</Text>
+                  </View>
+                </MenuOption>
+                <MenuOption>
+                  <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                    <HandIcon width={20} height={20} />
+                    <Text style={{ marginLeft: 5 }}>举报违规内容</Text>
+                  </View>
+                </MenuOption>
+              </MenuOptions>
+            </Menu>
+          </View>
         </View>
-        <View style={{ marginLeft: 'auto' }}>
-          <Menu>
-            <MenuTrigger style={{ padding: 6 }}>
-              <MoreIcon fill={secondary} width={17} height={17} />
-            </MenuTrigger>
-            <MenuOptions customStyles={menuStyle}>
-              <MenuOption>
-                <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                  <DislikeIcon width={20} height={20} />
-                  <Text style={{ marginLeft: 5 }}>不感兴趣</Text>
-                </View>
-              </MenuOption>
-              <MenuOption>
-                <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                  <HandIcon width={20} height={20} />
-                  <Text style={{ marginLeft: 5 }}>举报违规内容</Text>
-                </View>
-              </MenuOption>
-            </MenuOptions>
-          </Menu>
-        </View>
-      </View>
 
-      <View>
-        {post.content?.length > 0 && (
-          <Text style={css.post_content}>{post.content}</Text>
+        <View>
+          {post.content?.length > 0 && (
+            <Text style={css.post_content}>{post.content}</Text>
+          )}
+        </View>
+
+        {post.imgList?.length > 0 && <ImageGrid imgList={post.imgList} />}
+
+        {renderFooter || (
+          <View style={css.post_footer}>
+            {[
+              {
+                id: '1',
+                Icon: ShareIcon,
+                num: post.share_num,
+                clickFunc: () => openActionSheet(),
+              },
+              {
+                id: '2',
+                Icon: CommentIcon,
+                num: post.comment_num,
+                clickFunc: () => nav.navigate('PostDetail'),
+              },
+              {
+                id: '3',
+                Icon: HeartIcon,
+                num: post.like_num,
+              },
+            ].map(({ id, Icon, num, clickFunc }, i) => (
+              <Ripple
+                key={id}
+                rippleOpacity={0.15}
+                rippleContainerBorderRadius={20}
+                style={css.post_footer_item}
+                onPress={clickFunc}>
+                <Icon style={{ marginRight: 3 }} width={20} height={20} />
+                <Text
+                  style={{
+                    color: i === 2 && post.is_like ? primary : secondary,
+                    fontSize: 13,
+                  }}>
+                  {num || 0}
+                </Text>
+              </Ripple>
+            ))}
+          </View>
         )}
       </View>
-
-      {post.imgList?.length > 0 && <ImageGrid imgList={post.imgList} />}
-
-      <View style={css.post_footer}>
-        {[
-          {
-            id: '1',
-            Icon: ShareIcon,
-            num: post.share_num,
-            clickFunc: () => openActionSheet(),
-          },
-          {
-            id: '2',
-            Icon: CommentIcon,
-            num: post.comment_num,
-            clickFunc: () => openActionSheet(),
-          },
-          {
-            id: '3',
-            Icon: LikeIcon,
-            num: post.like_num,
-            clickFunc: () => openActionSheet(),
-          },
-        ].map(({ id, Icon, num, clickFunc }) => (
-          <Ripple
-            key={id}
-            rippleOpacity={0.15}
-            rippleContainerBorderRadius={20}
-            style={css.post_footer_item}
-            onPress={clickFunc}>
-            <Icon style={{ marginRight: 3 }} width={20} height={20} />
-            <Text style={{ color: secondary, fontSize: 13 }}>{num || 0}</Text>
-          </Ripple>
-        ))}
-      </View>
-    </View>
+    </TouchableWithoutFeedback>
   )
 }

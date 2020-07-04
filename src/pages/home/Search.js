@@ -1,6 +1,8 @@
 import React, { useState, useRef } from 'react'
 import {
   StyleSheet,
+  SafeAreaView,
+  ScrollView,
   View,
   Text,
   TextInput,
@@ -8,7 +10,7 @@ import {
 } from 'react-native'
 import { primary, secondary } from '@/config/style.config'
 import { useNavigation } from '@react-navigation/native'
-import { hotList, searchHistory } from '@/mock-data'
+import { hotList, searchHistory, topic } from '@/mock-data'
 
 import SearchIcon from '@/assets/icon/icon_search.svg'
 import CloseIcon from '@/assets/icon/icon_close_circle.svg'
@@ -82,99 +84,121 @@ export default ({ style }) => {
   })
 
   return (
-    <View style={css.page}>
-      <View
-        style={{
-          flexDirection: 'row',
-          alignItems: 'center',
-          paddingHorizontal: 10,
-          paddingVertical: 20,
-        }}>
-        <View style={[style, css.inputWrapper]}>
-          <SearchIcon width={20} height={20} />
-          <TextInput
-            ref={searchInput}
-            style={{ flex: 1, height: '100%' }}
-            placeholder="搜一搜"
-            selectionColor={secondary}
-            autoFocus={true}
-            maxLength={50}
-            onChangeText={text => setSearchText(text)}
-          />
-          {searchText?.trim().length > 0 && (
-            <TouchableWithoutFeedback
-              onPress={() => {
-                searchInput.current.clear()
-                setSearchText('')
-              }}>
-              <CloseIcon
-                style={{ marginLeft: 'auto' }}
-                fill={lightGray}
-                width={20}
-                height={20}
-              />
-            </TouchableWithoutFeedback>
-          )}
-        </View>
-        <TouchableWithoutFeedback onPress={() => nav.goBack()}>
-          <Text style={{ marginLeft: 15, fontSize: 16, color: secondary }}>
-            取消
-          </Text>
-        </TouchableWithoutFeedback>
-      </View>
-
-      <View style={css.sec}>
-        <Text style={css.sec_title}>热搜</Text>
-        <View style={css.hot_list}>
-          {hotList.map(({ content, isHot = false }, i) => (
-            <TouchableWithoutFeedback key={i}>
-              <View style={css.hot_item}>
-                <Text
-                  style={[
-                    css.hot_item_sort,
-                    { color: i >= 4 ? secondary : null },
-                  ]}>
-                  {i + 1}
-                </Text>
-                <Text numberOfLines={1}>{content}</Text>
-                {isHot && <FlameIcon fill={primary} width={20} height={20} />}
-              </View>
-            </TouchableWithoutFeedback>
-          ))}
-        </View>
-      </View>
-
-      <View style={css.sec}>
-        <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-          <Text style={[css.sec_title, { marginBottom: 10 }]}>搜索历史</Text>
-          <TouchableWithoutFeedback
-            onPress={() => {
-              setIsSet(true)
-              setIsOpened(!isOpened)
-            }}>
-            <Text
-              style={{ marginLeft: 'auto', fontSize: 11, color: secondary }}>
-              {isOpened ? '收起' : '展开'}
+    <SafeAreaView>
+      <ScrollView style={css.page}>
+        <View
+          style={{
+            flexDirection: 'row',
+            alignItems: 'center',
+            paddingHorizontal: 10,
+            paddingVertical: 20,
+          }}>
+          <View style={[style, css.inputWrapper]}>
+            <SearchIcon width={20} height={20} />
+            <TextInput
+              ref={searchInput}
+              style={{ flex: 1, height: '100%' }}
+              placeholder="搜一搜"
+              selectionColor={secondary}
+              autoFocus={true}
+              maxLength={50}
+              onChangeText={text => setSearchText(text)}
+            />
+            {searchText?.trim().length > 0 && (
+              <TouchableWithoutFeedback
+                onPress={() => {
+                  searchInput.current.clear()
+                  setSearchText('')
+                }}>
+                <CloseIcon
+                  style={{ marginLeft: 'auto' }}
+                  fill={lightGray}
+                  width={20}
+                  height={20}
+                />
+              </TouchableWithoutFeedback>
+            )}
+          </View>
+          <TouchableWithoutFeedback onPress={() => nav.goBack()}>
+            <Text style={{ marginLeft: 15, fontSize: 16, color: secondary }}>
+              取消
             </Text>
           </TouchableWithoutFeedback>
         </View>
-        <View
-          style={{
-            maxHeight: isOpened ? null : maxHeight,
-            flexDirection: 'row',
-            flexWrap: 'wrap',
-            overflow: 'hidden',
-          }}
-          onLayout={onHistoryLayout}>
-          {searchHistory.map(({ content }, i) => (
-            <TouchableWithoutFeedback key={i}>
-              <View style={css.history_item}>
-                <Text numberOfLines={1}>{content}</Text>
-              </View>
-            </TouchableWithoutFeedback>
-          ))}
+
+        <View style={css.sec}>
+          <Text style={css.sec_title}>热搜</Text>
+          <View style={css.hot_list}>
+            {hotList.map(({ content, isHot = false }, i) => (
+              <TouchableWithoutFeedback key={i}>
+                <View style={css.hot_item}>
+                  <Text
+                    style={[
+                      css.hot_item_sort,
+                      { color: i >= 4 ? secondary : null },
+                    ]}>
+                    {i + 1}
+                  </Text>
+                  <Text numberOfLines={1}>{content}</Text>
+                  {isHot && <FlameIcon fill={primary} width={20} height={20} />}
+                </View>
+              </TouchableWithoutFeedback>
+            ))}
+          </View>
         </View>
-      </View>
-    </View>
+
+        <View style={css.sec}>
+          <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+            <Text style={[css.sec_title, { marginBottom: 10 }]}>搜索历史</Text>
+            <TouchableWithoutFeedback
+              onPress={() => {
+                setIsSet(true)
+                setIsOpened(!isOpened)
+              }}>
+              <Text
+                style={{ marginLeft: 'auto', fontSize: 11, color: secondary }}>
+                {isOpened ? '收起' : '展开'}
+              </Text>
+            </TouchableWithoutFeedback>
+          </View>
+          <View
+            style={{
+              maxHeight: isOpened ? null : maxHeight,
+              flexDirection: 'row',
+              flexWrap: 'wrap',
+              overflow: 'hidden',
+            }}
+            onLayout={onHistoryLayout}>
+            {searchHistory.map(({ content }, i) => (
+              <TouchableWithoutFeedback key={i}>
+                <View style={css.history_item}>
+                  <Text numberOfLines={1}>{content}</Text>
+                </View>
+              </TouchableWithoutFeedback>
+            ))}
+          </View>
+        </View>
+
+        <View style={css.sec}>
+          <Text style={[css.sec_title, { marginBottom: 10 }]}>近期话题</Text>
+
+          <View
+            style={{
+              flexDirection: 'row',
+              flexWrap: 'wrap',
+              overflow: 'hidden',
+            }}
+            onLayout={onHistoryLayout}>
+            {topic.map(({ content }, i) => (
+              <TouchableWithoutFeedback key={i}>
+                <View style={css.history_item}>
+                  <Text numberOfLines={1}>#{content}</Text>
+                </View>
+              </TouchableWithoutFeedback>
+            ))}
+          </View>
+        </View>
+      </ScrollView>
+    </SafeAreaView>
   )
 }

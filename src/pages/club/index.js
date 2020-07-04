@@ -7,6 +7,7 @@ import ClubTabView from './components/ClubTabView'
 const info = {
   owner: {
     avatar_url: 'https://gitee.com/chinesee/images/raw/master/club/008.jpg',
+    name: '新媒体工作部',
   },
   introduction: '理性观世界，自信看中国',
 }

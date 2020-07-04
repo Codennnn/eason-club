@@ -9,7 +9,7 @@ import ShareActionSheet from '@comp/ShareActionSheet'
 import { posts } from '@/mock-data'
 
 export default () => {
-  const [showModal, setShowModal] = useState(true)
+  const [showModal, setShowModal] = useState(false)
 
   return (
     <SafeAreaView>

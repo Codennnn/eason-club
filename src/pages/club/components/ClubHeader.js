@@ -1,12 +1,11 @@
 import React from 'react'
 import { StyleSheet, View, Text, TouchableWithoutFeedback } from 'react-native'
-import { primary, secondary } from '@/config/style.config'
+import { primary, secondary, lightGray } from '@/config/style.config'
 
 import Avatar from '@comp/Avatar'
 
 import DownIcon from '@icon/icon_down.svg'
 import VIcon from '@icon/icon_v.svg'
-import { lightGray } from '../../../config/style.config'
 
 const css = StyleSheet.create({
   club_header: {
@@ -16,6 +15,7 @@ const css = StyleSheet.create({
     backgroundColor: 'white',
   },
   club_header_top: {
+    marginBottom: 20,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',

@@ -16,6 +16,7 @@ export const posts = [
     share_num: 198,
     comment_num: 4014,
     like_num: '4.8w',
+    is_like: true,
     created_at: '24分钟前',
   },
   {
@@ -90,6 +91,17 @@ export const searchHistory = [
   { content: '罗翔' },
   { content: '喜剧之王' },
   { content: 'React Native' },
+]
+
+export const topic = [
+  { content: '人工智能持续崛起' },
+  { content: '力促文化转型' },
+  { content: '员工体验重于敬业度' },
+  { content: '紧随数据爆发步伐' },
+  { content: '变革已成常态' },
+  { content: '分析助力人才战略' },
+  { content: '多样化助推发展' },
+  { content: '技术驱动生产力' },
 ]
 
 export const recruitList = [
@@ -204,5 +216,21 @@ export const followList = [
   {
     name: '国贸系联谊部',
     intro: '大江东去，浪淘尽，千古风流人物。',
+  },
+]
+
+export const commentList = [
+  {
+    id: 'a1',
+    name: '123',
+    content: '123123123123123123123123123123123123',
+    created_at: '5分钟前',
+    total_replies: 8,
+    replies: [
+      {
+        name: '123',
+        content: '123',
+      },
+    ],
   },
 ]
