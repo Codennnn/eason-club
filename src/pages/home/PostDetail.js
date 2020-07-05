@@ -5,7 +5,6 @@ import {
   Text,
   FlatList,
   TextInput,
-  TouchableWithoutFeedback,
   TouchableNativeFeedback,
   KeyboardAvoidingView,
 } from 'react-native'
