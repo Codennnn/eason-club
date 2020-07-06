@@ -3,7 +3,7 @@ import { View, Text, Image, TouchableOpacity } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 import Swiper from 'react-native-swiper'
 
-import SearchInput from './SearchInput'
+import SearchInput from '@comp/SearchInput'
 import Avatar from '@comp/Avatar'
 
 import CubeIcon from '@/assets/icon/icon_cube.svg'
@@ -51,6 +51,7 @@ export default ({ navigation }) => {
           <Avatar src="https://portrait.gitee.com/uploads/avatars/user/1608/4826670_chinesee_1578975163.png!avatar200" />
           <SearchInput
             style={{ flex: 1, marginHorizontal: 20 }}
+            editable={false}
             clickFunc={() => nav.navigate('Search')}
           />
           <CubeIcon style={{ marginRight: 10 }} width={25} height={25} />

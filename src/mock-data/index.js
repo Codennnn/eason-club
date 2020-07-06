@@ -269,4 +269,30 @@ export const commentList = [
   },
 ]
 
-export const messageList = [{}]
+export const contactList = [
+  {
+    user: {
+      id: 2,
+      name: 'React Native',
+      avatar: 'https://facebook.github.io/react/img/logo_og.png',
+    },
+    msg: '😋 Yes',
+    last_time: '2天前',
+  },
+]
+
+export const messageList = [
+  {
+    id: 1,
+    text: 'My message',
+    created_at: 'new Date(Date.UTC(2016, 5, 11, 17, 20, 0))',
+    user: {
+      id: 2,
+      name: 'React Native',
+      avatar: 'https://facebook.github.io/react/img/logo_og.png',
+    },
+    image: 'https://facebook.github.io/react/img/logo_og.png',
+    sent: true,
+    received: true,
+  },
+]

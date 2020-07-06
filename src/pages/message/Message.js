@@ -1,17 +1,17 @@
 import React from 'react'
-import { SafeAreaView, FlatList } from 'react-native'
+import { View, FlatList } from 'react-native'
 
 import MessageItem from '@comp/MessageItem'
 
-import { messageList } from '@/mock-data'
+import { contactList } from '@/mock-data'
 
 export default () => {
   return (
-    <SafeAreaView>
+    <View>
       <FlatList
-        data={messageList}
-        renderItem={({ item }, i) => <MessageItem />}
+        data={contactList}
+        renderItem={({ item }, i) => <MessageItem key={item.id} {...item} />}
       />
-    </SafeAreaView>
+    </View>
   )
 }

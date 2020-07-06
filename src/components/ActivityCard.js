@@ -24,6 +24,8 @@ const css = StyleSheet.create({
     width: '100%',
     overflow: 'hidden',
   },
+  card_title: { marginTop: 20, marginBottom: 6, fontSize: 18 },
+  card_content: { fontSize: 13, lineHeight: 20, color: secondary },
 })
 
 export default ({
@@ -58,12 +60,8 @@ export default ({
             }}
             onError={() => setImgSrc(localAvatar)}
           />
-          <Text style={{ marginTop: 20, marginBottom: 6, fontSize: 18 }}>
-            {title}
-          </Text>
-          <Text
-            style={{ fontSize: 13, lineHeight: 20, color: secondary }}
-            numberOfLines={2}>
+          <Text style={css.card_title}>{title}</Text>
+          <Text style={css.card_content} numberOfLines={2}>
             {content}
           </Text>
 
@@ -94,11 +92,7 @@ export default ({
               </MenuOptions>
             </Menu>
 
-            <View
-              style={{
-                marginTop: 10,
-                marginLeft: 'auto',
-              }}>
+            <View style={{ marginTop: 10, marginLeft: 'auto' }}>
               <TouchableOpacity
                 activeOpacity={0.6}
                 onPress={() => nav.navigate('Club')}>

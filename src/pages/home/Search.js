@@ -1,26 +1,22 @@
-import React, { useState, useRef } from 'react'
+import React, { useState } from 'react'
 import {
   StyleSheet,
   SafeAreaView,
   ScrollView,
   View,
   Text,
-  TextInput,
   TouchableWithoutFeedback,
 } from 'react-native'
 import { primary, secondary } from '@/config/style.config'
 import { useNavigation } from '@react-navigation/native'
+import { lightGray } from '@/config/style.config'
+import SearchInput from '@comp/SearchInput'
+
+import FlameIcon from '@icon/icon_flame.svg'
+
 import { hotList, searchHistory, topic } from '@/mock-data'
 
-import SearchIcon from '@/assets/icon/icon_search.svg'
-import CloseIcon from '@/assets/icon/icon_close_circle.svg'
-import FlameIcon from '@icon/icon_flame.svg'
-import { lightGray } from '../../config/style.config'
-
 export default ({ style }) => {
-  const searchInput = useRef()
-  const [searchText, setSearchText] = useState('')
-
   const nav = useNavigation()
 
   const maxHeight = 90 // 搜索历史最大高度，超过将隐藏剩余记录
@@ -94,33 +90,22 @@ export default ({ style }) => {
             paddingVertical: 20,
           }}>
           <View style={[style, css.inputWrapper]}>
-            <SearchIcon width={20} height={20} />
-            <TextInput
-              ref={searchInput}
-              style={{ flex: 1, height: '100%' }}
-              placeholder="搜一搜"
-              selectionColor={secondary}
+            <SearchInput
+              style={{ flex: 1 }}
+              inputStyle={{ flex: 1, height: '100%' }}
               autoFocus={true}
-              maxLength={50}
-              onChangeText={text => setSearchText(text)}
+              placeholderTextColor={lightGray}
+              placeholder="搜一搜"
             />
-            {searchText?.trim().length > 0 && (
-              <TouchableWithoutFeedback
-                onPress={() => {
-                  searchInput.current.clear()
-                  setSearchText('')
-                }}>
-                <CloseIcon
-                  style={{ marginLeft: 'auto' }}
-                  fill={lightGray}
-                  width={20}
-                  height={20}
-                />
-              </TouchableWithoutFeedback>
-            )}
           </View>
           <TouchableWithoutFeedback onPress={() => nav.goBack()}>
-            <Text style={{ marginLeft: 15, fontSize: 16, color: secondary }}>
+            <Text
+              style={{
+                zIndex: 100,
+                marginLeft: 15,
+                fontSize: 16,
+                color: secondary,
+              }}>
               取消
             </Text>
           </TouchableWithoutFeedback>

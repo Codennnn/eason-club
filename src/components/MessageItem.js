@@ -3,11 +3,11 @@ import { StyleSheet, View, Text, TouchableNativeFeedback } from 'react-native'
 
 const css = StyleSheet.create({})
 
-export default ({ time }) => {
+export default ({ style, name }) => {
   return (
     <TouchableNativeFeedback>
-      <View>
-        <Text>{time}</Text>
+      <View style={[style]}>
+        <Text>{name}</Text>
       </View>
     </TouchableNativeFeedback>
   )
