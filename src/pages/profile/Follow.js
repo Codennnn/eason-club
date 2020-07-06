@@ -24,7 +24,7 @@ import { followList } from '@/mock-data'
 export default () => {
   const nav = useNavigation()
 
-  function renderItems(list, title) {
+  function renderItems(list, title, isSpecial = false) {
     return (
       <View
         style={{
@@ -66,7 +66,9 @@ export default () => {
                         flexDirection: 'row',
                         alignItems: 'center',
                       }}>
-                      <Text style={{ marginLeft: 5 }}>设为特别关注</Text>
+                      <Text style={{ marginLeft: 5 }}>
+                        {isSpecial ? '取消置顶' : '设为特别关注'}
+                      </Text>
                     </View>
                   </MenuOption>
                   <MenuOption>
@@ -91,7 +93,7 @@ export default () => {
     <SafeAreaView>
       <ScrollView style={{ paddingTop: 12 }}>
         <RefreshView>
-          {renderItems(followList.filter(el => el.top), '特别关注')}
+          {renderItems(followList.filter(el => el.top), '特别关注', true)}
           <View style={{ height: 15, backgroundColor: '#f4f4f4' }} />
           {renderItems(followList.filter(el => !el.top), '已关注')}
         </RefreshView>

@@ -14,14 +14,24 @@ export default ({ style }) => {
         style={{ paddingHorizontal: 15 }}
         data={posts}
         ListHeaderComponent={
-          <View style={{ paddingVertical: 15 }}>
+          <View style={{ paddingTop: 15 }}>
             <SearchInput
               placeholder="查找精彩动态内容"
               placeholderTextColor={lightGray}
             />
           </View>
         }
-        renderItem={({ item }, i) => <PostCard key={item.id} post={item} />}
+        renderItem={({ item }, i) => (
+          <PostCard
+            key={item.id}
+            post={item}
+            style={{
+              paddingVertical: 20,
+              borderBottomWidth: 1,
+              borderBottomColor: '#eee',
+            }}
+          />
+        )}
       />
     </View>
   )
