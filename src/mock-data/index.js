@@ -271,20 +271,21 @@ export const commentList = [
 
 export const contactList = [
   {
+    id: 'c1',
     user: {
       id: 2,
       name: 'React Native',
       avatar: 'https://facebook.github.io/react/img/logo_og.png',
     },
-    msg: '😋 Yes',
-    last_time: '2天前',
+    content: '😋 Yes',
+    last_time: '06-30',
   },
 ]
 
 export const messageList = [
   {
     id: 1,
-    text: 'My message',
+    content: 'My messagenew Date(Date.UTC(2016, 5, 11, 17, 20, 0))',
     created_at: 'new Date(Date.UTC(2016, 5, 11, 17, 20, 0))',
     user: {
       id: 2,
@@ -293,6 +294,32 @@ export const messageList = [
     },
     image: 'https://facebook.github.io/react/img/logo_og.png',
     sent: true,
+    received: true,
+  },
+  {
+    id: 2,
+    content: 'My messagenew Date(Date.UTC(2016, 5, 11, 17, 20, 0))',
+    created_at: 'new Date(Date.UTC(2016, 5, 11, 17, 20, 0))',
+    user: {
+      id: 2,
+      name: 'React Native',
+      avatar: 'https://facebook.github.io/react/img/logo_og.png',
+    },
+    image: 'https://facebook.github.io/react/img/logo_og.png',
+    sent: false,
+    received: true,
+  },
+  {
+    id: 3,
+    content: 'My messagenew Date(Date.UTC(2016, 5, 11, 17, 20, 0))',
+    created_at: 'new Date(Date.UTC(2016, 5, 11, 17, 20, 0))',
+    user: {
+      id: 2,
+      name: 'React Native',
+      avatar: 'https://facebook.github.io/react/img/logo_og.png',
+    },
+    image: 'https://facebook.github.io/react/img/logo_og.png',
+    sent: false,
     received: true,
   },
 ]

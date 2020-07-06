@@ -5,9 +5,11 @@ import Recruit from '@/pages/home/Recruit'
 import Activity from '@/pages/home/Activity'
 import Search from '@/pages/home/Search'
 import PostDetail from '@/pages/home/PostDetail'
-
 import Club from '@/pages/club'
+
 import ClubClass from '@/pages/explore/ClubClass'
+
+import MessageDetail from '@/pages/message/MessageDetail'
 
 import Management from '@/pages/profile/Management'
 import Setting from '@/pages/profile/Setting'
@@ -24,6 +26,8 @@ export default [
   { name: 'Club', component: Club },
   { name: 'PostDetail', component: PostDetail },
   { name: 'ClubClass', component: ClubClass, title: '分类', headerShown: true },
+
+  { name: 'MessageDetail', component: MessageDetail },
 
   {
     name: 'Management',

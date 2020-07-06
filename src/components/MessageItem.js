@@ -1,13 +1,42 @@
 import React from 'react'
 import { StyleSheet, View, Text, TouchableNativeFeedback } from 'react-native'
+import { useNavigation } from '@react-navigation/native'
+import { lightGray } from '@/config/style.config'
 
-const css = StyleSheet.create({})
+import Avatar from '@comp/Avatar'
 
-export default ({ style, name }) => {
+const css = StyleSheet.create({
+  item: {
+    padding: 15,
+    flexDirection: 'row',
+    alignItems: 'center',
+    borderBottomWidth: 1,
+    borderBottomColor: '#eee',
+  },
+})
+
+export default ({ style, user, content, last_time }) => {
+  const nav = useNavigation()
+
   return (
-    <TouchableNativeFeedback>
-      <View style={[style]}>
-        <Text>{name}</Text>
+    <TouchableNativeFeedback onPress={() => nav.navigate('MessageDetail')}>
+      <View style={[css.item, style]}>
+        <Avatar size={55} />
+        <View style={{ marginLeft: 15, flex: 1 }}>
+          <Text style={{ marginBottom: 5, fontSize: 16 }}>{user.name}</Text>
+          <Text style={{ color: lightGray }} numberOfLines={1}>
+            {content}
+          </Text>
+        </View>
+        <Text
+          style={{
+            marginTop: 5,
+            alignSelf: 'flex-start',
+            fontSize: 12,
+            color: lightGray,
+          }}>
+          {last_time}
+        </Text>
       </View>
     </TouchableNativeFeedback>
   )

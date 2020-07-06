@@ -20,6 +20,7 @@
     "react-native": "0.62.2",
     "react-native-easy-toast": "^1.2.0",
     "react-native-gesture-handler": "^1.6.1",
+    "react-native-gifted-chat": "^0.16.3",
     "react-native-image-picker": "^2.3.1",
     "react-native-image-zoom-viewer": "^3.0.1",
     "react-native-material-ripple": "^0.9.1",

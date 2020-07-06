@@ -1,5 +1,5 @@
 import React from 'react'
-import { FlatList, View, Text } from 'react-native'
+import { FlatList, View } from 'react-native'
 import { lightGray } from '@/config/style.config'
 
 import SearchInput from '@comp/SearchInput'
@@ -11,10 +11,10 @@ export default ({ style }) => {
   return (
     <View style={[style]}>
       <FlatList
-        style={{ paddingHorizontal: 15 }}
+        contentContainerStyle={{ padding: 15 }}
         data={posts}
         ListHeaderComponent={
-          <View style={{ paddingTop: 15 }}>
+          <View>
             <SearchInput
               placeholder="查找精彩动态内容"
               placeholderTextColor={lightGray}
