@@ -1,20 +1,15 @@
 import React from 'react'
-import {
-  StyleSheet,
-  View,
-  Text,
-  TouchableOpacity,
-  TouchableWithoutFeedback,
-} from 'react-native'
+import { StyleSheet, View, Text, TouchableOpacity } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
+import { TouchableWithoutFeedback } from 'react-native-gesture-handler'
 import Ripple from 'react-native-material-ripple'
-import { primary, secondary, lightGray, menuStyle } from '@/config/style.config'
 import {
   Menu,
   MenuOptions,
   MenuOption,
   MenuTrigger,
 } from 'react-native-popup-menu'
+import { primary, secondary, lightGray, menuStyle } from '@/config/style.config'
 
 import Avatar from './Avatar'
 import ImageGrid from './ImageGrid'

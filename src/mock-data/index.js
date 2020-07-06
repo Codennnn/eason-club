@@ -323,3 +323,10 @@ export const messageList = [
     received: true,
   },
 ]
+
+export const members = [
+  {
+    avatar_url: '',
+    name: '',
+  },
+]
