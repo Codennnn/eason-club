@@ -268,3 +268,5 @@ export const commentList = [
     ],
   },
 ]
+
+export const messageList = [{}]
