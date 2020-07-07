@@ -5,6 +5,7 @@ import Recruit from '@/pages/home/Recruit'
 import Activity from '@/pages/home/Activity'
 import Search from '@/pages/home/Search'
 import PostDetail from '@/pages/home/PostDetail'
+import ActivityDetail from '@/pages/home/ActivityDetail'
 
 import ClubClass from '@/pages/explore/ClubClass'
 
@@ -28,6 +29,7 @@ export default [
   { name: 'Club', component: Club },
   { name: 'PostDetail', component: PostDetail },
   { name: 'ClubClass', component: ClubClass, title: '分类', headerShown: true },
+  { name: 'ActivityDetail', component: ActivityDetail },
 
   { name: 'MessageDetail', component: MessageDetail },
 

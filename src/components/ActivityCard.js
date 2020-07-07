@@ -48,7 +48,7 @@ export default ({
       <TouchableNativeFeedback
         activeOpacity={0.95}
         underlayColor="#efefef"
-        onPress={() => nav.navigate('Club')}>
+        onPress={() => nav.navigate('ActivityDetail')}>
         <View style={{ padding: 15 }}>
           <Image
             source={imgSrc}

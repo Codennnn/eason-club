@@ -5,7 +5,7 @@ import MessageItem from '@comp/MessageItem'
 
 import { contactList } from '@/mock-data'
 
-export default () => {
+export default ({ style }) => {
   return (
     <View>
       <FlatList

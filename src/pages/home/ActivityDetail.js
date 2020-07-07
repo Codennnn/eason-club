@@ -1,29 +1,24 @@
 import React from 'react'
-import { SafeAreaView, FlatList } from 'react-native'
+import { SafeAreaView, Text, View, Image, StatusBar } from 'react-native'
 
 import Avatar from '@comp/Avatar'
 
-import { posts } from '@/mock-data'
-
 export default () => {
   return (
-    <SafeAreaView>
-      {/* <FlatList
-        data={posts}
-        ListHeaderComponent={HomeHeader}
-        renderItem={({ item }) => (
-          <PostCard
-            key={item.id}
-            post={item}
-            style={{
-              padding: 12,
-              paddingBottom: 0,
-              marginBottom: 10,
-              backgroundColor: 'white',
-            }}
-          />
-        )}
-      /> */}
+    <SafeAreaView style={{ flex: 1, backgroundColor: 'white' }}>
+      <StatusBar hidden={true} />
+      <View>
+        <Image
+          style={{ width: '100%', height: 220, resizeMode: 'cover' }}
+          source={{
+            uri: 'https://gitee.com/chinesee/images/raw/master/club/001.png',
+          }}
+        />
+      </View>
+
+      <View>
+        <Text>123</Text>
+      </View>
     </SafeAreaView>
   )
 }
