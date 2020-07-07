@@ -1,42 +1,30 @@
 import React from 'react'
-import {
-  StyleSheet,
-  ScrollView,
-  View,
-  Text,
-  TouchableWithoutFeedback,
-} from 'react-native'
+import { FlatList } from 'react-native'
 import { secondary } from '@/config/style.config'
 
-export default ({ style }) => {
-  const css = StyleSheet.create({
-    section: {
-      marginBottom: 20,
-    },
-    section_title: {
-      marginBottom: 5,
-      fontSize: 16,
-      fontWeight: 'bold',
-      color: secondary,
-    },
-  })
+import PostCard from '@comp/PostCard'
 
+import { posts } from '@/mock-data'
+
+export default ({ style }) => {
   return (
-    <ScrollView style={[{ padding: 15 }, style]}>
-      <View>
-        <View style={css.section}>
-          <Text style={css.section_title}>社团简介</Text>
-          <Text>123</Text>
-        </View>
-        <View style={css.section}>
-          <Text style={css.section_title}>社团荣誉</Text>
-          <Text>123</Text>
-        </View>
-        <View style={css.section}>
-          <Text style={css.section_title}>社团历史</Text>
-          <Text>成立于2008年5月20日</Text>
-        </View>
-      </View>
-    </ScrollView>
+    <FlatList
+      data={posts}
+      renderItem={({ item }) => (
+        <PostCard
+          key={item.id}
+          post={item}
+          // openActionSheet={() => {
+          //   setShowModal(true)
+          // }}
+          style={{
+            padding: 12,
+            paddingBottom: 0,
+            marginBottom: 10,
+            backgroundColor: 'white',
+          }}
+        />
+      )}
+    />
   )
 }

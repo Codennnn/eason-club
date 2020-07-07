@@ -326,35 +326,43 @@ export const messageList = [
 
 export const members = [
   {
-    avatar_url: '',
+    avatar_url:
+      'https://i2.hdslb.com/bfs/face/dfc97c51a04d9238ebcf13a1b0d66295aa6d9523.jpg_64x64.jpg',
     name: '刘建明',
   },
   {
-    avatar_url: '',
+    avatar_url:
+      'https://i1.hdslb.com/bfs/face/12457139a6ed26c4a950c0f5e262eec030d2840d.jpg_64x64.jpg',
     name: '陈永仁',
   },
   {
-    avatar_url: '',
+    avatar_url:
+      'https://i1.hdslb.com/bfs/face/a3319c51c97c804912a419dccb035c8eee24f026.jpg_64x64.jpg',
     name: '黄志诚',
   },
   {
-    avatar_url: '',
+    avatar_url:
+      'https://i1.hdslb.com/bfs/face/09c23ede13fb0a3ae1ad6664e9efcda7caca4f65.jpg_64x64.jpg',
     name: '韩琛',
   },
   {
-    avatar_url: '',
+    avatar_url:
+      'https://i1.hdslb.com/bfs/face/5103482cef4fddf4228cd7c3f2c25d4573bbfe88.jpg_64x64.jpg',
     name: '林国平',
   },
   {
-    avatar_url: '',
+    avatar_url:
+      'https://i2.hdslb.com/bfs/face/b6c4669d05df92eb45a410ba1ceb1bba34873f1e.jpg_64x64.jpg',
     name: '徐伟强',
   },
   {
-    avatar_url: '',
+    avatar_url:
+      'https://i2.hdslb.com/bfs/face/2a172a7ea303100833aff765ad9ea88ad0495855.jpg_64x64.jpg',
     name: '李心儿',
   },
   {
-    avatar_url: '',
+    avatar_url:
+      'https://i2.hdslb.com/bfs/face/98adde62ee139b7f9ddbe0419483179dc9bcc8ee.jpg_64x64.jpg',
     name: '杨锦荣',
   },
 ]

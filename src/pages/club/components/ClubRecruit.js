@@ -21,7 +21,6 @@ export default ({ style }) => {
       <View
         style={{
           margin: 20,
-          // marginBottom: 20,
           borderRadius: 10,
           overflow: 'hidden',
         }}>
