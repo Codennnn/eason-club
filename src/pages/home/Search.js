@@ -81,7 +81,10 @@ export default ({ style }) => {
 
   return (
     <SafeAreaView>
-      <ScrollView style={css.page}>
+      <ScrollView
+        style={css.page}
+        keyboardDismissMode="on-drag"
+        keyboardShouldPersistTaps="handled">
         <View
           style={{
             flexDirection: 'row',

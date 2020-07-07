@@ -87,6 +87,8 @@ target 'ReactApp' do
 
   pod 'react-native-cameraroll', :path => '../node_modules/@react-native-community/cameraroll'
 
+  pod 'react-native-webview', :path => '../node_modules/react-native-webview'
+
   target 'ReactAppTests' do
     inherit! :complete
     # Pods for testing

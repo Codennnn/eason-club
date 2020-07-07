@@ -5,7 +5,6 @@ import Recruit from '@/pages/home/Recruit'
 import Activity from '@/pages/home/Activity'
 import Search from '@/pages/home/Search'
 import PostDetail from '@/pages/home/PostDetail'
-import Club from '@/pages/club'
 
 import ClubClass from '@/pages/explore/ClubClass'
 
@@ -17,6 +16,9 @@ import Follow from '@/pages/profile/Follow'
 import Post from '@/pages/profile/Post'
 import MyClub from '@/pages/profile/MyClub'
 import MyActivity from '@/pages/profile/MyActivity'
+
+import Club from '@/pages/club'
+import RecruitForm from '@/pages/club/RecruitForm'
 
 export default [
   { name: 'LoginWay', component: LoginWay },
@@ -58,4 +60,6 @@ export default [
     title: '我的活动',
     headerShown: true,
   },
+
+  { name: 'RecruitForm', component: RecruitForm },
 ]

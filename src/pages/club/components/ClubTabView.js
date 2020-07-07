@@ -1,11 +1,12 @@
 import React from 'react'
-import { StyleSheet, View, Text } from 'react-native'
+import { StyleSheet, Text } from 'react-native'
 import ScrollableTabView from 'react-native-scrollable-tab-view'
 import { primary, secondary } from '@/config/style.config'
 
 import CustomTabBar from '@comp/CustomTabBar'
 import ClubHome from './ClubHome'
 import ClubMember from './ClubMember'
+import ClubRecruit from './ClubRecruit'
 
 const css = StyleSheet.create({
   tabBarUnderline: {
@@ -26,7 +27,7 @@ export default () => {
       <ClubHome tabLabel="主页" />
       <Text tabLabel="动态">favorite</Text>
       <ClubMember tabLabel="成员" />
-      <Text tabLabel="招新">favorite</Text>
+      <ClubRecruit tabLabel="招新" />
     </ScrollableTabView>
   )
 }

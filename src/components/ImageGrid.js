@@ -1,12 +1,20 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import {
   StyleSheet,
   View,
   Image,
+  Text,
   Modal,
-  TouchableWithoutFeedback,
+  TouchableOpacity,
 } from 'react-native'
 import ImageViewer from 'react-native-image-zoom-viewer'
+import {
+  Menu,
+  MenuOptions,
+  MenuOption,
+  MenuTrigger,
+} from 'react-native-popup-menu'
+import { menuStyle } from '@/config/style.config'
 
 const css = StyleSheet.create({
   grid: {
@@ -31,13 +39,14 @@ const css = StyleSheet.create({
 
 export default ({ style, imgList }) => {
   const [showModal, setShowModal] = useState(false)
+  const menu = useRef()
 
   const onShowModal = () => {
     setShowModal(true)
   }
 
   return (
-    <View style={css.grid}>
+    <View style={[css.grid, style]}>
       <Modal
         style={{ flex: 1, height: '100%' }}
         visible={showModal}
@@ -56,11 +65,30 @@ export default ({ style, imgList }) => {
         />
       </Modal>
       {imgList.map((uri, i) => (
-        <TouchableWithoutFeedback key={i} onPress={onShowModal}>
-          <View style={[style, css.imgWrapper]}>
-            <Image source={{ uri }} style={css.img} />
-          </View>
-        </TouchableWithoutFeedback>
+        <View key={i} style={[css.imgWrapper]}>
+          <Menu ref={menu}>
+            <MenuTrigger>
+              <TouchableOpacity
+                activeOpacity={0.6}
+                onPress={() => onShowModal()}
+                onLongPress={() => menu.current.open()}>
+                <Image source={{ uri }} style={css.img} />
+              </TouchableOpacity>
+            </MenuTrigger>
+            <MenuOptions customStyles={menuStyle}>
+              <MenuOption>
+                <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                  <Text style={{ marginLeft: 5 }}>保存到手机</Text>
+                </View>
+              </MenuOption>
+              <MenuOption>
+                <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                  <Text style={{ marginLeft: 5 }}>收藏</Text>
+                </View>
+              </MenuOption>
+            </MenuOptions>
+          </Menu>
+        </View>
       ))}
     </View>
   )

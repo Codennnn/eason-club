@@ -4,6 +4,7 @@ import android.app.Application;
 import android.content.Context;
 import com.facebook.react.PackageList;
 import com.facebook.react.ReactApplication;
+import com.reactnativecommunity.webview.RNCWebViewPackage;
 import com.reactnativecommunity.cameraroll.CameraRollPackage;
 import com.imagepicker.ImagePickerPackage;
 import com.reactnativecommunity.viewpager.RNCViewPagerPackage;

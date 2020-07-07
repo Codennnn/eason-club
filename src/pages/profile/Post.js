@@ -7,6 +7,7 @@ import {
   TouchableWithoutFeedback,
   TouchableNativeFeedback,
 } from 'react-native'
+import { useNavigation } from '@react-navigation/native'
 import { primary, lightGray } from '@/config/style.config'
 
 import TextArea from '@comp/TextArea'
@@ -16,7 +17,6 @@ import PhotoPreview from '@comp/PhotoPreview'
 import BackIcon from '@icon/icon_back.svg'
 import ImageIcon from '@icon/icon_image.svg'
 import HappyIcon from '@icon/icon_happy.svg'
-import { useNavigation } from '@react-navigation/native'
 
 const css = StyleSheet.create({
   header: {
@@ -68,6 +68,7 @@ export default () => {
           multiline={true}
           numberOfLines={5}
           onChangeText={text => setContent(text)}
+          onInputFocus={() => setCurrAction(null)}
         />
       </View>
 

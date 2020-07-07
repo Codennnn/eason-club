@@ -5,6 +5,7 @@ export default ({
   style,
   textInputStyle,
   showCount,
+  onInputFocus,
   maxLength = 140,
   ...props
 }) => {
@@ -18,6 +19,7 @@ export default ({
         numberOfLines={5}
         textAlignVertical="top"
         onChangeText={text => setContent(text)}
+        onFocus={() => onInputFocus?.()}
         {...props}
       />
       {showCount && (

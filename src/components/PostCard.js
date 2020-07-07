@@ -1,7 +1,12 @@
 import React from 'react'
-import { StyleSheet, View, Text, TouchableOpacity } from 'react-native'
+import {
+  StyleSheet,
+  View,
+  Text,
+  TouchableOpacity,
+  TouchableWithoutFeedback,
+} from 'react-native'
 import { useNavigation } from '@react-navigation/native'
-import { TouchableWithoutFeedback } from 'react-native-gesture-handler'
 import Ripple from 'react-native-material-ripple'
 import {
   Menu,
@@ -14,10 +19,10 @@ import { primary, secondary, lightGray, menuStyle } from '@/config/style.config'
 import Avatar from './Avatar'
 import ImageGrid from './ImageGrid'
 
-import MoreIcon from '@/assets/icon/icon_more.svg'
-import ShareIcon from '@/assets/icon/icon_share.svg'
-import CommentIcon from '@/assets/icon/icon_comment.svg'
-import HeartIcon from '@/assets/icon/icon_heart.svg'
+import MoreIcon from '@icon/icon_more.svg'
+import ShareIcon from '@icon/icon_share.svg'
+import CommentIcon from '@icon/icon_comment.svg'
+import HeartIcon from '@icon/icon_heart.svg'
 import VIcon from '@icon/icon_v.svg'
 import DislikeIcon from '@icon/icon_dislike.svg'
 import HandIcon from '@icon/icon_hand.svg'
@@ -111,7 +116,9 @@ export default ({ style, post, openActionSheet, renderFooter }) => {
           )}
         </View>
 
-        {post.imgList?.length > 0 && <ImageGrid imgList={post.imgList} />}
+        {post.imgList?.length > 0 && (
+          <ImageGrid style={{ zIndex: 1000 }} imgList={post.imgList} />
+        )}
 
         {renderFooter || (
           <View style={css.post_footer}>
