@@ -1,11 +1,5 @@
 import React from 'react'
-import {
-  StyleSheet,
-  ScrollView,
-  View,
-  Text,
-  TouchableWithoutFeedback,
-} from 'react-native'
+import { StyleSheet, ScrollView, View, Text } from 'react-native'
 import { secondary } from '@/config/style.config'
 
 export default ({ style }) => {

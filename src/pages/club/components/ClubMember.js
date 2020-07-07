@@ -29,10 +29,12 @@ export default ({ style }) => {
     <ScrollView style={[{ padding: 15 }, style]}>
       <View style={{ flexDirection: 'row' }}>
         {members.map(({ avatar_url, name }, i) => (
-          <View key={i} style={{ alignItems: 'center' }}>
-            <Avatar src={avatar_url} />
-            <Text>{name}</Text>
-          </View>
+          <TouchableWithoutFeedback>
+            <View key={i} style={{ alignItems: 'center' }}>
+              <Avatar src={avatar_url} />
+              <Text>{name}</Text>
+            </View>
+          </TouchableWithoutFeedback>
         ))}
       </View>
     </ScrollView>

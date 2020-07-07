@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import {
   StyleSheet,
   SafeAreaView,
-  TextInput,
   View,
   Text,
   TouchableWithoutFeedback,
@@ -10,6 +9,7 @@ import {
 } from 'react-native'
 import { primary, lightGray } from '@/config/style.config'
 
+import TextArea from '@comp/TextArea'
 import ImagePicker from '@comp/ImagePicker'
 import PhotoPreview from '@comp/PhotoPreview'
 
@@ -63,7 +63,7 @@ export default () => {
       </View>
 
       <View style={{ paddingHorizontal: 10 }}>
-        <TextInput
+        <TextArea
           placeholder="这一刻的想法..."
           multiline={true}
           numberOfLines={5}
