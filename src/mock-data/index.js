@@ -327,6 +327,34 @@ export const messageList = [
 export const members = [
   {
     avatar_url: '',
-    name: '',
+    name: '刘建明',
+  },
+  {
+    avatar_url: '',
+    name: '陈永仁',
+  },
+  {
+    avatar_url: '',
+    name: '黄志诚',
+  },
+  {
+    avatar_url: '',
+    name: '韩琛',
+  },
+  {
+    avatar_url: '',
+    name: '林国平',
+  },
+  {
+    avatar_url: '',
+    name: '徐伟强',
+  },
+  {
+    avatar_url: '',
+    name: '李心儿',
+  },
+  {
+    avatar_url: '',
+    name: '杨锦荣',
   },
 ]

@@ -25,7 +25,7 @@ export default () => {
       scrollWithoutAnimation={true}
       renderTabBar={() => <CustomTabBar />}>
       <ClubHome tabLabel="主页" />
-      <Text tabLabel="动态">favorite</Text>
+      <ClubMember tabLabel="动态" />
       <ClubMember tabLabel="成员" />
       <ClubRecruit tabLabel="招新" />
     </ScrollableTabView>

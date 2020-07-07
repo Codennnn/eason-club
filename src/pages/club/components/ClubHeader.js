@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { StyleSheet, View, Text, TouchableWithoutFeedback } from 'react-native'
 import { primary, secondary, lightGray } from '@/config/style.config'
 
 import Avatar from '@comp/Avatar'
 
+import RefreshIcon from '@icon/icon_refresh.svg'
 import DownIcon from '@icon/icon_down.svg'
 import VIcon from '@icon/icon_v.svg'
 
@@ -42,7 +43,94 @@ const css = StyleSheet.create({
   },
 })
 
+function Expand() {
+  return (
+    <View>
+      <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+        <Text>关注TA的也关注了</Text>
+        <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+          <RefreshIcon width={20} height={20} />
+          <Text style={{ color: secondary }}>换一换</Text>
+        </View>
+      </View>
+      <View
+        style={{
+          marginHorizontal: -10,
+          marginBottom: 15,
+          flexDirection: 'row',
+        }}>
+        {[
+          {
+            name: '软件系记者部',
+            avatar_url:
+              'https://i0.hdslb.com/bfs/face/a2b1c390099c03103530ffa198bf020039850397.jpg_64x64.jpg',
+            fans_num: '2.7w',
+          },
+          {
+            name: '国贸系通联部',
+            avatar_url:
+              'https://i2.hdslb.com/bfs/face/5a2bf1243bce2403c7cd7b284882212492ee1370.jpg_64x64.jpg',
+            fans_num: '528',
+          },
+          {
+            name: '外语系小卖部',
+            avatar_url:
+              'https://i0.hdslb.com/bfs/face/9e18686bbbbd22bb764823157fecbf3416c0b92a.jpg_64x64.jpg',
+            fans_num: '4.5k',
+          },
+        ].map((item, i) => (
+          <View
+            key={i}
+            style={{
+              flex: 1,
+              padding: 5,
+              alignItems: 'center',
+            }}>
+            <View
+              style={{
+                width: '100%',
+                padding: 10,
+                alignItems: 'center',
+                borderRadius: 10,
+                backgroundColor: '#f4f4f4',
+              }}>
+              <Avatar src={item.avatar_url} size={60} />
+              <Text
+                numberOfLines={1}
+                style={{
+                  marginTop: 6,
+                  marginBottom: 10,
+                  fontSize: 12,
+                  fontWeight: 'bold',
+                }}>
+                {item.name}
+              </Text>
+              <Text style={{ fontSize: 12, color: lightGray }}>
+                {item.fans_num}
+              </Text>
+              <TouchableWithoutFeedback>
+                <View
+                  style={{
+                    paddingVertical: 2,
+                    paddingHorizontal: 10,
+                    borderWidth: 1,
+                    borderColor: primary,
+                    borderRadius: 5,
+                  }}>
+                  <Text style={{ fontSize: 12, color: primary }}>关注</Text>
+                </View>
+              </TouchableWithoutFeedback>
+            </View>
+          </View>
+        ))}
+      </View>
+    </View>
+  )
+}
+
 export default ({ avatar_url, name, introduction = '还没有写简介呢~~' }) => {
+  const [showExpand, setShowExpand] = useState(false)
+
   return (
     <View style={css.club_header}>
       <View style={css.club_header_top}>
@@ -87,13 +175,22 @@ export default ({ avatar_url, name, introduction = '还没有写简介呢~~' }) 
               </TouchableWithoutFeedback>
             </View>
             <View style={css.drop_btn}>
-              <TouchableWithoutFeedback>
-                <DownIcon width={20} height={20} />
+              <TouchableWithoutFeedback
+                onPress={() => setShowExpand(!showExpand)}>
+                <DownIcon
+                  width={20}
+                  height={20}
+                  style={{
+                    transform: [{ rotateZ: showExpand ? '180deg' : '0deg' }],
+                  }}
+                />
               </TouchableWithoutFeedback>
             </View>
           </View>
         </View>
       </View>
+
+      {showExpand && <Expand />}
 
       <View style={css.club_header_bottom}>
         <Text style={{ fontSize: 18, color: primary }}>{name}</Text>

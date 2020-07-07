@@ -22,10 +22,13 @@ export default ({
         onFocus={() => onInputFocus?.()}
         {...props}
       />
+
       {showCount && (
-        <Text>
-          {content.length} / {maxLength}
-        </Text>
+        <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+          <Text style={{ marginLeft: 'auto' }}>
+            {content.length} / {maxLength}
+          </Text>
+        </View>
       )}
     </View>
   )
