@@ -1,15 +1,12 @@
 import React from 'react'
 import { SafeAreaView } from 'react-native'
 
-import EmptyData from '@comp/EmptyData'
-import RefreshView from '@comp/RefreshView'
+import TextArea from '@comp/TextArea'
 
 export default () => {
   return (
     <SafeAreaView>
-      <RefreshView>
-        <EmptyData />
-      </RefreshView>
+      <TextArea placeholder="描述一下这个任务" showCount={true} />
     </SafeAreaView>
   )
 }

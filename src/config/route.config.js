@@ -17,6 +17,9 @@ import Follow from '@/pages/profile/Follow'
 import Post from '@/pages/profile/Post'
 import MyClub from '@/pages/profile/MyClub'
 import MyActivity from '@/pages/profile/MyActivity'
+import MyTask from '@/pages/profile/MyTask'
+
+import TaskPost from '@/pages/profile/managements/TaskPost'
 
 import Club from '@/pages/club'
 import RecruitForm from '@/pages/club/RecruitForm'
@@ -60,6 +63,18 @@ export default [
     name: 'MyActivity',
     component: MyActivity,
     title: '我的活动',
+    headerShown: true,
+  },
+  {
+    name: 'MyTask',
+    component: MyTask,
+    title: '我的任务',
+    headerShown: true,
+  },
+  {
+    name: 'TaskPost',
+    component: TaskPost,
+    title: '我的任务',
     headerShown: true,
   },
 

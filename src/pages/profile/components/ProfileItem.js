@@ -19,8 +19,17 @@ export default ({ style }) => {
       icon: require('@img/profile_light.png'),
       route: 'Management',
     },
-    { label: '我的任务', icon: require('@img/profile_tab.png') },
-    { label: '社团消息', icon: require('@img/profile_msg.png'), iconWidth: 38 },
+    {
+      label: '我的任务',
+      icon: require('@img/profile_tab.png'),
+      route: 'MyTask',
+    },
+    {
+      label: '社团消息',
+      icon: require('@img/profile_msg.png'),
+      iconWidth: 38,
+      route: 'MyTask',
+    },
     {
       label: '发送动态',
       icon: require('@img/profile_show.png'),

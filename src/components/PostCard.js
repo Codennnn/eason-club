@@ -116,7 +116,9 @@ export default ({ style, post, openActionSheet, renderFooter }) => {
           )}
         </View>
 
-        {post.imgList?.length > 0 && <ImageGrid imgList={post.imgList} />}
+        {post.imgList?.length > 0 && (
+          <ImageGrid imgList={post.imgList} columns={3} />
+        )}
 
         {renderFooter || (
           <View style={css.post_footer}>

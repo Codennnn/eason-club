@@ -324,6 +324,90 @@ export const messageList = [
   },
 ]
 
+export const messages = [
+  {
+    _id: 1,
+    image: 'https://gitee.com/chinesee/images/raw/master/img/img_042.png',
+    createdAt: new Date('2020-06-22'),
+    user: {
+      _id: 2,
+      name: 'React Native',
+      avatar:
+        'https://i2.hdslb.com/bfs/face/a543eab4bd089081c8cd9d70ca7a4cabf88dfc17.jpg@.webp',
+    },
+  },
+  {
+    _id: 2,
+    text: '世界上最危险的东西是海洛因和月薪',
+    createdAt: new Date('2020-06-22'),
+    user: {
+      _id: 2,
+      name: 'React Native',
+      avatar:
+        'https://i2.hdslb.com/bfs/face/a543eab4bd089081c8cd9d70ca7a4cabf88dfc17.jpg@.webp',
+    },
+  },
+  {
+    _id: 3,
+    text:
+      '没错，因为它们很容易上瘾。你想要变得富有的方式恰恰是你想要变穷，那时你能做的事情只有工作，工作，再工作。',
+    createdAt: new Date('2020-06-22'),
+    user: {
+      _id: 2,
+      name: 'React Native',
+      avatar:
+        'https://i2.hdslb.com/bfs/face/a543eab4bd089081c8cd9d70ca7a4cabf88dfc17.jpg@.webp',
+    },
+  },
+  {
+    _id: 4,
+    text:
+      '钱是社会给你的欠条，你在过去做了一些好事，社会会为你创造它想要的东西而付钱。',
+    createdAt: new Date(),
+    user: {
+      _id: 1,
+      name: 'React Native',
+      avatar:
+        'https://portrait.gitee.com/uploads/avatars/user/1608/4826670_chinesee_1578975163.png!avatar200',
+    },
+  },
+  {
+    _id: 5,
+    text:
+      '技术只是一套还不太管用的东西。一旦某样东西成功了，它就不再是技术了。',
+    createdAt: new Date(),
+    user: {
+      _id: 1,
+      name: 'React Native',
+      avatar:
+        'https://portrait.gitee.com/uploads/avatars/user/1608/4826670_chinesee_1578975163.png!avatar200',
+    },
+  },
+  {
+    _id: 6,
+    text:
+      '如果你想变得富有，你需要想办法获得“规模化”的收入，而不是仅仅期盼每个月的工资。',
+    createdAt: new Date('2021-06-01'),
+    user: {
+      _id: 2,
+      name: 'React Native',
+      avatar:
+        'https://i2.hdslb.com/bfs/face/a543eab4bd089081c8cd9d70ca7a4cabf88dfc17.jpg@.webp',
+    },
+  },
+  {
+    _id: 7,
+    text: '学习的手段是丰富的，学习的欲望是稀缺的',
+    createdAt: new Date(),
+    user: {
+      _id: 1,
+      name: 'React Native',
+      avatar:
+        'https://i2.hdslb.com/bfs/face/a543eab4bd089081c8cd9d70ca7a4cabf88dfc17.jpg@.webp',
+    },
+  },
+]
+
 export const members = [
   {
     avatar_url:

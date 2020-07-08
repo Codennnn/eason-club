@@ -16,28 +16,28 @@ import {
 } from 'react-native-popup-menu'
 import { menuStyle } from '@/config/style.config'
 
-const css = StyleSheet.create({
-  grid: {
-    width: '100%',
-    marginHorizontal: -3,
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-  },
-  imgWrapper: {
-    width: '33.3%',
-    aspectRatio: 1,
-    padding: 3,
-    marginBottom: -2,
-  },
-  img: {
-    width: '100%',
-    height: '100%',
-    borderRadius: 15,
-    overflow: 'hidden',
-  },
-})
+export default ({ style, imgList, columns = 4 }) => {
+  const css = StyleSheet.create({
+    grid: {
+      width: '100%',
+      marginHorizontal: -3,
+      flexDirection: 'row',
+      flexWrap: 'wrap',
+    },
+    imgWrapper: {
+      width: `${100 / columns}%`,
+      aspectRatio: 1,
+      padding: 3,
+      marginBottom: -2,
+    },
+    img: {
+      width: '100%',
+      height: '100%',
+      borderRadius: 15,
+      overflow: 'hidden',
+    },
+  })
 
-export default ({ style, imgList }) => {
   const [showModal, setShowModal] = useState(false)
   const menu = useRef()
 
