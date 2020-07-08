@@ -39,6 +39,7 @@ export default () => {
       <View style={{ flexDirection: 'row', flexWrap: 'wrap' }}>
         {blocks.map(({ Icon, label, route }) => (
           <View
+            key={label}
             style={{
               width: Dimensions.get('window').width / 3,
               borderRadius: 10,

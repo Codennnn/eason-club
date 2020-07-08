@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
 import { View, TextInput, Text } from 'react-native'
+import { lightGray } from '@/config/style.config'
 
 export default ({
   style,
   textInputStyle,
+  countStyle,
   showCount,
   onInputFocus,
   maxLength = 140,
@@ -24,8 +26,15 @@ export default ({
       />
 
       {showCount && (
-        <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-          <Text style={{ marginLeft: 'auto' }}>
+        <View
+          style={[
+            {
+              flexDirection: 'row',
+              alignItems: 'center',
+            },
+            countStyle,
+          ]}>
+          <Text style={{ marginLeft: 'auto', color: lightGray }}>
             {content.length} / {maxLength}
           </Text>
         </View>

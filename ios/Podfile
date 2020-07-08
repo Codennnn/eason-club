@@ -89,6 +89,8 @@ target 'ReactApp' do
 
   pod 'react-native-webview', :path => '../node_modules/react-native-webview'
 
+  pod 'RNDateTimePicker', :path => '../node_modules/@react-native-community/datetimepicker'
+
   target 'ReactAppTests' do
     inherit! :complete
     # Pods for testing
