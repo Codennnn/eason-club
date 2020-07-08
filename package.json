@@ -17,6 +17,7 @@
     "@react-navigation/bottom-tabs": "^5.6.1",
     "@react-navigation/native": "^5.6.1",
     "@react-navigation/stack": "^5.6.2",
+    "dayjs": "^1.8.29",
     "react": "16.11.0",
     "react-native": "0.62.2",
     "react-native-easy-toast": "^1.2.0",

@@ -1,17 +1,34 @@
 import React, { useState } from 'react'
-import { SafeAreaView, TextInput, View, Text } from 'react-native'
+import { Platform, SafeAreaView, TextInput, View, Text } from 'react-native'
 import DateTimePicker from '@react-native-community/datetimepicker'
+import { primary, lightGray } from '@/config/style.config'
+import dayjs from 'dayjs'
 
 import TextArea from '@comp/TextArea'
 
+import TimeIcon from '@icon/icon_time.svg'
+import PersonAddIcon from '@icon/icon_person_add.svg'
+
 export default () => {
-  const [showDatePicker, setShowDatePicker] = useState(false)
-  const [date, setDate] = useState(new Date(1598051730000))
+  const [date, setDate] = useState(new Date())
+  const [time, setTime] = useState(new Date())
   const [mode, setMode] = useState('date')
   const [show, setShow] = useState(false)
+
   const onChange = (e, selectedDate) => {
-    setDate(selectedDate || date)
+    console.log(selectedDate)
+    if (mode === 'date') {
+      setDate(selectedDate || date)
+    } else {
+      setTime(selectedDate || time)
+    }
+    setShow(Platform.OS === 'ios')
   }
+
+  const css = {
+    item: { paddingVertical: 20, flexDirection: 'row', alignItems: 'center' },
+  }
+
   return (
     <SafeAreaView style={{ flex: 1, padding: 15, backgroundColor: 'white' }}>
       <TextInput
@@ -32,22 +49,49 @@ export default () => {
       </View>
 
       <View>
-        <View style={{ flexDirection: 'row' }}>
+        <View style={css.item}>
+          <TimeIcon width={25} height={25} />
           <Text>任务截止日期</Text>
-          <Text onPress={() => setShowDatePicker(true)}>选择日期</Text>
-          <Text onPress={() => setShowDatePicker(true)}>选择时间</Text>
+          <Text style={{ marginLeft: 'auto', color: lightGray }}>
+            <Text
+              onPress={() => {
+                setMode('date')
+                setShow(true)
+              }}>
+              {dayjs(date).format('YYYY-MM-DD') || '选择日期'}{' '}
+            </Text>
+            <Text
+              onPress={() => {
+                setMode('time')
+                setShow(true)
+              }}>
+              {'  '}
+              {dayjs(time).format('HH:mm') || '选择时间'}
+            </Text>
+          </Text>
         </View>
         <Text>选择社团成员</Text>
       </View>
 
-      {showDatePicker && (
+      {show && (
         <DateTimePicker
+          mode={mode}
           value={date}
           is24Hour={true}
           onChange={onChange}
-          onTouchCancel={() => setShowDatePicker(false)}
         />
       )}
+
+      <View
+        style={{
+          marginTop: 'auto',
+          paddingVertical: 15,
+          alignItems: 'center',
+          backgroundColor: primary,
+          borderRadius: 15,
+        }}>
+        <Text>创建任务</Text>
+      </View>
     </SafeAreaView>
   )
 }
