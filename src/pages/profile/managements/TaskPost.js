@@ -8,12 +8,14 @@ import TextArea from '@comp/TextArea'
 
 import TimeIcon from '@icon/icon_time.svg'
 import PersonAddIcon from '@icon/icon_person_add.svg'
+import ArrowIcon from '@icon/icon_chevron.svg'
 
 export default () => {
   const [date, setDate] = useState(new Date())
   const [time, setTime] = useState(new Date())
   const [mode, setMode] = useState('date')
   const [show, setShow] = useState(false)
+  const [selectedMember, setSelectedMember] = useState(0)
 
   const onChange = (e, selectedDate) => {
     console.log(selectedDate)
@@ -27,6 +29,7 @@ export default () => {
 
   const css = {
     item: { paddingVertical: 20, flexDirection: 'row', alignItems: 'center' },
+    item_label: { marginLeft: 10 },
   }
 
   return (
@@ -37,6 +40,7 @@ export default () => {
       />
       <View
         style={{
+          marginTop: 10,
           paddingVertical: 5,
           borderRadius: 10,
           backgroundColor: '#f8f8f8',
@@ -48,10 +52,14 @@ export default () => {
         />
       </View>
 
-      <View>
-        <View style={css.item}>
+      <View style={{ marginTop: 20 }}>
+        <View
+          style={[
+            css.item,
+            { borderBottomWidth: 1, borderBottomColor: '#eee' },
+          ]}>
           <TimeIcon width={25} height={25} />
-          <Text>任务截止日期</Text>
+          <Text style={css.item_label}>任务截止日期</Text>
           <Text style={{ marginLeft: 'auto', color: lightGray }}>
             <Text
               onPress={() => {
@@ -70,7 +78,32 @@ export default () => {
             </Text>
           </Text>
         </View>
-        <Text>选择社团成员</Text>
+
+        <View style={css.item}>
+          <PersonAddIcon width={25} height={25} />
+          <Text style={css.item_label}>选择社团成员</Text>
+          <View
+            style={{
+              marginLeft: 'auto',
+              flexDirection: 'row',
+              alignItems: 'center',
+              color: lightGray,
+            }}>
+            <Text>
+              已选择
+              <Text
+                style={{
+                  color: primary,
+                  fontWeight: 'bold',
+                }}>
+                {' '}
+                {selectedMember}{' '}
+              </Text>
+              个
+            </Text>
+            <ArrowIcon width={20} height={20} />
+          </View>
+        </View>
       </View>
 
       {show && (

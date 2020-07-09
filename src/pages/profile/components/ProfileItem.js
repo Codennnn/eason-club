@@ -17,18 +17,18 @@ export default ({ style }) => {
     {
       label: '社团管理',
       icon: require('@img/profile_light.png'),
-      route: 'Management',
+      route: 'ClubManagement',
     },
     {
       label: '我的任务',
       icon: require('@img/profile_tab.png'),
-      route: 'MyTask',
+      route: 'ClubTask',
     },
     {
       label: '社团消息',
       icon: require('@img/profile_msg.png'),
       iconWidth: 38,
-      route: 'MyTask',
+      route: 'ClubMessage',
     },
     {
       label: '发送动态',

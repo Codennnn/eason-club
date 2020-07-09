@@ -11,13 +11,15 @@ import ClubClass from '@/pages/explore/ClubClass'
 
 import MessageDetail from '@/pages/message/MessageDetail'
 
-import Management from '@/pages/profile/Management'
 import Setting from '@/pages/profile/Setting'
 import Follow from '@/pages/profile/Follow'
 import Post from '@/pages/profile/Post'
 import MyClub from '@/pages/profile/MyClub'
 import MyActivity from '@/pages/profile/MyActivity'
-import MyTask from '@/pages/profile/MyTask'
+
+import ClubManagement from '@/pages/club/ClubManagement'
+import ClubMessage from '@/pages/club/ClubMessage'
+import ClubTask from '@/pages/club/ClubTask'
 
 import TaskPost from '@/pages/profile/managements/TaskPost'
 
@@ -37,9 +39,15 @@ export default [
   { name: 'MessageDetail', component: MessageDetail },
 
   {
-    name: 'Management',
-    component: Management,
+    name: 'ClubManagement',
+    component: ClubManagement,
     title: '社团管理',
+    headerShown: true,
+  },
+  {
+    name: 'ClubMessage',
+    component: ClubMessage,
+    title: '社团消息',
     headerShown: true,
   },
   { name: 'Setting', component: Setting, title: '应用设置', headerShown: true },
@@ -66,8 +74,8 @@ export default [
     headerShown: true,
   },
   {
-    name: 'MyTask',
-    component: MyTask,
+    name: 'ClubTask',
+    component: ClubTask,
     title: '我的任务',
     headerShown: true,
   },
