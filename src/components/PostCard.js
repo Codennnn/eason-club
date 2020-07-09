@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import {
   StyleSheet,
   View,
@@ -23,6 +23,7 @@ import MoreIcon from '@icon/icon_more.svg'
 import ShareIcon from '@icon/icon_share.svg'
 import CommentIcon from '@icon/icon_comment.svg'
 import HeartIcon from '@icon/icon_heart.svg'
+import HeartActiveIcon from '@icon/icon_heart_active.svg'
 import VIcon from '@icon/icon_v.svg'
 import DislikeIcon from '@icon/icon_dislike.svg'
 import HandIcon from '@icon/icon_hand.svg'
@@ -54,6 +55,13 @@ const css = StyleSheet.create({
   post_content: {
     marginBottom: 5,
   },
+  post_tag: {
+    height: 26,
+    paddingHorizontal: 10,
+    justifyContent: 'center',
+    backgroundColor: 'rgba(255,189,74,.15)',
+    borderRadius: 10,
+  },
   post_owner_name: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -62,6 +70,11 @@ const css = StyleSheet.create({
 
 export default ({ style, post, openActionSheet, renderFooter }) => {
   const nav = useNavigation()
+
+  const [tags, setTags] = useState([])
+  useEffect(() => {
+    setTags([{ text: '点赞飙升' }])
+  }, [])
 
   return (
     <TouchableWithoutFeedback onPress={() => nav.navigate('PostDetail')}>
@@ -120,6 +133,17 @@ export default ({ style, post, openActionSheet, renderFooter }) => {
           <ImageGrid imgList={post.imgList} columns={3} />
         )}
 
+        {tags?.length > 0 && (
+          <View
+            style={{ marginTop: 10, flexDirection: 'row', flexWrap: 'wrap' }}>
+            {tags.map(({ text }) => (
+              <View style={css.post_tag}>
+                <Text style={{ color: primary, fontSize: 12 }}>{text}</Text>
+              </View>
+            ))}
+          </View>
+        )}
+
         {renderFooter || (
           <View style={css.post_footer}>
             {[
@@ -150,7 +174,15 @@ export default ({ style, post, openActionSheet, renderFooter }) => {
                 rippleContainerBorderRadius={20}
                 style={css.post_footer_item}
                 onPress={clickFunc}>
-                <Icon style={{ marginRight: 3 }} width={20} height={20} />
+                {i === 2 && post.is_like ? (
+                  <HeartActiveIcon
+                    style={{ marginRight: 3 }}
+                    width={20}
+                    height={20}
+                  />
+                ) : (
+                    <Icon style={{ marginRight: 3 }} width={20} height={20} />
+                  )}
                 <Text
                   style={{
                     color: i === 2 && post.is_like ? primary : secondary,

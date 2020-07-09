@@ -13,7 +13,7 @@ export default ({ style, info }) => {
       backgroundColor: 'white',
     },
     info: {
-      marginBottom: 20,
+      marginBottom: 25,
       flexDirection: 'row',
       alignItems: 'center',
     },
@@ -49,10 +49,13 @@ export default ({ style, info }) => {
   })
 
   return (
-    <View style={[style, css.card]}>
+    <View style={[css.card, style]}>
       <View style={css.info}>
         <View>
-          <Avatar clickFunc={() => nav.navigate('Club')} />
+          <Avatar
+            src={info.owner.avatar_url}
+            clickFunc={() => nav.navigate('Club')}
+          />
           <VIcon
             style={{ position: 'absolute', right: -5, bottom: -5 }}
             width={20}
@@ -63,7 +66,13 @@ export default ({ style, info }) => {
             <Text style={{ fontSize: 16, fontWeight: 'bold' }}>
               {info.owner.name}
             </Text>
-            <Text style={{ marginLeft: 1, color: secondary, fontSize: 12 }}>
+            <Text
+              style={{
+                marginTop: 2,
+                marginLeft: 1,
+                color: secondary,
+                fontSize: 12,
+              }}>
               {info.owner.own}
             </Text>
           </View>
@@ -72,20 +81,21 @@ export default ({ style, info }) => {
 
       <View
         style={{
-          marginBottom: 20,
+          marginBottom: 10,
+          paddingRight: 15,
           flexDirection: 'row',
           alignItems: 'center',
         }}>
         <View style={css.line} />
-        <Text style={{ fontSize: 17, fontWeight: 'bold' }} selectable={true}>
+        <Text style={{ fontSize: 17, fontWeight: 'bold' }} numberOfLines={1}>
           {info.title}
         </Text>
       </View>
 
       {info.content?.length > 0 && (
         <Text
-          style={{ fontSize: 16, lineHeight: 28, textAlign: 'justify' }}
-          selectable={true}>
+          style={{ lineHeight: 24, textAlign: 'justify' }}
+          numberOfLines={3}>
           {info.content}
         </Text>
       )}

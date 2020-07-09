@@ -15,15 +15,15 @@ const css = StyleSheet.create({
   },
 })
 
-export default ({ style, user, content, last_time }) => {
+export default ({ style, user, avatar, content, last_time }) => {
   const nav = useNavigation()
 
   return (
     <TouchableNativeFeedback onPress={() => nav.navigate('MessageDetail')}>
       <View style={[css.item, style]}>
-        <Avatar size={55} />
+        <Avatar size={55} src={user.avatar} />
         <View style={{ marginLeft: 15, flex: 1 }}>
-          <Text style={{ marginBottom: 5, fontSize: 16 }}>{user.name}</Text>
+          <Text style={{ marginBottom: 5, fontSize: 15 }}>{user.name}</Text>
           <Text style={{ color: lightGray }} numberOfLines={1}>
             {content}
           </Text>

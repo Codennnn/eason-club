@@ -7,7 +7,7 @@ import {
   TouchableNativeFeedback,
 } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
-import { secondary } from '@/config/style.config'
+import { secondary, lightGray } from '@/config/style.config'
 
 import Avatar from './Avatar'
 import LikeIcon from '@icon/icon_like.svg'
@@ -31,6 +31,7 @@ export default ({ style, data }) => {
         <Avatar
           style={{ marginRight: 15 }}
           clickFunc={() => nav.navigate('Club')}
+          src={data.avatar_url}
         />
         <View>
           <Text style={{ color: secondary }}>{data.name}</Text>
@@ -38,7 +39,17 @@ export default ({ style, data }) => {
         </View>
 
         <TouchableWithoutFeedback>
-          <LikeIcon style={{ marginLeft: 'auto' }} width={15} height={15} />
+          <View
+            style={{
+              marginLeft: 'auto',
+              flexDirection: 'row',
+              alignItems: 'center',
+            }}>
+            <Text style={{ marginRight: 5, color: lightGray, fontSize: 12 }}>
+              {data.like_num || ''}
+            </Text>
+            <LikeIcon width={15} height={15} />
+          </View>
         </TouchableWithoutFeedback>
       </View>
 
@@ -55,9 +66,11 @@ export default ({ style, data }) => {
                 </Text>
               ))}
               <TouchableNativeFeedback onPress={() => nav.navigate('Club')}>
-                <Text style={{ color: '#2f71f0' }}>
-                  共{data.total_replies}条回复 >
-                </Text>
+                <View style={{ flex: 1 }}>
+                  <Text style={{ color: '#2f71f0' }}>
+                    共{data.total_replies}条回复 >
+                  </Text>
+                </View>
               </TouchableNativeFeedback>
             </View>
           </View>

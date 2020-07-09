@@ -16,7 +16,7 @@ export default () => {
             info={item}
             style={{
               padding: 12,
-              marginBottom: 10,
+              marginBottom: 12,
               backgroundColor: 'white',
               borderRadius: 10,
               overflow: 'hidden',
