@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { StyleSheet, View, Text, TouchableWithoutFeedback } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
+import AsyncStorage from '@react-native-community/async-storage'
 import { primary, secondary, lightGray } from '@/config/style.config'
 
 import Avatar from '@comp/Avatar'
@@ -46,13 +47,27 @@ const css = StyleSheet.create({
 export default ({ style }) => {
   const nav = useNavigation()
 
+  const [avatar, setAvatar] = useState('')
+  const [nickname, setNickname] = useState('')
+  const [brief, setBrief] = useState('')
+  useEffect(() => {
+    // eslint-disable-next-line no-extra-semi
+    ;(async () => {
+      const userInfo = await AsyncStorage.getItem('use_info')
+      const info = userInfo && JSON.parse(userInfo)
+      setAvatar(info.avatar)
+      setNickname(info.nickname)
+      setBrief(info.brief)
+    })()
+  }, [])
+
   return (
     <View style={[style, css.profile_header]}>
       <View style={css.profile_info}>
-        <Avatar size={75} />
+        <Avatar size={75} src={avatar} />
         <View style={{ marginLeft: 16 }}>
-          <Text style={{ fontSize: 20 }}>123</Text>
-          <Text style={{ color: secondary }}>123</Text>
+          <Text style={{ marginBottom: 5, fontSize: 20 }}>{nickname}</Text>
+          <Text style={{ color: secondary }}>{brief}</Text>
         </View>
         <View style={css.profile_btn}>
           <TouchableWithoutFeedback>

@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import { StatusBar, Image } from 'react-native'
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
+import AsyncStorage from '@react-native-community/async-storage'
 import { MenuProvider } from 'react-native-popup-menu'
+import Toast from 'react-native-easy-toast'
 import routes from '@/config/route.config'
 
 import Home from './pages/home'
@@ -83,8 +85,28 @@ const Tabs = () => {
 }
 
 const App = () => {
+  const toast = useRef()
+
+  useEffect(() => {
+    // eslint-disable-next-line no-extra-semi
+    ;(async () => {
+      try {
+        const info = JSON.stringify({
+          avatar:
+            'https://portrait.gitee.com/uploads/avatars/user/1608/4826670_chinesee_1578975163.png!avatar200',
+          nickname: '令狐少侠',
+          brief: '水能载舟，亦可赛艇',
+        })
+        await AsyncStorage.setItem('use_info', info)
+      } catch {
+        toast.current.show('无法访问本地存储')
+      }
+    })()
+  }, [])
+
   return (
     <MenuProvider>
+      <Toast ref={toast} position="top" />
       <NavigationContainer>
         <StatusBar
           animated={true}

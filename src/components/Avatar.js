@@ -1,9 +1,13 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { StyleSheet, TouchableWithoutFeedback, Image, View } from 'react-native'
 
 export default ({ style, src, clickFunc, rounded = true, size = 45 }) => {
   const localAvatar = require('@img/default_avatar.png')
-  const [avatarSrc, setAvatarSrc] = useState(src ? { uri: src } : localAvatar)
+  const [avatarSrc, setAvatarSrc] = useState()
+  useEffect(() => {
+    setAvatarSrc(src ? { uri: src } : localAvatar)
+  }, [src, localAvatar])
+
   const avatarSize = size
 
   const css = StyleSheet.create({

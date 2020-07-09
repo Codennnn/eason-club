@@ -49,7 +49,7 @@ const css = StyleSheet.create({
 
 export default () => {
   const nav = useNavigation()
-  const toast = useRef(null)
+  const toast = useRef()
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
 
