@@ -53,7 +53,7 @@ export default ({ style, data }) => {
         </TouchableWithoutFeedback>
       </View>
 
-      <View style={{ paddingLeft: 60 }}>
+      <TouchableNativeFeedback style={{ paddingLeft: 60 }}>
         <View style={{ flex: 1 }}>
           <Text style={{ marginBottom: 10, lineHeight: 20 }}>
             {data.content}
@@ -75,7 +75,7 @@ export default ({ style, data }) => {
             </View>
           </View>
         </View>
-      </View>
+      </TouchableNativeFeedback>
     </View>
   )
 }

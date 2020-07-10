@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import {
   StyleSheet,
   View,
@@ -131,7 +131,7 @@ export default ({ style, post, openActionSheet, renderFooter }) => {
         {post.tags?.length > 0 && (
           <View
             style={{ marginTop: 10, flexDirection: 'row', flexWrap: 'wrap' }}>
-            {tags.map(({ text }) => (
+            {post.tags.map(({ text }) => (
               <View style={css.post_tag}>
                 <Text style={{ color: primary, fontSize: 12 }}>{text}</Text>
               </View>
