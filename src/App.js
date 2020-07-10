@@ -1,10 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { StatusBar, Image, BackHandler } from 'react-native'
-import {
-  NavigationContainer,
-  useRoute,
-  useNavigation,
-} from '@react-navigation/native'
+import { NavigationContainer, useRoute } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import AsyncStorage from '@react-native-community/async-storage'
@@ -88,12 +84,12 @@ const Tabs = () => {
     return false
   }
 
-  // useEffect(() => {
-  //   BackHandler.addEventListener('hardwareBackPress', onBackAndroid)
-  //   return () => {
-  //     BackHandler.removeEventListener('hardwareBackPress', onBackAndroid)
-  //   }
-  // })
+  useEffect(() => {
+    BackHandler.addEventListener('hardwareBackPress', onBackAndroid)
+    return () => {
+      BackHandler.removeEventListener('hardwareBackPress', onBackAndroid)
+    }
+  })
 
   return (
     <>

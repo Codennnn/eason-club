@@ -1,6 +1,5 @@
 import React from 'react'
 import { FlatList } from 'react-native'
-import { secondary } from '@/config/style.config'
 
 import PostCard from '@comp/PostCard'
 
@@ -14,9 +13,6 @@ export default ({ style }) => {
         <PostCard
           key={item.id}
           post={item}
-          // openActionSheet={() => {
-          //   setShowModal(true)
-          // }}
           style={{
             padding: 12,
             paddingBottom: 0,

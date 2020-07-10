@@ -1,5 +1,5 @@
-import React, { useEffect, useRef, useState } from 'react'
-import { SafeAreaView, Text, View, Image, StatusBar } from 'react-native'
+import React, { useEffect, useState } from 'react'
+import { SafeAreaView, View, StatusBar } from 'react-native'
 import { WebView } from 'react-native-webview'
 import {
   Placeholder,
@@ -7,9 +7,6 @@ import {
   PlaceholderLine,
   Fade,
 } from 'rn-placeholder'
-import { lightGray } from '@/config/style.config'
-
-import Avatar from '@comp/Avatar'
 
 import { activityDetail } from '@/mock-data'
 
