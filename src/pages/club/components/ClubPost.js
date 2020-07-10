@@ -4,12 +4,12 @@ import { secondary } from '@/config/style.config'
 
 import PostCard from '@comp/PostCard'
 
-import { posts } from '@/mock-data'
+import { clubDynamic } from '@/mock-data'
 
 export default ({ style }) => {
   return (
     <FlatList
-      data={posts}
+      data={clubDynamic}
       renderItem={({ item }) => (
         <PostCard
           key={item.id}

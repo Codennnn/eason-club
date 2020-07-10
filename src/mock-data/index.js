@@ -690,3 +690,51 @@ export const dynamic = [
     created_at: '5小时前',
   },
 ]
+
+export const clubDynamic = [
+  {
+    id: '1',
+    owner: {
+      avatar_url:
+        'https://i2.hdslb.com/bfs/face/3c5a67bf571dba4b4e3e0f4a7e7e0e32b7eecbf5.jpg_64x64.jpg',
+      name: '意想社团',
+      own: '广大华软',
+    },
+    content:
+      '瑞士最高法院裁定，如果雇主要求雇员在家工作，则必须为雇员支付一部分房租。',
+    share_num: 4566,
+    comment_num: 5467,
+    like_num: '2.8k',
+    created_at: '1天前',
+  },
+  {
+    id: '2',
+    owner: {
+      avatar_url:
+        'https://i2.hdslb.com/bfs/face/3c5a67bf571dba4b4e3e0f4a7e7e0e32b7eecbf5.jpg_64x64.jpg',
+      name: '意想社团',
+      own: '广大华软',
+    },
+    content:
+      '美国宇航局 NASA 正式宣布，将在下个月的5月27日下午4时32分，在佛罗里达州通过 SpaceX 公司的火箭，将两名宇航员送上国际空间站。',
+    share_num: 4566,
+    comment_num: 5467,
+    like_num: '2.8k',
+    created_at: '3天前',
+  },
+  {
+    id: '3',
+    owner: {
+      avatar_url:
+        'https://i2.hdslb.com/bfs/face/3c5a67bf571dba4b4e3e0f4a7e7e0e32b7eecbf5.jpg_64x64.jpg',
+      name: '意想社团',
+      own: '广大华软',
+    },
+    content:
+      '历史上，每当一个领域出现大量需要编程解决的问题，就会诞生一个通用的解决方案，解决掉90%的场景。然后，这个领域对程序员的需求就会快速减少。',
+    share_num: 4566,
+    comment_num: 5467,
+    like_num: '2.8k',
+    created_at: '07-02',
+  },
+]
