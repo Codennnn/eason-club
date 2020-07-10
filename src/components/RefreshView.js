@@ -1,24 +1,15 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { RefreshControl } from 'react-native'
 
 import { primary } from '@/config/style.config'
 
-export default ({ children }) => {
-  const [refreshing, setRefreshing] = useState(false)
-
-  const loadData = () => {
-    setRefreshing(true)
-    setTimeout(() => {
-      setRefreshing(false)
-    }, 1500)
-  }
-
+export default ({ children, onLoadData, ...props }) => {
   return (
     <RefreshControl
-      refreshing={refreshing}
+      {...props}
       colors={[primary]}
       tintColor={primary}
-      onRefresh={() => loadData()}>
+      onRefresh={() => onLoadData?.()}>
       {children}
     </RefreshControl>
   )

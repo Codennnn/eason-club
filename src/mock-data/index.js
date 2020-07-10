@@ -34,9 +34,9 @@ export const posts = [
       'https://gitee.com/chinesee/images/raw/master/club/004.png',
       'https://gitee.com/chinesee/images/raw/master/club/005.png',
     ],
-    share_num: 220,
-    comment_num: 6812,
-    like_num: '5.4w',
+    share_num: 198,
+    comment_num: 2289,
+    like_num: '2.5w',
     created_at: '4小时前',
   },
   {
@@ -44,28 +44,30 @@ export const posts = [
     owner: {
       avatar_url:
         'https://i0.hdslb.com/bfs/face/8e09b266923424cb92c714c55b11082e366b9d72.jpg_64x64.jpg',
-      name: '新媒体工作部',
-      own: '软件系分团委',
+      name: '国贸系新媒体资源部',
+      own: '国贸系分团委',
     },
-    content: '社团招新',
-    share_num: 220,
-    comment_num: 6812,
-    like_num: '5.4w',
-    created_at: '4小时前',
+    content:
+      '武汉市在10天内（5月15日～24日）对900万人进行了核酸检测，查出了无症状感染者218人，没有查到确诊患者。同时对这么多人进行检测，全世界恐怕找不到第二例。',
+    share_num: 119,
+    comment_num: 1132,
+    like_num: '3w',
+    created_at: '6小时前',
   },
   {
     id: '4',
     owner: {
       avatar_url:
         'https://i0.hdslb.com/bfs/face/4e5d0a51273fe3f8fabc700b6a71bb8a38c9e21e.jpg_64x64.jpg',
-      name: '新媒体工作部',
-      own: '软件系分团委',
+      name: '软件系社交部',
+      own: '软件系学生会',
     },
-    content: '社团招新',
-    share_num: 220,
-    comment_num: 6812,
-    like_num: '5.4w',
-    created_at: '4小时前',
+    content:
+      '微软宣布，将在 Windows 上通过 Linux子系统（WSL）添加 Linux GUI 支持，即 Windows 原生支持 Linux 图形界面程序。这意味着，大部分 Linux 应用将可以在 Windows 运行。',
+    share_num: 88,
+    comment_num: 461,
+    like_num: '6.3k',
+    created_at: '7小时前',
   },
 ]
 
@@ -619,3 +621,72 @@ export const activityDetail = {
 不过，也不是每个人都能做播客。谈话节目对主持人的要求特别高，必须有亲切感和人生阅历，说话还要流利、通俗易懂、有吸引力和感染力。现在占据网络直播台的少男少女，都做不了播客。
   `,
 }
+
+export const dynamic = [
+  {
+    id: '1',
+    owner: {
+      avatar_url:
+        'https://i2.hdslb.com/bfs/face/3c5a67bf571dba4b4e3e0f4a7e7e0e32b7eecbf5.jpg_64x64.jpg',
+      name: '意想社团',
+      own: '广大华软',
+    },
+    content:
+      '瑞士最高法院裁定，如果雇主要求雇员在家工作，则必须为雇员支付一部分房租。',
+    imgList: ['https://www.wangbase.com/blogimg/asset/202005/bg2020052605.jpg'],
+    share_num: 4566,
+    comment_num: 5467,
+    like_num: '2.8k',
+    is_like: true,
+    created_at: '54分钟前',
+  },
+  {
+    id: '2',
+    owner: {
+      avatar_url:
+        'https://i1.hdslb.com/bfs/face/82eceb4304d8ff181b60d2c6488511bbda76d063.jpg_64x64.jpg',
+      name: '软件系新媒体工作部',
+      own: '软件系分团委',
+    },
+    content:
+      '面试是求职的最后一关，如果准备得不好，会导致前功尽弃。而且，程序员的面试往往跟最终职级和薪资直接相关。两个应聘者的其他条件都类似，就是面试表现有差异，最后的薪资可能就会有不小的差距。',
+    imgList: [
+      'https://www.wangbase.com/blogimg/asset/202004/bg2020042202.jpg',
+      'https://www.wangbase.com/blogimg/asset/202004/bg2020042204.jpg',
+    ],
+    share_num: 987,
+    comment_num: 567,
+    like_num: '2.1k',
+    created_at: '3小时前',
+  },
+  {
+    id: '3',
+    owner: {
+      avatar_url:
+        'https://i2.hdslb.com/bfs/face/8b0d053d117a4244b71a38984c27df6ec04b8550.jpg_64x64.jpg',
+      name: '国贸系新媒体资源部',
+      own: '国贸系分团委',
+    },
+    content:
+      '苹果公司为了展示 iPhone 11 pro 的电力持久，拍了一支5小时19分28秒的广告。整支广告就是用一只 iPhone 11 pro 一镜拍到底，表明它的视频可以拍这么久，并且质量很好，镜头也很平稳。拍摄完成后，手机仍剩19％的电力。',
+    share_num: 220,
+    comment_num: 404,
+    like_num: 998,
+    created_at: '4小时前',
+  },
+  {
+    id: '4',
+    owner: {
+      avatar_url:
+        'https://i2.hdslb.com/bfs/face/6ce2bd85f6bf765e676c8cbc2e687001ce359a8c.jpg_64x64.jpg',
+      name: '软件系社交部',
+      own: '软件系学生会',
+    },
+    content:
+      '博物馆只给拍摄团队6个小时的拍摄时间，虽然路线事先已经安排好了，但是完全没有犯错重拍的余地。Youtube 和 BiliBili 有这支5小时广告的全片。',
+    share_num: 123,
+    comment_num: 435,
+    like_num: '2.5k',
+    created_at: '5小时前',
+  },
+]

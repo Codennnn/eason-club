@@ -5,14 +5,14 @@ import { lightGray } from '@/config/style.config'
 import SearchInput from '@comp/SearchInput'
 import PostCard from '@comp/PostCard'
 
-import { posts } from '@/mock-data'
+import { dynamic } from '@/mock-data'
 
 export default ({ style }) => {
   return (
     <View style={[style]}>
       <FlatList
         contentContainerStyle={{ padding: 15 }}
-        data={posts}
+        data={dynamic}
         ListHeaderComponent={
           <View>
             <SearchInput

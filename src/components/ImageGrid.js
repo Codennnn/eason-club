@@ -25,7 +25,7 @@ export default ({ style, imgList, columns = 4 }) => {
       flexWrap: 'wrap',
     },
     imgWrapper: {
-      width: `${100 / columns}%`,
+      width: imgList.length === 1 ? '80%' : `${100 / columns}%`,
       aspectRatio: 1,
       padding: 3,
       marginBottom: -2,
@@ -33,6 +33,7 @@ export default ({ style, imgList, columns = 4 }) => {
     img: {
       width: '100%',
       height: '100%',
+      // resizeMode: 'cover',
       borderRadius: 15,
       overflow: 'hidden',
     },
