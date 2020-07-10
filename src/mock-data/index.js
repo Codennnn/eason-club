@@ -18,6 +18,7 @@ export const posts = [
     like_num: '4.8w',
     is_like: true,
     created_at: '24分钟前',
+    tags: [{ text: '点赞飙升' }],
   },
   {
     id: '2',

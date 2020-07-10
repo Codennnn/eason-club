@@ -71,11 +71,6 @@ const css = StyleSheet.create({
 export default ({ style, post, openActionSheet, renderFooter }) => {
   const nav = useNavigation()
 
-  const [tags, setTags] = useState([])
-  useEffect(() => {
-    setTags([{ text: '点赞飙升' }])
-  }, [])
-
   return (
     <TouchableWithoutFeedback onPress={() => nav.navigate('PostDetail')}>
       <View style={[css.post_card, style]}>
@@ -133,7 +128,7 @@ export default ({ style, post, openActionSheet, renderFooter }) => {
           <ImageGrid imgList={post.imgList} columns={3} />
         )}
 
-        {tags?.length > 0 && (
+        {post.tags?.length > 0 && (
           <View
             style={{ marginTop: 10, flexDirection: 'row', flexWrap: 'wrap' }}>
             {tags.map(({ text }) => (
@@ -181,8 +176,8 @@ export default ({ style, post, openActionSheet, renderFooter }) => {
                     height={20}
                   />
                 ) : (
-                    <Icon style={{ marginRight: 3 }} width={20} height={20} />
-                  )}
+                  <Icon style={{ marginRight: 3 }} width={20} height={20} />
+                )}
                 <Text
                   style={{
                     color: i === 2 && post.is_like ? primary : secondary,
