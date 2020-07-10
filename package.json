@@ -36,7 +36,8 @@
     "react-native-svg": "^12.1.0",
     "react-native-swiper": "^1.6.0-rc.3",
     "react-native-webview": "^10.3.2",
-    "react-redux": "^7.2.0"
+    "react-redux": "^7.2.0",
+    "rn-placeholder": "^3.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.6.2",

@@ -5927,6 +5927,11 @@ rimraf@~2.2.6:
   resolved "https://registry.npm.taobao.org/rimraf/download/rimraf-2.2.8.tgz?cache=0&sync_timestamp=1581229865753&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Frimraf%2Fdownload%2Frimraf-2.2.8.tgz#e439be2aaee327321952730f99a8929e4fc50582"
   integrity sha1-5Dm+Kq7jJzIZUnMPmaiSnk/FBYI=
 
+rn-placeholder@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.npm.taobao.org/rn-placeholder/download/rn-placeholder-3.0.1.tgz#5073210e9d35791e379df9604414d3c6d531a3ee"
+  integrity sha1-UHMhDp01eR43nflgRBTTxtUxo+4=
+
 rsvp@^4.8.4:
   version "4.8.5"
   resolved "https://registry.npm.taobao.org/rsvp/download/rsvp-4.8.5.tgz#c8f155311d167f68f21e168df71ec5b083113734"

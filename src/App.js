@@ -1,6 +1,10 @@
-import React, { useEffect, useRef } from 'react'
-import { StatusBar, Image } from 'react-native'
-import { NavigationContainer } from '@react-navigation/native'
+import React, { useEffect, useRef, useState } from 'react'
+import { StatusBar, Image, BackHandler } from 'react-native'
+import {
+  NavigationContainer,
+  useRoute,
+  useNavigation,
+} from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import AsyncStorage from '@react-native-community/async-storage'
@@ -16,26 +20,26 @@ import Profile from './pages/profile'
 const Tabbar = {
   Home: {
     label: '首页',
-    defaultIcon: require('./assets/image/tab_home.png'),
-    activeIcon: require('./assets/image/tab_home_active.png'),
+    defaultIcon: require('@img/tab_home.png'),
+    activeIcon: require('@img/tab_home_active.png'),
     component: Home,
   },
   Explore: {
     label: '探索',
-    defaultIcon: require('./assets/image/tab_fun.png'),
-    activeIcon: require('./assets/image/tab_fun_active.png'),
+    defaultIcon: require('@img/tab_fun.png'),
+    activeIcon: require('@img/tab_fun_active.png'),
     component: Explore,
   },
   Message: {
     label: '消息',
-    defaultIcon: require('./assets/image/tab_msg.png'),
-    activeIcon: require('./assets/image/tab_msg_active.png'),
+    defaultIcon: require('@img/tab_msg.png'),
+    activeIcon: require('@img/tab_msg_active.png'),
     component: Message,
   },
   Profile: {
     label: '我的',
-    defaultIcon: require('./assets/image/tab_profile.png'),
-    activeIcon: require('./assets/image/tab_profile_active.png'),
+    defaultIcon: require('@img/tab_profile.png'),
+    activeIcon: require('@img/tab_profile_active.png'),
     component: Profile,
   },
 }
@@ -68,19 +72,46 @@ const getOptions = ({ route }) => {
 const Tab = createBottomTabNavigator()
 
 const Tabs = () => {
+  const toast = useRef()
+  const route = useRoute()
+  const [lastBackPressed, setLastBackPressed] = useState(null)
+  const onBackAndroid = () => {
+    if (['Home', 'Explore', 'Message', 'Profile'].includes(route.name)) {
+      if (lastBackPressed && Date.now() - lastBackPressed <= 2000) {
+        BackHandler.exitApp()
+        return false
+      }
+      setLastBackPressed(Date.now())
+      toast.current.show('再按一次退出')
+      return true
+    }
+    return false
+  }
+
+  // useEffect(() => {
+  //   BackHandler.addEventListener('hardwareBackPress', onBackAndroid)
+  //   return () => {
+  //     BackHandler.removeEventListener('hardwareBackPress', onBackAndroid)
+  //   }
+  // })
+
   return (
-    <Tab.Navigator
-      tabBarOptions={{
-        keyboardHidesTabBar: true,
-        activeTintColor: '#363636',
-        inactiveTintColor: '#7c7c7c',
-      }}>
-      {['Home', 'Explore', 'Message', 'Profile'].map(name => (
-        <Tab.Screen key={name} name={name} options={data => getOptions(data)}>
-          {props => <Screen routeName={name} />}
-        </Tab.Screen>
-      ))}
-    </Tab.Navigator>
+    <>
+      <Toast ref={toast} />
+      <Tab.Navigator
+        backBehavior="none"
+        tabBarOptions={{
+          keyboardHidesTabBar: true,
+          activeTintColor: '#363636',
+          inactiveTintColor: '#7c7c7c',
+        }}>
+        {['Home', 'Explore', 'Message', 'Profile'].map(name => (
+          <Tab.Screen key={name} name={name} options={data => getOptions(data)}>
+            {props => <Screen routeName={name} />}
+          </Tab.Screen>
+        ))}
+      </Tab.Navigator>
+    </>
   )
 }
 
@@ -119,6 +150,7 @@ const App = () => {
             component={Tabs}
             options={{ headerShown: false }}
           />
+
           {routes.map(({ name, component, title, headerShown = false }) => (
             <Stack.Screen
               key={name}

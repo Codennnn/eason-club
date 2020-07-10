@@ -1,5 +1,5 @@
 import React from 'react'
-import { FlatList, View } from 'react-native'
+import { FlatList, View, Text } from 'react-native'
 import { lightGray } from '@/config/style.config'
 
 import SearchInput from '@comp/SearchInput'
@@ -19,6 +19,14 @@ export default ({ style }) => {
               placeholder="查找精彩动态内容"
               placeholderTextColor={lightGray}
             />
+          </View>
+        }
+        ListFooterComponent={
+          <View style={{ paddingVertical: 20 }}>
+            <Text
+              style={{ fontSize: 12, color: lightGray, textAlign: 'center' }}>
+              (≧∇≦)ﾉ 再怎么找也没有啦
+            </Text>
           </View>
         }
         renderItem={({ item }, i) => (

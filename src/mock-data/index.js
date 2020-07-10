@@ -164,10 +164,10 @@ export const recruitList = [
 export const activityList = [
   {
     id: '1',
-    title: '新媒体在路上，等风也等你',
-    cover_url: 'https://gitee.com/chinesee/images/raw/master/club/001.png',
+    title: '保护你的 DNA，不要泄漏',
+    cover_url: 'https://gitee.com/chinesee/images/raw/master/club/010.png',
     content:
-      '你认为自我无一专长却有一颗热忱的心，愿意为社团运作贡献出自我的力量吗？如果你热爱青春,期望展示自我，那就加入学生会。',
+      '上周，美国佛罗里达州通过了《DNA 隐私法》，成为美国第一个对 DNA 立法的州。它明文规定 DNA 属于个人隐私，保险公司不得获取 DNA 测试的结果。',
     name: '软件系新媒体工作部',
     avatar_url:
       'https://i2.hdslb.com/bfs/face/9fde235378806dacaa4761bf32a6498a7531b55a.jpg_64x64.jpg',
@@ -175,10 +175,10 @@ export const activityList = [
   },
   {
     id: '2',
-    title: '新媒体在路上，等风也等你',
-    cover_url: 'https://gitee.com/chinesee/images/raw/master/club/002.png',
+    title: '暴力犯罪为什么越来越少？',
+    cover_url: 'https://gitee.com/chinesee/images/raw/master/club/011.png',
     content:
-      '你认为自我无一专长却有一颗热忱的心，愿意为社团运作贡献出自我的力量吗？如果你热爱青春,期望展示自我，那就加入学生会。',
+      '一个台湾网友在推特说，根据统计，台湾的暴力犯罪在过去20年惊人地下降，2019年已经比最高峰时减少了94.2%。他问，到底是什么原因，让暴力犯罪在一代人的时间里只剩5.8%？人性的变化，还是社会结构的变化？',
     name: '外语系文娱部',
     avatar_url:
       'https://i0.hdslb.com/bfs/face/8e09b266923424cb92c714c55b11082e366b9d72.jpg_64x64.jpg',
@@ -186,10 +186,10 @@ export const activityList = [
   },
   {
     id: '3',
-    title: '新媒体在路上，等风也等你',
-    cover_url: 'https://gitee.com/chinesee/images/raw/master/club/003.png',
+    title: '如何培养领导力',
+    cover_url: 'https://gitee.com/chinesee/images/raw/master/club/012.png',
     content:
-      '你认为自我无一专长却有一颗热忱的心，愿意为社团运作贡献出自我的力量吗？如果你热爱青春,期望展示自我，那就加入学生会。',
+      '你在一家公司工作几年以后，如果负责的业务发展顺利，有招聘名额，你一般都有机会带一个团队。但是，有些程序员写代码可以胜任，带团队就带不好，无法带领大家一起完成任务。只有业务能力，没有领导能力，这是走不远的。俗话说得好："一个人走得快，一群人走得远"。',
     name: '管理系表演部',
     avatar_url:
       'https://i2.hdslb.com/bfs/face/6f1364b43acd594d457f489eda6989e2f5927cb3.jpg_64x64.jpg',
@@ -197,10 +197,10 @@ export const activityList = [
   },
   {
     id: '4',
-    title: '新媒体在路上，等风也等你',
-    cover_url: 'https://gitee.com/chinesee/images/raw/master/club/004.png',
+    title: '智能电视的误区',
+    cover_url: 'https://gitee.com/chinesee/images/raw/master/club/013.png',
     content:
-      '你认为自我无一专长却有一颗热忱的心，愿意为社团运作贡献出自我的力量吗？如果你热爱青春,期望展示自我，那就加入学生会。',
+      '国内的智能电视机，现在都自带系统，一打开就是各种菜单，有直播、影视、游戏、应用等等。我不赞成这样的设计，也不愿意购买这样的电视机。',
     name: '计算机系新媒体部',
     avatar_url:
       'https://i0.hdslb.com/bfs/face/4e5d0a51273fe3f8fabc700b6a71bb8a38c9e21e.jpg_64x64.jpg',
@@ -208,13 +208,13 @@ export const activityList = [
   },
   {
     id: '5',
-    title: '新媒体在路上，等风也等你',
-    cover_url: 'https://gitee.com/chinesee/images/raw/master/club/005.png',
+    title: '播客的价值',
+    cover_url: 'https://gitee.com/chinesee/images/raw/master/club/014.png',
     content:
       '你认为自我无一专长却有一颗热忱的心，愿意为社团运作贡献出自我的力量吗？如果你热爱青春,期望展示自我，那就加入学生会。',
     name: '国贸系外交部',
     avatar_url:
-      'https://i1.hdslb.com/bfs/face/1d6f100b921c9b48914eda8f3b37e76ba9ef4ca5.jpg_64x64.jpg',
+      'Spotify 最近购买了乔·罗根（Joe Rogan）播客节目的独家播放权，价格据说达到了一亿美元。',
     created_at: '2020-6-22',
   },
 ]
@@ -368,7 +368,7 @@ export const contactList = [
         'https://i2.hdslb.com/bfs/face/a543eab4bd089081c8cd9d70ca7a4cabf88dfc17.jpg@.webp',
     },
     content: '😋 我超级喜欢你的！小肝肝！！',
-    last_time: '06-30',
+    last_time: '07-10',
   },
   {
     id: 'c2',
@@ -379,7 +379,7 @@ export const contactList = [
         'https://i2.hdslb.com/bfs/face/c83ea0aeb36097387b3724f3d0210c4d6c8f9723.jpg_64x64.jpg',
     },
     content: '你飘了，三十万点赞更新下期，可能吗，你还不如直接鸽了算了',
-    last_time: '06-28',
+    last_time: '07-10',
   },
   {
     id: 'c3',
@@ -390,7 +390,7 @@ export const contactList = [
         'https://i2.hdslb.com/bfs/face/2a90801ed930143fd69bc835f3973dc656ab210c.jpg_64x64.jpg',
     },
     content: '李丰田真的是近几年国产剧印象最深最让人后脊发凉的反派',
-    last_time: '06-28',
+    last_time: '07-05',
   },
   {
     id: 'c4',
@@ -595,3 +595,27 @@ export const members = [
     name: '杨锦荣',
   },
 ]
+
+export const activityDetail = {
+  title: '播客的价值',
+  time: '2020-7-10',
+  content: `
+  Spotify 最近购买了乔·罗根（Joe Rogan）播客节目的独家播放权，价格据说达到了一亿美元。
+
+  "播客"是 podcast 的中文音译，指的是谈话类的互联网音频节目，主要供用户收听。乔·罗根的节目是美国最有影响力的播客之一，每期采访一个来宾，两人坐着谈话，单期的收听超过1000万人次。
+
+  播客的制作成本非常低，说话能有多少成本？一亿美元的天价前所未有，很难想象一个互联网谈话节目，值这么多钱。
+
+  这件事的启示就是，我们可能远远低估了播客的潜力。它是一种传播力很强的媒体，属于还没被充分认识的金矿。
+
+相比其他媒体，播客最大的特点就是，你一个人收听（尤其戴着耳机）时，主持人就是对着你的耳朵在讲述，属于跟受众物理距离最近的媒体。 现实生活中，只有最亲近的朋友和亲人，才会一对一地跟你诉说。所以，播客很容易让听众产生亲切感，赢得长期的忠实订阅者。
+
+这反过来也要求播客主持人必须非常真诚，否则就没有在耳边诉说的效果，反而容易产生反感。播客的另一个优势是走路、开车、躺着都能听，传播场合远远超过视频。
+
+我觉得，播客可能是国内互联网的下一个热点。现在国内的热点是直播卖货，其实就是互联网版的电视购物，观众人数总是有限的，愿意看推销节目的人再多能有多少？精心制作的谈话节目会有多得多的听众。
+
+有人会说，播客在国内不可行，因为国内对内容管理得很严格，谈话节目做不起来。但是反过来看，就是因为生产不足，国内听众对内容的需求特别大。以前，《读者》杂志一期可以发行1000万份，就说明这一点了。目前，国内好的谈话节目寥寥无几，这是不正常的，我们有14亿人口。播客有很多方面可以谈，一定有大量听众追着听，比如男女关系、生活感悟、家庭生活、球赛、电影、财经（或房地产/股票/彩票）分析等等。
+
+不过，也不是每个人都能做播客。谈话节目对主持人的要求特别高，必须有亲切感和人生阅历，说话还要流利、通俗易懂、有吸引力和感染力。现在占据网络直播台的少男少女，都做不了播客。
+  `,
+}

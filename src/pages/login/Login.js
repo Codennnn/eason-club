@@ -53,9 +53,16 @@ export default () => {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
 
-  const onLogin = () => {
-    if (username.trim().length <= 0 || password.trim.length <= 0) {
+  const onLogin = async () => {
+    if (username.trim().length <= 0 || password.trim().length <= 0) {
       toast.current.show('请输入账号或密码', 1000)
+      return
+    }
+
+    try {
+      const res = await fetch('https://mywebsite.com/mydata.json')
+    } catch {
+      toast.current.show('登录请求失败')
     }
   }
 
@@ -96,7 +103,10 @@ export default () => {
             <Text style={{ color: secondary }}>登录前请先阅读</Text>
             《隐私协议》
           </Text>
-          <Ripple style={css.submit_btn} rippleOpacity={0.1} onPress={onLogin}>
+          <Ripple
+            style={css.submit_btn}
+            rippleOpacity={0.1}
+            onPress={() => onLogin()}>
             <Text>立即登录</Text>
           </Ripple>
         </View>

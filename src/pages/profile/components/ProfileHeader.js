@@ -70,7 +70,7 @@ export default ({ style }) => {
           <Text style={{ color: secondary }}>{brief}</Text>
         </View>
         <View style={css.profile_btn}>
-          <TouchableWithoutFeedback>
+          <TouchableWithoutFeedback onPress={() => nav.navigate('Club')}>
             <View style={css.profile_btn_inner}>
               <Text>个人空间</Text>
             </View>
@@ -81,8 +81,8 @@ export default ({ style }) => {
       <View style={css.profile_statistics}>
         {[
           { label: '我的社团', num: 3, route: 'MyClub' },
-          { label: '我的关注', num: 3, route: 'Follow' },
-          { label: '我的活动', num: 3, route: 'MyActivity' },
+          { label: '我的关注', num: 54, route: 'Follow' },
+          { label: '我的活动', num: 16, route: 'MyActivity' },
         ].map(({ label, num, route }) => (
           <TouchableWithoutFeedback
             key={label}

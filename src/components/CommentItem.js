@@ -53,29 +53,32 @@ export default ({ style, data }) => {
         </TouchableWithoutFeedback>
       </View>
 
-      <TouchableNativeFeedback style={{ paddingLeft: 60 }}>
+      <View style={{ paddingLeft: 60 }}>
         <View style={{ flex: 1 }}>
           <Text style={{ marginBottom: 10, lineHeight: 20 }}>
             {data.content}
           </Text>
-          <View style={css.reply}>
-            <View>
-              {data.replies.map(({ name, content }, i) => (
-                <Text key={i} style={{ color: '#444' }} numberOfLines={2}>
-                  <Text style={{ color: '#2f71f0' }}>{name}</Text>：{content}
-                </Text>
-              ))}
-              <TouchableNativeFeedback onPress={() => nav.navigate('Club')}>
-                <View style={{ flex: 1 }}>
-                  <Text style={{ color: '#2f71f0' }}>
-                    共{data.total_replies}条回复 >
+
+          <TouchableNativeFeedback>
+            <View style={css.reply}>
+              <View>
+                {data.replies.map(({ name, content }, i) => (
+                  <Text key={i} style={{ color: '#444' }} numberOfLines={2}>
+                    <Text style={{ color: '#2f71f0' }}>{name}</Text>：{content}
                   </Text>
-                </View>
-              </TouchableNativeFeedback>
+                ))}
+                <TouchableNativeFeedback onPress={() => nav.navigate('Club')}>
+                  <View style={{ flex: 1 }}>
+                    <Text style={{ color: '#2f71f0' }}>
+                      共{data.total_replies}条回复 >
+                    </Text>
+                  </View>
+                </TouchableNativeFeedback>
+              </View>
             </View>
-          </View>
+          </TouchableNativeFeedback>
         </View>
-      </TouchableNativeFeedback>
+      </View>
     </View>
   )
 }

@@ -11,12 +11,12 @@ import { useNavigation } from '@react-navigation/native'
 import ArrowIcon from '@icon/icon_chevron.svg'
 
 const settingItems = [
-  { label: '账号资料' },
-  { label: '安全隐私', divider: true },
+  { label: '账号资料', route: 'LoginWay' },
+  { label: '安全隐私', route: 'LoginWay', divider: true },
   { label: '清理存储空间' },
-  { label: '动态设置' },
-  { label: '用户协议' },
-  { label: '隐私策略', divider: true },
+  { label: '动态设置', route: 'LoginWay' },
+  { label: '用户协议', route: 'LoginWay' },
+  { label: '隐私策略', route: 'LoginWay', divider: true },
   { label: '退出登录', route: 'LoginWay' },
 ]
 
