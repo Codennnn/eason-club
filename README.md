@@ -9,7 +9,7 @@ yarn
 yarn android
 ```
 
-### 生成发行版 APK 包
+## 生成发行版 APK 包
 ```
 # 先进入根目录下的 android 文件夹
 cd android
