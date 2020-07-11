@@ -33,7 +33,6 @@ export default ({ style, imgList, columns = 4 }) => {
     img: {
       width: '100%',
       height: '100%',
-      // resizeMode: 'cover',
       borderRadius: 15,
       overflow: 'hidden',
     },
