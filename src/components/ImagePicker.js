@@ -1,12 +1,14 @@
 import React, { useState } from 'react'
 import {
   StyleSheet,
+  Modal,
   View,
   Image,
   Text,
   TouchableWithoutFeedback,
 } from 'react-native'
 import ImagePicker from 'react-native-image-picker'
+import ImageViewer from 'react-native-image-zoom-viewer'
 import { lightGray } from '@/config/style.config'
 
 import ImagesIcon from '@icon/icon_images.svg'
@@ -49,11 +51,35 @@ export default ({ style }) => {
     })
   }
 
+  const [showModal, setShowModal] = useState(false)
+
+  const onShowModal = () => {
+    setShowModal(true)
+  }
+
   return (
     <View style={[css.grid, style]}>
+      <Modal
+        style={{ flex: 1, height: '100%' }}
+        visible={showModal}
+        transparent={true}
+        animationType="fade"
+        statusBarTranslucent={true}>
+        <ImageViewer
+          imageUrls={imgList.map(url => ({ url }))}
+          enableSwipeDown={true}
+          useNativeDriver={true}
+          backgroundColor="rgba(0,0,0,0.8)"
+          pageAnimateTime={150}
+          swipeDownThreshold={120}
+          onClick={() => setShowModal(false)}
+          onCancel={() => setShowModal(false)}
+        />
+      </Modal>
+
       {imgList?.map((img, i) => (
-        <TouchableWithoutFeedback key={i} onPress={() => { }}>
-          <View style={[style, css.imgWrapper]}>
+        <TouchableWithoutFeedback key={i} onPress={() => onShowModal()}>
+          <View style={[css.imgWrapper]}>
             <Image source={img} style={css.img} />
           </View>
         </TouchableWithoutFeedback>

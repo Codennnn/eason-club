@@ -16,10 +16,10 @@ export default ({ style }) => {
   return (
     <ScrollView style={[{ paddingVertical: 10 }, style]}>
       <View style={{ flexDirection: 'row', flexWrap: 'wrap' }}>
-        {members.map(({ avatar_url, name }, i) => (
+        {members.map(({ avatar_url, name }) => (
           <TouchableWithoutFeedback>
             <View
-              key={i}
+              key={avatar_url}
               style={{
                 width: Dimensions.get('window').width / 4,
                 paddingVertical: 10,

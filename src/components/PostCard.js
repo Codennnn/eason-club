@@ -147,7 +147,13 @@ export default ({ style, post, openActionSheet, renderFooter }) => {
                 Icon: ShareIcon,
                 num: post.share_num,
                 label: '转发',
-                clickFunc: () => openActionSheet(),
+                clickFunc: () => {
+                  if (openActionSheet) {
+                    openActionSheet()
+                  } else {
+                    nav.navigate('PostDetail')
+                  }
+                },
               },
               {
                 id: '2',
@@ -176,8 +182,8 @@ export default ({ style, post, openActionSheet, renderFooter }) => {
                     height={20}
                   />
                 ) : (
-                  <Icon style={{ marginRight: 3 }} width={20} height={20} />
-                )}
+                    <Icon style={{ marginRight: 3 }} width={20} height={20} />
+                  )}
                 <Text
                   style={{
                     color: i === 2 && post.is_like ? primary : secondary,
