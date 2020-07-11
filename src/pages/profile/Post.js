@@ -9,6 +9,7 @@ import {
   Alert,
   BackHandler,
 } from 'react-native'
+import EmojiSelector, { Categories } from 'react-native-emoji-selector'
 import { useNavigation } from '@react-navigation/native'
 import { primary, lightGray } from '@/config/style.config'
 
@@ -19,6 +20,7 @@ import PhotoPreview from '@comp/PhotoPreview'
 import BackIcon from '@icon/icon_back.svg'
 import ImageIcon from '@icon/icon_image.svg'
 import HappyIcon from '@icon/icon_happy.svg'
+import { ScrollView } from 'react-native-gesture-handler'
 
 const css = StyleSheet.create({
   header: {
@@ -120,6 +122,16 @@ export default () => {
         </View>
 
         {currAction === 0 && <PhotoPreview />}
+        {currAction === 1 && (
+          <ScrollView style={{ height: 200 }}>
+            <EmojiSelector
+              category={Categories.emotion}
+              columns={10}
+              showSearchBar={false}
+              onEmojiSelected={emoji => setContent(`${content}${emoji}`)}
+            />
+          </ScrollView>
+        )}
       </View>
     </SafeAreaView>
   )
