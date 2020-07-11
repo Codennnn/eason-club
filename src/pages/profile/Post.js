@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import {
   StyleSheet,
   SafeAreaView,
@@ -6,6 +6,8 @@ import {
   Text,
   TouchableWithoutFeedback,
   TouchableNativeFeedback,
+  Alert,
+  BackHandler,
 } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 import { primary, lightGray } from '@/config/style.config'
@@ -42,7 +44,29 @@ const css = StyleSheet.create({
 export default () => {
   const nav = useNavigation()
   const [content, setContent] = useState('')
+  const [imgList, setImgList] = useState([])
   const [currAction, setCurrAction] = useState(0)
+
+  const backAction = () => {
+    if (content.length > 0 || imgList.length > 0) {
+      Alert.alert(null, '确定退出编辑吗？', [
+        { text: '取消', onPress: () => null, style: 'cancel' },
+        {
+          text: '确定',
+          onPress: () => nav.goBack(),
+        },
+      ])
+      return true
+    }
+    return false
+  }
+  useEffect(() => {
+    const backHandler = BackHandler.addEventListener(
+      'hardwareBackPress',
+      backAction,
+    )
+    return () => backHandler.remove()
+  })
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: 'white' }}>
@@ -72,7 +96,7 @@ export default () => {
         />
       </View>
 
-      <ImagePicker style={{ padding: 15 }} />
+      <ImagePicker style={{ padding: 15 }} onChange={setImgList} />
 
       <View style={css.action}>
         <View style={css.action_bar}>
