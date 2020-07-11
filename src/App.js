@@ -6,7 +6,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import AsyncStorage from '@react-native-community/async-storage'
 import { MenuProvider } from 'react-native-popup-menu'
 import Toast from 'react-native-easy-toast'
-// import SplashScreen from 'react-native-splash-screen'
+import SplashScreen from 'react-native-splash-screen'
 import routes from '@/config/route.config'
 
 import Home from './pages/home'
@@ -82,12 +82,9 @@ const Stack = createStackNavigator()
 const App = () => {
   const toast = useRef()
 
-  // useEffect(() => {
-  //   SplashScreen.hide()
-  //   setTimeout(() => {
-  //     SplashScreen.show()
-  //   }, 500)
-  // }, [])
+  useEffect(() => {
+    SplashScreen.hide()
+  }, [])
 
   useEffect(() => {
     // eslint-disable-next-line no-extra-semi
