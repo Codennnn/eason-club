@@ -429,48 +429,6 @@ export const contactList = [
   },
 ]
 
-export const messageList = [
-  {
-    id: 1,
-    content: 'My messagenew Date(Date.UTC(2016, 5, 11, 17, 20, 0))',
-    created_at: 'new Date(Date.UTC(2016, 5, 11, 17, 20, 0))',
-    user: {
-      id: 2,
-      name: 'React Native',
-      avatar: 'https://facebook.github.io/react/img/logo_og.png',
-    },
-    image: 'https://facebook.github.io/react/img/logo_og.png',
-    sent: true,
-    received: true,
-  },
-  {
-    id: 2,
-    content: 'My messagenew Date(Date.UTC(2016, 5, 11, 17, 20, 0))',
-    created_at: 'new Date(Date.UTC(2016, 5, 11, 17, 20, 0))',
-    user: {
-      id: 2,
-      name: 'React Native',
-      avatar: 'https://facebook.github.io/react/img/logo_og.png',
-    },
-    image: 'https://facebook.github.io/react/img/logo_og.png',
-    sent: false,
-    received: true,
-  },
-  {
-    id: 3,
-    content: 'My messagenew Date(Date.UTC(2016, 5, 11, 17, 20, 0))',
-    created_at: 'new Date(Date.UTC(2016, 5, 11, 17, 20, 0))',
-    user: {
-      id: 2,
-      name: 'React Native',
-      avatar: 'https://facebook.github.io/react/img/logo_og.png',
-    },
-    image: 'https://facebook.github.io/react/img/logo_og.png',
-    sent: false,
-    received: true,
-  },
-]
-
 export const messages = [
   {
     _id: 1,
@@ -545,7 +503,7 @@ export const messages = [
   {
     _id: 7,
     text: '学习的手段是丰富的，学习的欲望是稀缺的',
-    createdAt: new Date(),
+    createdAt: new Date('2021-06-01'),
     user: {
       _id: 1,
       name: 'React Native',
@@ -736,5 +694,24 @@ export const clubDynamic = [
     comment_num: 809,
     like_num: '1.6k',
     created_at: '07-02',
+  },
+]
+
+export const clubCardList = [
+  {
+    avatar_url: '',
+    name: '意想社团',
+    own: '广大华软',
+    fans_num: '4.5k',
+    post_num: '486',
+    is_followed: false,
+  },
+  {
+    avatar_url: '',
+    name: '意想社团',
+    own: '广大华软',
+    fans_num: '4.5k',
+    post_num: '486',
+    is_followed: true,
   },
 ]
