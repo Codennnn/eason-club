@@ -64,9 +64,11 @@ export default ({ style, onChange }) => {
   }, [imgList, onChange])
 
   const [showModal, setShowModal] = useState(false)
+  const [currPreview, setCurrPreview] = useState(0)
 
-  const onShowModal = () => {
+  const onShowModal = i => {
     setShowModal(true)
+    setCurrPreview(i)
   }
 
   return (
@@ -78,6 +80,7 @@ export default ({ style, onChange }) => {
         animationType="fade"
         statusBarTranslucent={true}>
         <ImageViewer
+          index={currPreview}
           imageUrls={imgList.map(({ uri }) => {
             uri
           })}
@@ -92,7 +95,7 @@ export default ({ style, onChange }) => {
       </Modal>
 
       {imgList?.map((img, i) => (
-        <TouchableWithoutFeedback key={i} onPress={() => onShowModal()}>
+        <TouchableWithoutFeedback key={i} onPress={() => onShowModal(i)}>
           <View style={[css.imgWrapper]}>
             <Image source={img} style={css.img} />
           </View>

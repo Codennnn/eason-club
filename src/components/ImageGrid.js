@@ -39,10 +39,12 @@ export default ({ style, imgList, columns = 4 }) => {
   })
 
   const [showModal, setShowModal] = useState(false)
+  const [currPreview, setCurrPreview] = useState(0)
   const menu = useRef()
 
   const onShowModal = () => {
     setShowModal(true)
+    setCurrPreview(i)
   }
 
   return (
@@ -54,6 +56,7 @@ export default ({ style, imgList, columns = 4 }) => {
         animationType="fade"
         statusBarTranslucent={true}>
         <ImageViewer
+          index={currPreview}
           imageUrls={imgList.map(url => ({ url }))}
           enableSwipeDown={true}
           useNativeDriver={true}
