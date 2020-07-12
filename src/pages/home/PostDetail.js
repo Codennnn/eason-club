@@ -86,7 +86,6 @@ function PostDetailFooter() {
           closeModal={() => setShowTextInput(false)}>
           <KeyboardAvoidingView
             style={{ flex: 1, justifyContent: 'flex-end' }}
-            keyboardVerticalOffset={-37}
             behavior="height">
             <View
               style={{
