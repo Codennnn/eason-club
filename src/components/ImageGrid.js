@@ -42,7 +42,7 @@ export default ({ style, imgList, columns = 4 }) => {
   const [currPreview, setCurrPreview] = useState(0)
   const menu = useRef()
 
-  const onShowModal = () => {
+  const onShowModal = i => {
     setShowModal(true)
     setCurrPreview(i)
   }
