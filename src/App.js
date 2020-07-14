@@ -1,11 +1,12 @@
-import React, { useEffect, useRef, useState } from 'react'
-import { StatusBar, Image, BackHandler } from 'react-native'
-import { NavigationContainer, useRoute } from '@react-navigation/native'
+import React, { useEffect, useRef } from 'react'
+import { StatusBar, Image } from 'react-native'
+import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import AsyncStorage from '@react-native-community/async-storage'
 import { MenuProvider } from 'react-native-popup-menu'
 import Toast from 'react-native-easy-toast'
+import SplashScreen from 'react-native-splash-screen'
 import routes from '@/config/route.config'
 
 import Home from './pages/home'
@@ -40,83 +41,54 @@ const Tabbar = {
   },
 }
 
-const Stack = createStackNavigator()
-
-const Screen = ({ routeName }) => {
-  const component = Tabbar[routeName].component
-  return (
-    <Stack.Navigator initialRouteName={routeName}>
-      <Stack.Screen
-        name={routeName}
-        component={component}
-        options={{ headerShown: false }}
-      />
-    </Stack.Navigator>
-  )
-}
-
-const getOptions = ({ route }) => {
-  return {
-    tabBarLabel: Tabbar[route.name].label,
-    tabBarIcon: ({ focused, size }) => {
-      const img = Tabbar[route.name][focused ? 'activeIcon' : 'defaultIcon']
-      return <Image source={img} style={{ width: size, height: size }} />
-    },
-  }
-}
-
 const Tab = createBottomTabNavigator()
 
-const Tabs = () => {
+const Tabs = ({ navigation }) => {
   const toast = useRef()
-  const route = useRoute()
-  const [lastBackPressed, setLastBackPressed] = useState(null)
-  const onBackAndroid = () => {
-    if (['Home', 'Explore', 'Message', 'Profile'].includes(route.name)) {
-      if (lastBackPressed && Date.now() - lastBackPressed <= 2000) {
-        BackHandler.exitApp()
-        return false
-      }
-      setLastBackPressed(Date.now())
-      toast.current.show('再按一次退出')
-      return true
-    }
-    return false
-  }
-
-  useEffect(() => {
-    BackHandler.addEventListener('hardwareBackPress', onBackAndroid)
-    return () => {
-      BackHandler.removeEventListener('hardwareBackPress', onBackAndroid)
-    }
-  })
 
   return (
     <>
       <Toast ref={toast} />
       <Tab.Navigator
-        backBehavior="none"
+        backBehavior="initialRoute"
         tabBarOptions={{
           keyboardHidesTabBar: true,
           activeTintColor: '#363636',
           inactiveTintColor: '#7c7c7c',
         }}>
         {['Home', 'Explore', 'Message', 'Profile'].map(name => (
-          <Tab.Screen key={name} name={name} options={data => getOptions(data)}>
-            {props => <Screen routeName={name} />}
-          </Tab.Screen>
+          <Tab.Screen
+            key={name}
+            name={name}
+            options={{
+              tabBarLabel: Tabbar[name].label,
+              tabBarIcon: ({ focused, size }) => {
+                const img = Tabbar[name][focused ? 'activeIcon' : 'defaultIcon']
+                return (
+                  <Image source={img} style={{ width: size, height: size }} />
+                )
+              },
+            }}
+            component={Tabbar[name].component}
+          />
         ))}
       </Tab.Navigator>
     </>
   )
 }
 
+const Stack = createStackNavigator()
+
 const App = () => {
   const toast = useRef()
 
   useEffect(() => {
+    SplashScreen.hide()
+  }, [])
+
+  useEffect(() => {
     // eslint-disable-next-line no-extra-semi
-    ;(async () => {
+    ; (async () => {
       try {
         const info = JSON.stringify({
           avatar:
@@ -140,7 +112,7 @@ const App = () => {
           backgroundColor="white"
           barStyle="dark-content"
         />
-        <Stack.Navigator mode="card" initialRouteName="Home">
+        <Stack.Navigator mode="card">
           <Stack.Screen
             name="Home"
             component={Tabs}

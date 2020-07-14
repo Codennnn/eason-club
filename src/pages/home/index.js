@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { SafeAreaView, FlatList } from 'react-native'
 
+import HomeBar from './components/HomeBar'
 import HomeHeader from './components/HomeHeader'
 import PostCard from '@comp/PostCard'
 import CoverLayer from '@comp/CoverLayer'
@@ -13,6 +14,8 @@ export default () => {
 
   return (
     <SafeAreaView>
+      <HomeBar />
+
       <FlatList
         data={posts}
         ListHeaderComponent={HomeHeader}

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import {
   StyleSheet,
   SafeAreaView,
@@ -6,7 +6,10 @@ import {
   Text,
   TouchableWithoutFeedback,
   TouchableNativeFeedback,
+  Alert,
+  BackHandler,
 } from 'react-native'
+import EmojiSelector, { Categories } from 'react-native-emoji-selector'
 import { useNavigation } from '@react-navigation/native'
 import { primary, lightGray } from '@/config/style.config'
 
@@ -17,6 +20,7 @@ import PhotoPreview from '@comp/PhotoPreview'
 import BackIcon from '@icon/icon_back.svg'
 import ImageIcon from '@icon/icon_image.svg'
 import HappyIcon from '@icon/icon_happy.svg'
+import { ScrollView } from 'react-native-gesture-handler'
 
 const css = StyleSheet.create({
   header: {
@@ -42,7 +46,29 @@ const css = StyleSheet.create({
 export default () => {
   const nav = useNavigation()
   const [content, setContent] = useState('')
+  const [imgList, setImgList] = useState([])
   const [currAction, setCurrAction] = useState(0)
+
+  const backAction = () => {
+    if (content.length > 0 || imgList.length > 0) {
+      Alert.alert(null, '确定退出编辑吗？', [
+        { text: '取消', onPress: () => null, style: 'cancel' },
+        {
+          text: '确定',
+          onPress: () => nav.goBack(),
+        },
+      ])
+      return true
+    }
+    return false
+  }
+  useEffect(() => {
+    const backHandler = BackHandler.addEventListener(
+      'hardwareBackPress',
+      backAction,
+    )
+    return () => backHandler.remove()
+  })
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: 'white' }}>
@@ -72,7 +98,7 @@ export default () => {
         />
       </View>
 
-      <ImagePicker style={{ padding: 15 }} />
+      <ImagePicker style={{ padding: 15 }} onChange={setImgList} />
 
       <View style={css.action}>
         <View style={css.action_bar}>
@@ -96,6 +122,16 @@ export default () => {
         </View>
 
         {currAction === 0 && <PhotoPreview />}
+        {currAction === 1 && (
+          <ScrollView style={{ height: 200 }}>
+            <EmojiSelector
+              category={Categories.emotion}
+              columns={10}
+              showSearchBar={false}
+              onEmojiSelected={emoji => setContent(`${content}${emoji}`)}
+            />
+          </ScrollView>
+        )}
       </View>
     </SafeAreaView>
   )

@@ -429,48 +429,6 @@ export const contactList = [
   },
 ]
 
-export const messageList = [
-  {
-    id: 1,
-    content: 'My messagenew Date(Date.UTC(2016, 5, 11, 17, 20, 0))',
-    created_at: 'new Date(Date.UTC(2016, 5, 11, 17, 20, 0))',
-    user: {
-      id: 2,
-      name: 'React Native',
-      avatar: 'https://facebook.github.io/react/img/logo_og.png',
-    },
-    image: 'https://facebook.github.io/react/img/logo_og.png',
-    sent: true,
-    received: true,
-  },
-  {
-    id: 2,
-    content: 'My messagenew Date(Date.UTC(2016, 5, 11, 17, 20, 0))',
-    created_at: 'new Date(Date.UTC(2016, 5, 11, 17, 20, 0))',
-    user: {
-      id: 2,
-      name: 'React Native',
-      avatar: 'https://facebook.github.io/react/img/logo_og.png',
-    },
-    image: 'https://facebook.github.io/react/img/logo_og.png',
-    sent: false,
-    received: true,
-  },
-  {
-    id: 3,
-    content: 'My messagenew Date(Date.UTC(2016, 5, 11, 17, 20, 0))',
-    created_at: 'new Date(Date.UTC(2016, 5, 11, 17, 20, 0))',
-    user: {
-      id: 2,
-      name: 'React Native',
-      avatar: 'https://facebook.github.io/react/img/logo_og.png',
-    },
-    image: 'https://facebook.github.io/react/img/logo_og.png',
-    sent: false,
-    received: true,
-  },
-]
-
 export const messages = [
   {
     _id: 1,
@@ -545,7 +503,7 @@ export const messages = [
   {
     _id: 7,
     text: '学习的手段是丰富的，学习的欲望是稀缺的',
-    createdAt: new Date(),
+    createdAt: new Date('2021-06-01'),
     user: {
       _id: 1,
       name: 'React Native',
@@ -558,27 +516,27 @@ export const messages = [
 export const members = [
   {
     avatar_url:
-      'https://i2.hdslb.com/bfs/face/dfc97c51a04d9238ebcf13a1b0d66295aa6d9523.jpg_64x64.jpg',
+      'https://i2.hdslb.com/bfs/face/440f033d5c1fb23063b8e4ab2af2c54a6e9e22e3.jpg_64x64.jpg',
     name: '刘建明',
   },
   {
     avatar_url:
-      'https://i1.hdslb.com/bfs/face/12457139a6ed26c4a950c0f5e262eec030d2840d.jpg_64x64.jpg',
+      'https://i1.hdslb.com/bfs/face/5378f8af726a7dc252c9980954a96ee8df3eda05.jpg_64x64.jpg',
     name: '陈永仁',
   },
   {
     avatar_url:
-      'https://i1.hdslb.com/bfs/face/a3319c51c97c804912a419dccb035c8eee24f026.jpg_64x64.jpg',
+      'https://i0.hdslb.com/bfs/face/ffbc4b572db17badd003c731f8cf075a9657be90.jpg_64x64.jpg',
     name: '黄志诚',
   },
   {
     avatar_url:
-      'https://i1.hdslb.com/bfs/face/09c23ede13fb0a3ae1ad6664e9efcda7caca4f65.jpg_64x64.jpg',
+      'https://i1.hdslb.com/bfs/face/10170441a59ab268df9a1952371de8c2c8dd1e9d.jpg_64x64.jpg',
     name: '韩琛',
   },
   {
     avatar_url:
-      'https://i1.hdslb.com/bfs/face/5103482cef4fddf4228cd7c3f2c25d4573bbfe88.jpg_64x64.jpg',
+      'https://i2.hdslb.com/bfs/face/d2d4f78c0896d9f518dee5696a3da75eb30091ad.jpg_64x64.jpg',
     name: '林国平',
   },
   {
@@ -588,12 +546,12 @@ export const members = [
   },
   {
     avatar_url:
-      'https://i2.hdslb.com/bfs/face/2a172a7ea303100833aff765ad9ea88ad0495855.jpg_64x64.jpg',
+      'https://i0.hdslb.com/bfs/face/a7cd396ac93c56907bcc204f520202ee7eab320b.jpg_64x64.jpg',
     name: '李心儿',
   },
   {
     avatar_url:
-      'https://i2.hdslb.com/bfs/face/98adde62ee139b7f9ddbe0419483179dc9bcc8ee.jpg_64x64.jpg',
+      'https://i2.hdslb.com/bfs/face/a8db52736a0c02631af45d5c34de89c49538bd27.jpg_64x64.jpg',
     name: '杨锦荣',
   },
 ]
@@ -702,9 +660,9 @@ export const clubDynamic = [
     },
     content:
       '瑞士最高法院裁定，如果雇主要求雇员在家工作，则必须为雇员支付一部分房租。',
-    share_num: 4566,
-    comment_num: 5467,
-    like_num: '2.8k',
+    share_num: 125,
+    comment_num: 2333,
+    like_num: '5.1k',
     created_at: '1天前',
   },
   {
@@ -717,9 +675,9 @@ export const clubDynamic = [
     },
     content:
       '美国宇航局 NASA 正式宣布，将在下个月的5月27日下午4时32分，在佛罗里达州通过 SpaceX 公司的火箭，将两名宇航员送上国际空间站。',
-    share_num: 4566,
-    comment_num: 5467,
-    like_num: '2.8k',
+    share_num: 55,
+    comment_num: 1432,
+    like_num: '2.4k',
     created_at: '3天前',
   },
   {
@@ -732,9 +690,28 @@ export const clubDynamic = [
     },
     content:
       '历史上，每当一个领域出现大量需要编程解决的问题，就会诞生一个通用的解决方案，解决掉90%的场景。然后，这个领域对程序员的需求就会快速减少。',
-    share_num: 4566,
-    comment_num: 5467,
-    like_num: '2.8k',
+    share_num: 364,
+    comment_num: 809,
+    like_num: '1.6k',
     created_at: '07-02',
+  },
+]
+
+export const clubCardList = [
+  {
+    avatar_url: '',
+    name: '意想社团',
+    own: '广大华软',
+    fans_num: '4.5k',
+    post_num: '486',
+    is_followed: false,
+  },
+  {
+    avatar_url: '',
+    name: '意想社团',
+    own: '广大华软',
+    fans_num: '4.5k',
+    post_num: '486',
+    is_followed: true,
   },
 ]

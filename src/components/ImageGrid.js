@@ -33,17 +33,18 @@ export default ({ style, imgList, columns = 4 }) => {
     img: {
       width: '100%',
       height: '100%',
-      // resizeMode: 'cover',
       borderRadius: 15,
       overflow: 'hidden',
     },
   })
 
   const [showModal, setShowModal] = useState(false)
+  const [currPreview, setCurrPreview] = useState(0)
   const menu = useRef()
 
-  const onShowModal = () => {
+  const onShowModal = i => {
     setShowModal(true)
+    setCurrPreview(i)
   }
 
   return (
@@ -55,6 +56,7 @@ export default ({ style, imgList, columns = 4 }) => {
         animationType="fade"
         statusBarTranslucent={true}>
         <ImageViewer
+          index={currPreview}
           imageUrls={imgList.map(url => ({ url }))}
           enableSwipeDown={true}
           useNativeDriver={true}
