@@ -1,3 +1,10 @@
+# 意想社团
+
+## 界面预览
+![img](https://gitee.com/chinesee/images/raw/master/club/preview1.png)
+![img](https://gitee.com/chinesee/images/raw/master/club/preview2.png)
+![img](https://gitee.com/chinesee/images/raw/master/club/preview3.png)
+
 ## 项目配置
 ```
 # 安装依赖
