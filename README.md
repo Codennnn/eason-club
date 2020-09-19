@@ -1,9 +1,12 @@
 # 意想社团
 
 ## 界面预览
-![img](https://gitee.com/chinesee/images/raw/master/club/preview1.png)
-![img](https://gitee.com/chinesee/images/raw/master/club/preview2.png)
-![img](https://gitee.com/chinesee/images/raw/master/club/preview3.png)
+
+![img](https://s1.ax1x.com/2020/09/19/woSmUs.png)
+
+![img](https://s1.ax1x.com/2020/09/19/woSd8x.png)
+
+![img](https://s1.ax1x.com/2020/09/19/woSaP1.png)
 
 ## 项目配置
 ```
