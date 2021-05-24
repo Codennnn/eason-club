@@ -2,11 +2,11 @@
 
 ## 界面预览
 
-![img](./img/screenshoot1.png)
+![img](./img/screenshoot1.jpeg)
 
-![img](./img/screenshoot2.png)
+![img](./img/screenshoot2.jpeg)
 
-![img](./img/screenshoot3.png)
+![img](./img/screenshoot3.jpeg)
 
 ## 项目配置
 
