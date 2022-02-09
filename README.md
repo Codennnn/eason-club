@@ -8,6 +8,10 @@
 
 ![应用界面截图3](./img/screenshoot3.jpeg)
 
+## 真机体验版
+
+[前往下载意想社团 App 安装包](https://github.com/Codennnn/eason-club/releases)
+
 ## 项目配置
 
 ```
