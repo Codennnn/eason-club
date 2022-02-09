@@ -1,12 +1,16 @@
 # 意想社团
 
-## 界面预览
+## 参赛海报
 
-![img](./img/screenshoot1.jpeg)
+![参赛海报](./img/poster.jpg)
 
-![img](./img/screenshoot2.jpeg)
+## 应用界面
 
-![img](./img/screenshoot3.jpeg)
+![应用界面截图1](./img/screenshoot1.jpeg)
+
+![应用界面截图2](./img/screenshoot2.jpeg)
+
+![应用界面截图3](./img/screenshoot3.jpeg)
 
 ## 项目配置
 
