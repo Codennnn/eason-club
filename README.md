@@ -1,12 +1,12 @@
-![参赛海报](./img/poster.jpg)
+![参赛海报（看不到图片？开个 VPN 吧）](./img/poster.jpg)
 
 ## 应用界面
 
-![应用界面截图1](./img/screenshoot1.jpeg)
+![应用界面截图1（看不到图片？开个 VPN 吧）](./img/screenshoot1.jpeg)
 
-![应用界面截图2](./img/screenshoot2.jpeg)
+![应用界面截图2（看不到图片？开个 VPN 吧）](./img/screenshoot2.jpeg)
 
-![应用界面截图3](./img/screenshoot3.jpeg)
+![应用界面截图3（看不到图片？开个 VPN 吧）](./img/screenshoot3.jpeg)
 
 ## 项目介绍
 
