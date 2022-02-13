@@ -1,13 +1,5 @@
 ![参赛海报（看不到图片？开个 VPN 吧）](./img/poster.jpg)
 
-## 应用界面
-
-![应用界面截图1（看不到图片？开个 VPN 吧）](./img/screenshoot1.jpeg)
-
-![应用界面截图2（看不到图片？开个 VPN 吧）](./img/screenshoot2.jpeg)
-
-![应用界面截图3（看不到图片？开个 VPN 吧）](./img/screenshoot3.jpeg)
-
 ## 项目介绍
 
 `意想社团` 是我在大学期间开发的一个关于高校社团组织应用，为大学社团的招新和组织活动提供一个的宣传和推广平台，提供了高效、便捷的社团管理方式，优化了社团管理流程，让社团间的交流变得活跃和有趣！该应用主要功能包括社团申请、活动发布、群投票、动态推送、成员状态筛选等。
@@ -23,6 +15,14 @@
 ## 真机体验
 
 安装包已在 GitHub 发布，[立即前往下载](https://github.com/Codennnn/eason-club/releases)
+
+## 应用界面
+
+![应用界面截图1（看不到图片？开个 VPN 吧）](./img/screenshoot1.jpeg)
+
+![应用界面截图2（看不到图片？开个 VPN 吧）](./img/screenshoot2.jpeg)
+
+![应用界面截图3（看不到图片？开个 VPN 吧）](./img/screenshoot3.jpeg)
 
 ## 运行配置
 
