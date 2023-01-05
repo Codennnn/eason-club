@@ -14,7 +14,7 @@
 
 ## 真机体验
 
-安装包已在 GitHub 发布，[立即前往下载](https://github.com/Codennnn/eason-club/releases)
+安装包已在 GitHub 发布，[前往下载体验](https://github.com/Codennnn/eason-club/releases)
 
 ## 应用界面
 
